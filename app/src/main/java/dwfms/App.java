@@ -6,35 +6,40 @@ package dwfms;
 import dwfms.collaboration.ethereum.EthereumCollaborationConnector;
 import dwfms.collaboration.simple.SimpleConnector;
 import dwfms.framework.*;
-import dwfms.framework.collaboration.ICollaboration;
-import dwfms.framework.references.InstanceReference;
+import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.security.Utils;
+import dwfms.framework.references.Instance;
 import dwfms.framework.references.UserReference;
 import dwfms.model.bpmn.BPMNModel;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
+import dwfms.ui.HttpInterface;
 
 import java.io.IOException;
+import java.security.KeyPair;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class App {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException, IOException {
 
-        System.out.println("App is running...");
+//        DWFMS dWFMS = setupSampleDWFMS();
+//        HttpInterface httpInterface = new HttpInterface(dWFMS, 1803);
 
-//        ethereum();
-
-        simple();
-        System.out.println("App stops...");
-
+            // ethereum();
+             simple();
 
     }
 
     static void ethereum() throws InterruptedException {
-        UserReference user = new UserReference("0xE076df4e49182f0AB6f4B98219F721Cccc38f9be");
+
+        User user = new User(new UserReference("hans"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "");
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        ICollaboration collaboration = new EthereumCollaborationConnector(user.getUserReference());
+        BaseCollaboration collaboration = new EthereumCollaborationConnector(user.getPublicKey());
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -42,9 +47,9 @@ public class App {
                 .collaboration(collaboration)
                 .build();
 
-        dWFMS.init();
+        dWFMS.init(user);
 
-        InstanceReference reference = dWFMS.deployProcessModel();
+        Instance reference = dWFMS.deployProcessModel();
         System.out.println("Contract Address: " + reference.getInstanceRef());
         // InstanceReference reference = new InstanceReference("0xb709b82a554f07c7916109a0f55D0D6c995DBcc9");
 
@@ -55,18 +60,31 @@ public class App {
 
     }
 
-    static void simple() throws InterruptedException {
+    static void simple() throws InterruptedException, NoSuchAlgorithmException {
 
-        UserReference user = new UserReference("hans");
+        KeyPair keyPair = Utils.keyGen(2048);
+        User user = new User(new UserReference("hans"), Utils.keyToString(keyPair.getPublic()), Utils.keyToString(keyPair.getPrivate()));
+
+        DWFMS dWFMS = setupSampleDWFMS(user);
+
+        Instance instance = dWFMS.deployProcessModel();
+
+        TimeUnit.SECONDS.sleep(2);
+        dWFMS.executeTask(new TaskExecution(instance, "Start"));
+
+        TimeUnit.SECONDS.sleep(2);
+        dWFMS.executeTask(new TaskExecution(instance, "A"));
+
+        TimeUnit.SECONDS.sleep(2);
+        dWFMS.executeTask(new TaskExecution(instance, "C"));
+
+    }
+
+    private static DWFMS setupSampleDWFMS(User user) {
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        ICollaboration collaboration = null;
-        try {
-            collaboration = new SimpleConnector();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BaseCollaboration collaboration = new SimpleConnector(List.of("http://localhost:6666/"));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -74,20 +92,9 @@ public class App {
                 .collaboration(collaboration)
                 .build();
 
-        dWFMS.init();
+        dWFMS.init(user);
 
-        // model hash fc2d41015d1e84374e0e6ec5dc491c10556c2aa7133e7cdcc3dcd708569587b6
-        InstanceReference reference = dWFMS.deployProcessModel();
-
-        //dWFMS.getMyWorklist(instance);
-        dWFMS.executeTask(new TaskExecution(reference, "Start"));
-        TimeUnit.SECONDS.sleep(2);
-        dWFMS.executeTask(new TaskExecution(reference, "A"));
-        TimeUnit.SECONDS.sleep(2);
-        dWFMS.executeTask(new TaskExecution(reference, "C"));
-
-        System.out.println("App stops...");
-
+        return dWFMS;
     }
 
 

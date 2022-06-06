@@ -3,11 +3,99 @@
  */
 package dwfms;
 
+import dwfms.collaboration.simple.SimpleConnector;
+import dwfms.framework.*;
+import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.network.Acknowledgement;
+import dwfms.framework.log.Event;
+import dwfms.framework.references.Instance;
+import dwfms.framework.references.UserReference;
+import dwfms.model.BPMNToHybridExecutionMachineTransformer;
+import dwfms.model.bpmn.BPMNModel;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
+
+    @Test
+    @Disabled
+    void test() throws InterruptedException, IOException {
+
+        User user = new User(new UserReference("hans"), null, null);
+
+
+
+        IModel model = new BPMNModel();
+        ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
+        BaseCollaboration collaboration = new SimpleConnector(List.of("http://localhost:6666"));
+
+        DWFMS dWFMS = DWFMS.builder()
+                .model(model)
+                .transformer(transformer)
+                .collaboration(collaboration)
+                .build();
+
+        dWFMS.init(user);
+
+        // model hash fc2d41015d1e84374e0e6ec5dc491c10556c2aa7133e7cdcc3dcd708569587b6
+        Instance reference = dWFMS.deployProcessModel();
+
+        TaskExecution executeStart = new TaskExecution(reference, "Start");
+        executeStart.setUser(user);
+        //It is conformed that we can execute A in the beginning.
+        assertTrue(dWFMS.getExecutionMachine().isConform(reference, executeStart));
+        dWFMS.executeTask(executeStart);
+        TimeUnit.SECONDS.sleep(10);
+
+        //The candidate log is updated
+        assertEquals(1, dWFMS.getCollaboration().getCandidateLog().getEvents().size());
+        assertTrue(dWFMS.getCollaboration().getCandidateLog().getEvents().contains(new Event(1, "Start", "hans")));
+        assertEquals(1, dWFMS.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get("Start"));
+
+        //But the execution machine not yet
+        assertTrue(dWFMS.getExecutionMachine().isConform(reference, executeStart));
+
+        TaskExecution executeA = new TaskExecution(reference, "A");
+        executeA.setUser(user);
+        assertFalse(dWFMS.getExecutionMachine().isConform(reference, executeA));
+
+        sendSecondAcknowledgement(dWFMS.getCollaboration());
+
+        //The candidate log is updated again
+        assertEquals(2, dWFMS.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get("Start"));
+
+        //But the execution machine not yet
+        assertFalse(dWFMS.getExecutionMachine().isConform(reference, executeStart));
+        assertTrue(dWFMS.getExecutionMachine().isConform(reference, executeA));
+
+//
+//        dWFMS.executeTask(new TaskExecution(reference, "A"));
+//        TimeUnit.SECONDS.sleep(2);
+//        TimeUnit.SECONDS.sleep(2);
+//        TimeUnit.SECONDS.sleep(2);
+//
+//        dWFMS.executeTask(new TaskExecution(reference, "C"));
+
+        System.out.println("App stops...");
+
     }
+
+    private void sendSecondAcknowledgement(BaseCollaboration collab) throws IOException, InterruptedException {
+        TaskExecution executeStart = new TaskExecution(null, "Start");
+
+        Acknowledgement acknowledgement = new Acknowledgement();
+        acknowledgement.setTaskExecution(executeStart);
+
+        collab.sendAcknowledgement(acknowledgement);
+        TimeUnit.SECONDS.sleep(10);
+
+    }
+
 }

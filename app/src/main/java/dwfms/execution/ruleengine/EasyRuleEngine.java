@@ -20,7 +20,7 @@ public class EasyRuleEngine {
 
     public boolean isConform(TaskExecution a) {
 
-        facts.put("exec("+a.getTask()+")", a.getUser().getUserReference());
+        facts.put("exec("+a.getTask()+")", a.getUser().getUserReference().getName());
         facts.put(a.getTask(), false);
 //        facts.forEach(f -> System.out.println(f.getName() + ", " + f.getValue()));
         rulesEngine.fire(rules, facts);

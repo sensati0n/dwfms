@@ -1,6 +1,5 @@
 package dwfms.framework.references;
 
-import dwfms.framework.IModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,8 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InstanceReference {
-
+public class Instance {
     private String instanceRef;
-    private IModel model;
+    private String modelRef;
 }

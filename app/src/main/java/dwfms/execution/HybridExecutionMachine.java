@@ -8,7 +8,7 @@ import dwfms.framework.IExecutionMachine;
 import dwfms.framework.TaskExecution;
 import dwfms.framework.error.NonCompliantExecutionException;
 import dwfms.framework.execution.EventLog;
-import dwfms.framework.references.InstanceReference;
+import dwfms.framework.references.Instance;
 import dwfms.framework.references.UserReference;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class HybridExecutionMachine implements IExecutionMachine {
     private EventLog log;
 
     @Override
-    public boolean isConform(InstanceReference instance, Action action) {
+    public boolean isConform(Instance instance, Action action) {
 
         boolean pnConform = false;
         boolean reConform = false;
@@ -41,7 +41,7 @@ public class HybridExecutionMachine implements IExecutionMachine {
     }
 
     @Override
-    public void execute(InstanceReference instance, Action action) {
+    public void execute(Instance instance, Action action) {
 
         // should not happen, because we have signed that the action is valid
         if(!isConform(instance, action)) {
@@ -57,7 +57,7 @@ public class HybridExecutionMachine implements IExecutionMachine {
     }
 
     @Override
-    public void getWorkList(InstanceReference instanceReference, UserReference userReference) {
+    public void getWorkList(Instance instance, UserReference userReference) {
 
         // algorithm...
     }

@@ -10,6 +10,8 @@ import javax.annotation.Nullable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Event {
+
     @Nullable int timestamp;
     String activity;
+    String resource;
 }

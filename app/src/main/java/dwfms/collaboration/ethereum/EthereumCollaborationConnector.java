@@ -1,10 +1,10 @@
 package dwfms.collaboration.ethereum;
 
 import dwfms.framework.*;
-import dwfms.framework.collaboration.ICollaboration;
+import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.collaboration.network.Message;
-import dwfms.framework.references.InstanceReference;
+import dwfms.framework.references.Instance;
 import lombok.Data;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
@@ -32,7 +32,7 @@ import java.util.Map;
  * No need to ask execution machine anything, because smart contract also checks process logic?
  */
 @Data
-public class EthereumCollaborationConnector extends ICollaboration {
+public class EthereumCollaborationConnector extends BaseCollaboration {
 
     private DWFMS dwfms;
 
@@ -71,7 +71,7 @@ public class EthereumCollaborationConnector extends ICollaboration {
      * @param a
      */
     @Override
-    public void sendMessage(InstanceReference instance, Action a) {
+    public void sendMessage(Instance instance, Action a) {
 
         if(a instanceof TaskExecution) {
             TaskExecution taskExecution = (TaskExecution) a;
@@ -101,12 +101,11 @@ public class EthereumCollaborationConnector extends ICollaboration {
 
     @Override
     public void sendAcknowledgement(Acknowledgement acknowledgement) {
-
     }
 
 
     @Override
-    public void atAgreementReached(InstanceReference instance, Action a) {
+    public void atAgreementReached(Instance instance, Action a) {
         // when a new block is found and a certain transaction is included
         // wait for 6 blocks? --> not in ProofOfAuthority
 
@@ -115,7 +114,7 @@ public class EthereumCollaborationConnector extends ICollaboration {
     }
 
     @Override
-    public InstanceReference deployProcessModel(IModel model) {
+    public Instance deployProcessModel(IModel model) {
 
         // convert model to smart contract
         // we do that externally and assume that the wrapper are precompiled and available here as class
@@ -125,7 +124,7 @@ public class EthereumCollaborationConnector extends ICollaboration {
 
         // here is one example 'process model', compiled and converted to java
 
-        return new InstanceReference(this.deployNewContract(Miniksor.class), model);
+        return new Instance(this.deployNewContract(Miniksor.class), model.getHash());
 
     }
 
@@ -135,7 +134,17 @@ public class EthereumCollaborationConnector extends ICollaboration {
     }
 
     @Override
+    public void instanceReceived(Instance instance) {
+
+    }
+
+    @Override
     public void acknowledgementReceived(Acknowledgement acknowledgement) {
+
+    }
+
+    @Override
+    public void checkAgreement(TaskExecution taskExecution) {
 
     }
 

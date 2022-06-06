@@ -1,8 +1,8 @@
 package dwfms.framework;
 
 
-import dwfms.framework.collaboration.ICollaboration;
-import dwfms.framework.references.InstanceReference;
+import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.framework.references.Instance;
 import dwfms.framework.references.UserReference;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,17 +16,19 @@ public class DWFMS {
     private final IModel model;
     private final ITransformer transformer;
     private IExecutionMachine executionMachine;
-    private final ICollaboration collaboration;
+    private final BaseCollaboration collaboration;
 
-    private final UserReference user;
+    private User user;
 
-    public void init() {
+    public void init(User user) {
+
+        this.user = user;
 
         this.executionMachine = this.transformer.transform(model);
         this.collaboration.init(this);
     }
 
-    public InstanceReference deployProcessModel() {
+    public Instance deployProcessModel() {
 
         return this.collaboration.deployProcessModel(model);
     }
@@ -48,28 +50,28 @@ public class DWFMS {
      * @param instance
      * @param a
      */
-    public void updateMachine(InstanceReference instance, Action a) {
+    public void updateMachine(Instance instance, Action a) {
         TaskExecution te = (TaskExecution) a;
         System.out.println("Finished: " + te.getTask());
         this.executionMachine.execute(instance, a);
     }
 
-    public void getMyWorklist(InstanceReference instance) {
+    public void getMyWorklist(Instance instance) {
 
-        this.executionMachine.getWorkList(instance, user);
+        this.executionMachine.getWorkList(instance, user.getUserReference());
 
     }
 
-    public List<String> getParticipants() {
-        return this.model.getParticipants();
-    }
+//    public List<String> getParticipants() {
+//        return this.model.getParticipants();
+//    }
 
     /**
      * To be updated to use a store instead of class variable
      * @param instance
      * @return
      */
-    public IModel getModelByInstanceReference(InstanceReference instance) {
+    public IModel getModelByInstanceReference(Instance instance) {
         return this.model;
     }
 

@@ -43,4 +43,9 @@ public class BPMNModel implements IModel {
         // Should be extracted from pools or lanes
         return List.of("127.0.0.1");
     }
+
+    @Override
+    public String getHash() {
+        return "0xNewHash";
+    }
 }

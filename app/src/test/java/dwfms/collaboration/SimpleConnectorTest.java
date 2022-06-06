@@ -2,20 +2,24 @@ package dwfms.collaboration;
 
 import dwfms.collaboration.simple.SimpleConnector;
 import dwfms.framework.TaskExecution;
-import dwfms.framework.references.InstanceReference;
+import dwfms.framework.User;
+import dwfms.framework.references.Instance;
 import dwfms.framework.references.UserReference;
 
 import java.io.IOException;
+import java.util.List;
 
 public class SimpleConnectorTest {
 
     public void sendMessageTest() throws IOException {
 
-        SimpleConnector collaboration = new SimpleConnector();
+        User hans = new User(new UserReference("hans"), null, null);
 
-        InstanceReference instanceReference = new InstanceReference();
+        SimpleConnector collaboration = new SimpleConnector(List.of("http://localhost:6666"));
+
+        Instance instanceReference = new Instance();
         TaskExecution taskExecution = new TaskExecution(instanceReference, "Start");
-        taskExecution.setUser(new UserReference("hans"));
+        taskExecution.setUser(hans);
 
         collaboration.sendMessage(instanceReference, taskExecution);
 
@@ -24,7 +28,7 @@ public class SimpleConnectorTest {
 
     public void receiveMessageTest() throws IOException {
 
-        SimpleConnector collaboration = new SimpleConnector();
+        SimpleConnector collaboration = new SimpleConnector(List.of("http://localhost:6666"));
 
 
 

@@ -1,6 +1,6 @@
 package dwfms.framework;
 
-import dwfms.framework.references.InstanceReference;
+import dwfms.framework.references.Instance;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TaskExecution extends UserAction {
 
-    private InstanceReference instance;
+    private Instance instance;
     private String task;
 
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 public abstract class Log {
 
+    @Getter
     List<Event> events = new ArrayList<>();
 
     public void addEvent(Event event) {

@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserReference {
 
-    private String userReference;
+    private String name;
 
 }
