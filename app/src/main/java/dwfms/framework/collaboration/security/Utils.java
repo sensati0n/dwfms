@@ -1,5 +1,8 @@
 package dwfms.framework.collaboration.security;
 
+import dwfms.framework.error.CryptoException;
+import org.checkerframework.checker.units.qual.C;
+
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
@@ -57,7 +60,6 @@ public class Utils {
     public static String decrypt(PrivateKey privateKey, byte[] data) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException
     {
         Cipher decriptCipher = Cipher.getInstance("RSA");
-//        Cipher decriptCipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA1AndMGF1Padding");
         decriptCipher.init(Cipher.DECRYPT_MODE, privateKey);
         return  new String(decriptCipher.doFinal(data), Charset.forName("UTF-8"));
 
@@ -70,14 +72,24 @@ public class Utils {
      * @return the signature as base64 encoded string
      * @throws Exception
      */
-    public static String sign(String plainText, PrivateKey privateKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-        Signature privateSignature = Signature.getInstance("SHA256withRSA");
-        privateSignature.initSign(privateKey);
-        privateSignature.update(plainText.getBytes());
+    public static String sign(String plainText, PrivateKey privateKey) throws CryptoException {
 
-        byte[] signature = privateSignature.sign();
+        String hashedPlainText = hash(plainText);
 
-        return Base64.getEncoder().encodeToString(signature);
+        try {
+            Signature privateSignature = Signature.getInstance("SHA256withRSA");
+            privateSignature.initSign(privateKey);
+            privateSignature.update(hashedPlainText.getBytes());
+
+            byte[] signature = privateSignature.sign();
+
+            return Base64.getEncoder().encodeToString(signature);
+        }
+        catch(NoSuchAlgorithmException|InvalidKeyException|SignatureException e) {
+            e.printStackTrace();
+            throw new CryptoException();
+        }
+
     }
 
     /**
@@ -88,30 +100,60 @@ public class Utils {
      * @return
      * @throws Exception
      */
-    public static boolean verify(String plainText, String signature, PublicKey publicKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-        Signature publicSignature = Signature.getInstance("SHA256withRSA");
-        publicSignature.initVerify(publicKey);
-        publicSignature.update(plainText.getBytes());
+    public static boolean verify(String plainText, String signature, PublicKey publicKey) throws CryptoException {
 
-        byte[] signatureBytes = Base64.getDecoder().decode(signature);
-        return publicSignature.verify(signatureBytes);
+        String hashedPlainText = hash(plainText);
+
+        try {
+            Signature publicSignature = Signature.getInstance("SHA256withRSA");
+            publicSignature.initVerify(publicKey);
+            publicSignature.update(hashedPlainText.getBytes());
+
+            byte[] signatureBytes = Base64.getDecoder().decode(signature);
+            return publicSignature.verify(signatureBytes);
+        }
+        catch(NoSuchAlgorithmException|InvalidKeyException|SignatureException e) {
+            throw new CryptoException();
+        }
+
+    }
+
+    public static String hash(String original) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(original.getBytes(StandardCharsets.UTF_8));
+            return Base64.getEncoder().encodeToString(hash);
+        } catch (NoSuchAlgorithmException e) {
+            throw new CryptoException();
+        }
     }
 
     public static String keyToString(Key key) {
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
 
-    public static PublicKey stringToPublicKey(String publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        byte[] publicKeyBytes = Base64.getDecoder().decode(publicKey);
-        KeyFactory kf = KeyFactory.getInstance("RSA");
-        return kf.generatePublic(new X509EncodedKeySpec(publicKeyBytes));
+    public static PublicKey stringToPublicKey(String publicKey) throws CryptoException {
+
+        try {
+            byte[] publicKeyBytes = Base64.getDecoder().decode(publicKey);
+            KeyFactory kf = KeyFactory.getInstance("RSA");
+            return kf.generatePublic(new X509EncodedKeySpec(publicKeyBytes));
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new CryptoException();
+        }
+
     }
 
-    public static PrivateKey stringToPrivateKey(String secretKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        byte[] publicKeyBytes = Base64.getDecoder().decode(secretKey);
-        KeyFactory kf = KeyFactory.getInstance("RSA");
-        return kf.generatePrivate(new PKCS8EncodedKeySpec(publicKeyBytes));
-    }
+    public static PrivateKey stringToPrivateKey(String secretKey) throws CryptoException {
 
+        try {
+            byte[] publicKeyBytes = Base64.getDecoder().decode(secretKey);
+            KeyFactory kf = KeyFactory.getInstance("RSA");
+            return kf.generatePrivate(new PKCS8EncodedKeySpec(publicKeyBytes));
+        }
+        catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new CryptoException();
+        }
+    }
 
 }

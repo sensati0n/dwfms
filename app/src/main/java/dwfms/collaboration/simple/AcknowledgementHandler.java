@@ -27,7 +27,7 @@ public class AcknowledgementHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        System.out.println("[MULTI::handle] Message received in AcknowledgementHandler...");
+        System.out.println("[SIMPLE::handle] Message received in AcknowledgementHandler...");
 
         // Create Message-Object from Request
         String requestBodyText = SimpleConnector.getTextFromInputStream(exchange.getRequestBody());
@@ -36,6 +36,8 @@ public class AcknowledgementHandler implements HttpHandler {
         System.out.println(acknowledgement.getTaskExecution().getUser().getUserReference().getName() + " wants to execute " + acknowledgement.getTaskExecution().getTask());
 
         simpleConnector.acknowledgementReceived(acknowledgement);
+        System.out.println("[SIMPLE::handle] Processing finished in AcknowledgementHandler...");
+
 
     }
 }

@@ -22,21 +22,26 @@ import java.util.concurrent.TimeUnit;
 
 public class App {
 
+
+
     public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException, IOException {
 
         System.out.println("User: " + args[0]);
         System.out.println("Port: " + args[1]);
 
-        User hans = new User(new UserReference("hans"), null, null);
+        DWFMS dWFMS = null;
+        HttpInterface httpInterface;
 
-//        if(args[0].equals("hans")) {
-//             simple(Integer.parseInt(args[1])+1);
-//        }
-//        else {
-            DWFMS dWFMS = setupSampleDWFMS(hans, Integer.parseInt(args[1])+1);
-            HttpInterface httpInterface = new HttpInterface(dWFMS, Integer.parseInt(args[1]));
-//        }
+        switch(args[0]) {
+            case "hans":
+                dWFMS = setupSampleDWFMS(ExampleDataFactory.hans(), Integer.parseInt(args[1])+1);
+                break;
+            case "peter":
+                dWFMS = setupSampleDWFMS(ExampleDataFactory.peter(), Integer.parseInt(args[1])+1);
+                break;
+        }
 
+        httpInterface = new HttpInterface(dWFMS, Integer.parseInt(args[1]));
 
         // ethereum();
 
@@ -44,11 +49,14 @@ public class App {
 
     static void ethereum() throws InterruptedException {
 
-        User user = new User(new UserReference("hans"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479");
+        // start ganache-cli with deterministic wallet mnemonic:
+        // ganache-cli -l 60000000 -b 15 -d -m "shiver armed industry victory sight vague follow spray couple hat obscure yard"
+        User hans = new User(new UserReference("hans"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479");
+        User peter = new User(new UserReference("peter"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479");
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new EthereumCollaborationConnector(user.getPublicKey());
+        BaseCollaboration collaboration = new EthereumCollaborationConnector(hans.getPublicKey());
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -56,7 +64,7 @@ public class App {
                 .collaboration(collaboration)
                 .build();
 
-        dWFMS.init(user);
+        dWFMS.init(hans);
 
         Instance reference = dWFMS.deployProcessModel();
         System.out.println("Contract Address: " + reference.getInstanceRef());

@@ -43,7 +43,7 @@ public class UtilsTest {
     @Test
     public void loadKeys() throws NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, InvalidKeyException {
 
-        KeyPair keyPair = Utils.keyGen(2048);
+        KeyPair keyPair = Utils.keyGen(512);
 
         String publicString = Utils.keyToString(keyPair.getPublic());
         String privateString = Utils.keyToString(keyPair.getPrivate());

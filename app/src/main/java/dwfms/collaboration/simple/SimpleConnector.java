@@ -69,7 +69,8 @@ public class SimpleConnector extends BaseCollaboration {
         //Build message object
         String message = "";
         TaskExecution taskExecution = (TaskExecution) a;
-        Message m = new Message(taskExecution);
+        Message m = new Message(taskExecution, this.dwfms.getUser());
+        m.sign(super.dwfms.getUser().getPrivateKey());
         try {
             message = objectMapper.writeValueAsString(m);
         } catch (JsonProcessingException e) {
@@ -94,9 +95,10 @@ public class SimpleConnector extends BaseCollaboration {
 
         //Build message object
         String message = "";
-        Acknowledgement m = acknowledgement;
+        Acknowledgement a = acknowledgement;
+        a.sign(super.dwfms.getUser().getPrivateKey());
         try {
-            message = objectMapper.writeValueAsString(m);
+            message = objectMapper.writeValueAsString(a);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -171,7 +173,7 @@ public class SimpleConnector extends BaseCollaboration {
      * Framework method.
      * We must override, because framework cannot decide how we connect to other nodes
      * In case of SimpleConnector, we use handle method from httpserver
-     * @param message
+     * @param
      */
   /*  @Override
     public void messageReceived(Message message) {

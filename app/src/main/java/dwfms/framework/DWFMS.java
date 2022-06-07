@@ -18,6 +18,7 @@ public class DWFMS {
     private IExecutionMachine executionMachine;
     private final BaseCollaboration collaboration;
 
+    //how keeps the user object?
     private User user;
 
     public void init(User user) {
@@ -35,12 +36,20 @@ public class DWFMS {
 
     /**
      * This updates the CandidateLog (maybe)
+     * Is called (only?) from the ui
      * @param taskExecution
      */
     public void executeTask(TaskExecution taskExecution) {
 
         taskExecution.setUser(user);
-        this.collaboration.sendMessage(taskExecution.getInstance(), taskExecution);
+
+        // Only conform actions are sent to participants
+        if(this.executionMachine.isConform(null, taskExecution)) {
+            this.collaboration.sendMessage(taskExecution.getInstance(), taskExecution);
+        }
+        else {
+            System.out.println("Böser user.");
+        }
 
     }
 

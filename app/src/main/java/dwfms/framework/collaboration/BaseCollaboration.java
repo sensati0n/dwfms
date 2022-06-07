@@ -6,6 +6,7 @@ import dwfms.framework.IModel;
 import dwfms.framework.TaskExecution;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.collaboration.network.Message;
+import dwfms.framework.collaboration.security.Utils;
 import dwfms.framework.log.Event;
 import dwfms.framework.references.Instance;
 import lombok.Getter;
@@ -59,6 +60,10 @@ public abstract class BaseCollaboration {
     //protected abstract void registerHandler();
 
     public void acknowledgementReceived(Acknowledgement acknowledgement) {
+
+        //validate
+        Utils.verify(acknowledgement.toString(), acknowledgement.getSignature(), Utils.stringToPublicKey(acknowledgement.getTaskExecution().getUser().getPublicKey()));
+
         String task = acknowledgement.getTaskExecution().getTask();
         this.candidateLog.addAcknowledgementToEvent(task);
 

@@ -3,6 +3,8 @@ package dwfms;
 import dwfms.execution.petrinet.PetriNet;
 import dwfms.execution.petrinet.Place;
 import dwfms.execution.petrinet.Transition;
+import dwfms.framework.User;
+import dwfms.framework.references.UserReference;
 import dwfms.model.bpmn.*;
 import org.jeasy.rules.api.Rule;
 import org.jeasy.rules.api.Rules;
@@ -11,6 +13,20 @@ import org.jeasy.rules.core.RuleBuilder;
 import java.util.Set;
 
 public class ExampleDataFactory {
+
+    private static String hansPrivateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII=";
+    private static String hansPublicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==";
+
+    private static String peterPrivateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAsht2S0BrQbAUeFy04RbaAdBWXG5kXAN48nsbWWe/YYTxCgbHlnEsI1M1BjxH7+993ydkKzhW42inaV/sCmqKeQIDAQABAkBo5L2NYhoI7K+Rl1+7tN6d9Nn3w9f9TNo9TH118SEIR+ndEKn+5lrw1VHtgsnc48aPx7QMtGyhC+Ib5L5TvARFAiEA+FyPJhiabkQT+yCJiM+711+sP0fdimHuMp1nl/v7Ps8CIQC3lcPwXqtzldJpo98EWJ1g2E234MIX5wpiLH07UfI0NwIgDT2yDA/nu9U5U3wqmPaqRxM8tar5LrWF44Ds0veGL5UCIQC2B8POlK//3bBSmu/IyWzS1+bHyg3p0WaUTXSm2uwDJQIgFy7zrSFpMB7L4/1+9MWGJuWLD2R4+HHsCRV+0aW3inw=";
+    private static String peterPublicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALIbdktAa0GwFHhctOEW2gHQVlxuZFwDePJ7G1lnv2GE8QoGx5ZxLCNTNQY8R+/vfd8nZCs4VuNop2lf7ApqinkCAwEAAQ==";
+
+    public static User hans() {
+        return new User(new UserReference("hans"), hansPublicKey, hansPrivateKey);
+    }
+
+    public static User peter() {
+        return new User(new UserReference("peter"), peterPublicKey, peterPrivateKey);
+    }
 
     public static PetriNet exampleNet () {
 
