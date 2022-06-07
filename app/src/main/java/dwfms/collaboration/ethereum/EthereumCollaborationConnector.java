@@ -38,31 +38,31 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
     Web3j web3 = Web3j.build(new HttpService("http://localhost:8545"));
 
-    private String myAddress;
     private ClientTransactionManager ctm;
 
     //HELPER
     private Map<String, String> mapTxHashToTask = new HashMap<>();
 
-
-    public EthereumCollaborationConnector(String address) {
-        try {
-
-            Web3ClientVersion clientVersion = web3.web3ClientVersion().send();
-            EthBlockNumber blockNumber = web3.ethBlockNumber().send();
-            EthGasPrice gasPrice =  web3.ethGasPrice().send();
-
-            this.myAddress = address;
-            this.ctm = new ClientTransactionManager(web3, address);
-
-        } catch(IOException ex) {
-            throw new RuntimeException("Error whilst sending json-rpc requests", ex);
-        }
-    }
+//
+//    public EthereumCollaborationConnector() {
+//        try {
+//
+//            Web3ClientVersion clientVersion = web3.web3ClientVersion().send();
+//            EthBlockNumber blockNumber = web3.ethBlockNumber().send();
+//            EthGasPrice gasPrice =  web3.ethGasPrice().send();
+//
+//
+//        } catch(IOException ex) {
+//            throw new RuntimeException("Error whilst sending json-rpc requests", ex);
+//        }
+//    }
 
     @Override
     public void init(DWFMS dwfms) {
+
         this.dwfms = dwfms;
+        this.ctm = new ClientTransactionManager(web3, this.dwfms.getUser().getPublicKey());
+
     }
 
     /**

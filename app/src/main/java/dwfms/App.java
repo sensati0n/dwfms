@@ -26,37 +26,45 @@ public class App {
 
     public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException, IOException {
 
-        System.out.println("User: " + args[0]);
-        System.out.println("Port: " + args[1]);
+        System.out.println("User: " + args[1]);
+        System.out.println("Port: " + args[2]);
 
         DWFMS dWFMS = null;
         HttpInterface httpInterface;
 
-        switch(args[0]) {
-            case "hans":
-                dWFMS = setupSampleDWFMS(ExampleDataFactory.hans(), Integer.parseInt(args[1])+1);
-                break;
-            case "peter":
-                dWFMS = setupSampleDWFMS(ExampleDataFactory.peter(), Integer.parseInt(args[1])+1);
-                break;
+        if(args[0].equals("simple")) {
+            switch(args[1]) {
+                case "hans":
+                    dWFMS = setupSimpleDWFMS(ExampleDataFactory.hansSimple(), Integer.parseInt(args[2])+1);
+                    break;
+                case "peter":
+                    dWFMS = setupSimpleDWFMS(ExampleDataFactory.peterSimple(), Integer.parseInt(args[2])+1);
+                    break;
+            }
+        }
+        else if(args[0].equals("eth")) {
+            switch(args[1]) {
+                case "hans":
+                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.hansEth());
+                    break;
+                case "peter":
+                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.peterEth());
+                    break;
+            }
         }
 
-        httpInterface = new HttpInterface(dWFMS, Integer.parseInt(args[1]));
-
-        // ethereum();
+        httpInterface = new HttpInterface(dWFMS, Integer.parseInt(args[2]));
 
     }
 
-    static void ethereum() throws InterruptedException {
+    static DWFMS setupEthereumDWFMS(User user) throws InterruptedException {
 
         // start ganache-cli with deterministic wallet mnemonic:
         // ganache-cli -l 60000000 -b 15 -d -m "shiver armed industry victory sight vague follow spray couple hat obscure yard"
-        User hans = new User(new UserReference("hans"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479");
-        User peter = new User(new UserReference("peter"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479");
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new EthereumCollaborationConnector(hans.getPublicKey());
+        BaseCollaboration collaboration = new EthereumCollaborationConnector();
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -64,40 +72,23 @@ public class App {
                 .collaboration(collaboration)
                 .build();
 
-        dWFMS.init(hans);
+        dWFMS.init(user);
 
         Instance reference = dWFMS.deployProcessModel();
         System.out.println("Contract Address: " + reference.getInstanceRef());
         // InstanceReference reference = new InstanceReference("0xb709b82a554f07c7916109a0f55D0D6c995DBcc9");
 
-        //dWFMS.getMyWorklist(instance);
-        dWFMS.executeTask(new TaskExecution(reference, "A"));
-        TimeUnit.SECONDS.sleep(2);
-        dWFMS.executeTask(new TaskExecution(reference, "C"));
+        //dWFMS.executeTask(new TaskExecution(reference, "Start"));
 
+        //dWFMS.executeTask(new TaskExecution(reference, "A"));
+        //TimeUnit.SECONDS.sleep(2);
+        //dWFMS.executeTask(new TaskExecution(reference, "C"));
+
+        return dWFMS;
     }
 
-    static void simple(int port) throws InterruptedException, NoSuchAlgorithmException {
 
-        //KeyPair keyPair = Utils.keyGen(128);
-        User user = new User(new UserReference("hans"), null, null); //Utils.keyToString(keyPair.getPublic()), Utils.keyToString(keyPair.getPrivate()));
-
-        DWFMS dWFMS = setupSampleDWFMS(user, port);
-
-        Instance instance = dWFMS.deployProcessModel();
-
-        TimeUnit.SECONDS.sleep(2);
-        dWFMS.executeTask(new TaskExecution(instance, "Start"));
-
-        TimeUnit.SECONDS.sleep(2);
-        dWFMS.executeTask(new TaskExecution(instance, "A"));
-
-        TimeUnit.SECONDS.sleep(2);
-        dWFMS.executeTask(new TaskExecution(instance, "C"));
-
-    }
-
-    private static DWFMS setupSampleDWFMS(User user, int port) {
+    private static DWFMS setupSimpleDWFMS(User user, int port) {
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();

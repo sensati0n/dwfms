@@ -30,7 +30,7 @@ class AppTest {
         /**
          * APP FOR hans
          */
-        User hans = ExampleDataFactory.hans();
+        User hans = ExampleDataFactory.hansSimple();
 
         IModel model_hans = new BPMNModel();
         ITransformer transformer_hans = new BPMNToHybridExecutionMachineTransformer();
@@ -48,7 +48,7 @@ class AppTest {
         /**
          * APP FOR peter
          */
-        User peter = ExampleDataFactory.peter();
+        User peter = ExampleDataFactory.peterSimple();
 
         IModel model_peter = new BPMNModel();
         ITransformer transformer_peter = new BPMNToHybridExecutionMachineTransformer();
@@ -87,7 +87,7 @@ class AppTest {
     @Test
     void test() throws InterruptedException, IOException {
 
-        User hans = ExampleDataFactory.hans();
+        User hans = ExampleDataFactory.hansSimple();
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
@@ -147,7 +147,7 @@ class AppTest {
     private void sendSecondAcknowledgement(BaseCollaboration collab) throws IOException, InterruptedException {
 
         TaskExecution executeStart = new TaskExecution(null, "Start");
-        executeStart.setUser(ExampleDataFactory.hans());
+        executeStart.setUser(ExampleDataFactory.hansSimple());
         Acknowledgement acknowledgement = new Acknowledgement();
         acknowledgement.setTaskExecution(executeStart);
 
