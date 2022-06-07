@@ -34,7 +34,7 @@ class AppTest {
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(List.of("http://localhost:6666"));
+        BaseCollaboration collaboration = new SimpleConnector(6666, List.of("http://localhost:6666"));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)

@@ -12,8 +12,8 @@ public class ActionHandler implements HttpHandler {
     ObjectMapper objectMapper = new ObjectMapper();
     SimpleConnector simpleConnector;
 
-    public ActionHandler(SimpleConnector simpleConnector) {
-        this.simpleConnector = simpleConnector;
+    public ActionHandler(SimpleConnector multipleConnector) {
+        this.simpleConnector = multipleConnector;
     }
 
 

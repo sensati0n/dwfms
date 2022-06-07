@@ -3,7 +3,6 @@ package dwfms.collaboration.simple;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.references.Instance;
 
 import java.io.IOException;
@@ -26,7 +25,7 @@ public class DeploymentHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        System.out.println("[SIMPLE::handle] Message received in DeploymentHandler...");
+        System.out.println("[MULTI::handle] Message received in DeploymentHandler...");
 
         // Create Message-Object from Request
         String requestBodyText = SimpleConnector.getTextFromInputStream(exchange.getRequestBody());

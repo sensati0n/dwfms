@@ -4,12 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import dwfms.collaboration.simple.AcknowledgementHandler;
-import dwfms.collaboration.simple.ActionHandler;
 import dwfms.collaboration.simple.SimpleConnector;
 import dwfms.framework.DWFMS;
 import dwfms.framework.TaskExecution;
-import dwfms.framework.collaboration.network.Message;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -28,9 +25,11 @@ public class HttpInterface implements HttpHandler {
 
         this.httpServer = HttpServer.create(new InetSocketAddress(port), 0);
 
-        httpServer.createContext("/ui/execute", this);
+        httpServer.createContext("/ui", this);
         httpServer.setExecutor(null); // creates a default executor
         httpServer.start();
+
+        System.out.println("Started httpServer on port: " + port);
     }
 
     @Override

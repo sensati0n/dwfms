@@ -61,6 +61,27 @@ public class HybridExecutionEngineTest {
     }
 
     @Test
+    public void checkWrongResource() {
+
+        // Start
+        UserAction start = new TaskExecution(instance, "Start");
+        start.setUser(hans);
+        hem.execute(instance, start);
+
+        // A
+        UserAction a = new TaskExecution(instance, "A");
+        a.setUser(hans);
+        hem.execute(instance, a);
+
+        // C
+        UserAction c = new TaskExecution(instance, "C");
+        c.setUser(hans);
+        assertFalse(hem.isConform(null, c));
+        Assertions.assertThrows(NonCompliantExecutionException.class, () -> hem.execute(instance, c));
+
+    }
+
+    @Test
     public void executeATrace() {
 
         // Start

@@ -18,24 +18,33 @@ import java.io.IOException;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class App {
 
     public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException, IOException {
 
-//        DWFMS dWFMS = setupSampleDWFMS();
-//        HttpInterface httpInterface = new HttpInterface(dWFMS, 1803);
+        System.out.println("User: " + args[0]);
+        System.out.println("Port: " + args[1]);
 
-            // ethereum();
-             simple();
+        User hans = new User(new UserReference("hans"), null, null);
+
+//        if(args[0].equals("hans")) {
+//             simple(Integer.parseInt(args[1])+1);
+//        }
+//        else {
+            DWFMS dWFMS = setupSampleDWFMS(hans, Integer.parseInt(args[1])+1);
+            HttpInterface httpInterface = new HttpInterface(dWFMS, Integer.parseInt(args[1]));
+//        }
+
+
+        // ethereum();
 
     }
 
     static void ethereum() throws InterruptedException {
 
-        User user = new User(new UserReference("hans"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "");
+        User user = new User(new UserReference("hans"), "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be", "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479");
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
@@ -60,12 +69,12 @@ public class App {
 
     }
 
-    static void simple() throws InterruptedException, NoSuchAlgorithmException {
+    static void simple(int port) throws InterruptedException, NoSuchAlgorithmException {
 
-        KeyPair keyPair = Utils.keyGen(2048);
-        User user = new User(new UserReference("hans"), Utils.keyToString(keyPair.getPublic()), Utils.keyToString(keyPair.getPrivate()));
+        //KeyPair keyPair = Utils.keyGen(128);
+        User user = new User(new UserReference("hans"), null, null); //Utils.keyToString(keyPair.getPublic()), Utils.keyToString(keyPair.getPrivate()));
 
-        DWFMS dWFMS = setupSampleDWFMS(user);
+        DWFMS dWFMS = setupSampleDWFMS(user, port);
 
         Instance instance = dWFMS.deployProcessModel();
 
@@ -80,11 +89,11 @@ public class App {
 
     }
 
-    private static DWFMS setupSampleDWFMS(User user) {
+    private static DWFMS setupSampleDWFMS(User user, int port) {
 
         IModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(List.of("http://localhost:6666/"));
+        BaseCollaboration collaboration = new SimpleConnector(port, List.of("http://localhost:3001/", "http://localhost:4001/"));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)

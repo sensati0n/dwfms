@@ -15,7 +15,7 @@ public class SimpleConnectorTest {
 
         User hans = new User(new UserReference("hans"), null, null);
 
-        SimpleConnector collaboration = new SimpleConnector(List.of("http://localhost:6666"));
+        SimpleConnector collaboration = new SimpleConnector(6666, List.of("http://localhost:6666"));
 
         Instance instanceReference = new Instance();
         TaskExecution taskExecution = new TaskExecution(instanceReference, "Start");
@@ -28,7 +28,7 @@ public class SimpleConnectorTest {
 
     public void receiveMessageTest() throws IOException {
 
-        SimpleConnector collaboration = new SimpleConnector(List.of("http://localhost:6666"));
+        SimpleConnector collaboration = new SimpleConnector(6666, List.of("http://localhost:6666"));
 
 
 

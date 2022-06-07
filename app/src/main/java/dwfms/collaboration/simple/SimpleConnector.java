@@ -8,7 +8,6 @@ import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.collaboration.network.Message;
 import dwfms.framework.references.Instance;
-import dwfms.framework.references.UserReference;
 import lombok.Setter;
 
 import java.io.*;
@@ -26,8 +25,9 @@ import java.util.concurrent.CompletableFuture;
 public class SimpleConnector extends BaseCollaboration {
 
 
-    @Setter private int numberOfAgreementsRequired = 0;
+    @Setter private int numberOfAgreementsRequired = 1;
 
+    int port;
     //TODO: Usage introduces error, when application is shut down: "Build cancelled while executing task ':app:App.main()'"
     HttpServer httpServer;
     HttpClient httpClient;
@@ -37,8 +37,9 @@ public class SimpleConnector extends BaseCollaboration {
     ObjectMapper objectMapper = new ObjectMapper();
 
 
-    public SimpleConnector(List<String> recipients) {
+    public SimpleConnector(int port, List<String> recipients) {
         this.recipients = recipients;
+        this.port = port;
     }
 
     @Override
@@ -48,7 +49,7 @@ public class SimpleConnector extends BaseCollaboration {
         try {
             this.httpClient = HttpClient.newHttpClient();
 
-            this.httpServer = HttpServer.create(new InetSocketAddress(6666), 0);
+            this.httpServer = HttpServer.create(new InetSocketAddress(this.port), 0);
 
             httpServer.createContext("/ack", new AcknowledgementHandler(this));
             httpServer.createContext("/action", new ActionHandler(this));
@@ -87,6 +88,7 @@ public class SimpleConnector extends BaseCollaboration {
 
     }
 
+
     @Override
     public void sendAcknowledgement(Acknowledgement acknowledgement) {
 
@@ -100,13 +102,17 @@ public class SimpleConnector extends BaseCollaboration {
         }
 
         System.out.println("ACK STRING: " + message);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:6666/ack"))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(message))
-                .build();
 
-        CompletableFuture<HttpResponse<Void>> response = this.httpClient.sendAsync(request, HttpResponse.BodyHandlers.discarding());
+        for(String recipient : this.recipients) {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(recipient + "ack"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(message))
+                    .build();
+
+            this.httpClient.sendAsync(request, HttpResponse.BodyHandlers.discarding());
+        }
+
     }
 
     /**
