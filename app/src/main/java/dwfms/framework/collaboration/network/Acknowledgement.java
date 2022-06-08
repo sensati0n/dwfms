@@ -1,7 +1,6 @@
 package dwfms.framework.collaboration.network;
 
-import dwfms.framework.Action;
-import dwfms.framework.collaboration.Signature;
+import dwfms.framework.action.Action;
 
 public class Acknowledgement extends Message {
 

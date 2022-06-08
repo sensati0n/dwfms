@@ -1,28 +1,41 @@
 package dwfms.framework.collaboration;
 
-import dwfms.framework.Action;
-import dwfms.framework.DWFMS;
-import dwfms.framework.IModel;
-import dwfms.framework.TaskExecution;
+import dwfms.framework.action.Action;
+import dwfms.framework.core.BaseModel;
+import dwfms.framework.core.DWFMS;
+import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.collaboration.network.Message;
 import dwfms.framework.collaboration.security.Utils;
 import dwfms.framework.log.Event;
 import dwfms.framework.references.Instance;
 import lombok.Getter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.net.URL;
 
 public abstract class BaseCollaboration {
 
+    private static final Logger logger = LogManager.getLogger(BaseCollaboration.class);
+
     protected DWFMS dwfms;
+    protected URL connection;
+
     @Getter
     protected CandidateLog candidateLog = new CandidateLog();
 
     public abstract void init(DWFMS dwfms);
 
+    public BaseCollaboration( URL connection ) {
+        this.connection = connection;
+    }
+
+
     public abstract void sendMessage(Instance reference, Action a);
     public abstract void sendAcknowledgement(Acknowledgement acknowledgement);
 
-    public abstract Instance deployProcessModel(IModel model);
+    public abstract Instance deployProcessModel(BaseModel model);
 
     /**
      * When a message is received, it is always included in the candidate log.
@@ -32,37 +45,33 @@ public abstract class BaseCollaboration {
     public void messageReceived(Message message) {
 
 
-        System.out.println("[FRAMEWORK::messageReceived] Message received. Parse and check conformance...");
+        logger.debug("Message received. Parse and check conformance...");
 
-        Event event = new Event();
-        event.setActivity(message.getTaskExecution().getTask());
-        event.setResource(message.getTaskExecution().getUser().getUserReference().getName());
+        Event event = new Event(message.getTaskExecution());
         Instance instanceReference = message.getTaskExecution().getInstance();
         TaskExecution taskExecution = message.getTaskExecution();
         if(this.dwfms.getExecutionMachine().isConform(instanceReference, taskExecution)) {
 
-            System.out.println("[FRAMEWORK::messageReceived] Event (" + message.getTaskExecution().getTask() + ", " + message.getTaskExecution().getUser().getUserReference().getName() + ") is model conform. Let's add it to the candidate log");
+            logger.debug("Event (" + message.getTaskExecution().getTask() + ", " + message.getTaskExecution().getUser().getUserReference().getName() + ") is model conform. Let's add it to the candidate log...");
 
             this.candidateLog.addEvent(event);
 
-            System.out.println("[FRAMEWORK::messageReceived] Send Acknowledgement...");
+            logger.trace("Send Acknowledgement...");
             Acknowledgement acknowledgement = new Acknowledgement();
             acknowledgement.setTaskExecution(taskExecution);
             this.sendAcknowledgement(acknowledgement);
         }
         else {
-            System.out.println("[FRAMEWORK::messageReceived] WARNING NOT CONFORM: Event (" + message.getTaskExecution().getTask() + ", " + message.getTaskExecution().getUser().getUserReference().getName() + ").");
+            logger.warn("Event (" + message.getTaskExecution().getTask() + ", " + message.getTaskExecution().getUser().getUserReference().getName() + ") is not conform.");
         }
     }
 
     public abstract void instanceReceived(Instance instance);
 
-    //protected abstract void registerHandler();
-
     public void acknowledgementReceived(Acknowledgement acknowledgement) {
 
         //validate
-        Utils.verify(acknowledgement.toString(), acknowledgement.getSignature(), Utils.stringToPublicKey(acknowledgement.getTaskExecution().getUser().getPublicKey()));
+        Utils.verify(acknowledgement.toString(), acknowledgement.getSignature().getSignature(), Utils.stringToPublicKey(acknowledgement.getTaskExecution().getUser().getPublicKey()));
 
         String task = acknowledgement.getTaskExecution().getTask();
         this.candidateLog.addAcknowledgementToEvent(task);

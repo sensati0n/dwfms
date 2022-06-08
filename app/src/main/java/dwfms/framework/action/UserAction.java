@@ -1,10 +1,11 @@
-package dwfms.framework;
+package dwfms.framework.action;
 
-import dwfms.framework.references.UserReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

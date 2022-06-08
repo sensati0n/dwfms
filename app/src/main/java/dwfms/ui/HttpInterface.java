@@ -5,14 +5,21 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import dwfms.collaboration.simple.SimpleConnector;
-import dwfms.framework.DWFMS;
-import dwfms.framework.TaskExecution;
+import dwfms.framework.core.DWFMS;
+import dwfms.framework.action.TaskExecution;
+import dwfms.framework.references.Instance;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
 public class HttpInterface implements HttpHandler {
+
+    private static final Logger logger = LogManager.getLogger(HttpInterface.class);
 
     DWFMS dwfms;
     ObjectMapper objectMapper;
@@ -29,20 +36,21 @@ public class HttpInterface implements HttpHandler {
         httpServer.setExecutor(null); // creates a default executor
         httpServer.start();
 
-        System.out.println("Started httpServer on port: " + port);
+        logger.trace("Started UI-HttpServer on port: " + port);
     }
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        System.out.println("[SIMPLE::handle] Message received in HttpInterfaceHandler...");
+        logger.trace("Message received in HttpInterfaceHandler...");
 
         // Create Message-Object from Request
         String requestBodyText = SimpleConnector.getTextFromInputStream(exchange.getRequestBody());
-        TaskExecution taskExecution = objectMapper.readValue(requestBodyText, TaskExecution.class);
+        TaskExecutionDTO taskExecutionDTO = objectMapper.readValue(requestBodyText, TaskExecutionDTO.class);
 
-        System.out.println("I want to execute " + taskExecution.getTask());
+        logger.trace("I want to execute " + taskExecutionDTO.getTask());
 
+        TaskExecution taskExecution = new TaskExecution(new Instance(taskExecutionDTO.getInstanceRef(), null), taskExecutionDTO.getTask());
         dwfms.executeTask(taskExecution);
 
         String response = "OK";
@@ -52,4 +60,12 @@ public class HttpInterface implements HttpHandler {
         os.close();
 
     }
+}
+
+@Data
+@NoArgsConstructor
+class TaskExecutionDTO {
+
+    private String instanceRef;
+    private String task;
 }

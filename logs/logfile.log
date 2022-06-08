@@ -1,0 +1,286 @@
+TRACE | 2022-06-07 18:20:55 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 18:20:55 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 18:21:05 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 18:21:05 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 18:22:00 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 18:22:00 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 18:28:18 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 18:28:18 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 18:37:46 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 18:37:46 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 18:37:51 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 18:37:51 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 18:39:04 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 18:39:04 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 18:39:10 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 18:39:10 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:17:55 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:17:55 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:18:06 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:18:06 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 20:21:13 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:21:13 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 20:21:22 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:21:22 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:26:40 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:26:40 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:26:46 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:26:46 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 20:29:24 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:29:24 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:29:30 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:29:30 | [main] dwfms.App (App.java:33) - Port: 4000
+DEBUG | 2022-06-07 20:30:44 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, peter) executed.
+DEBUG | 2022-06-07 20:30:44 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, peter) executed.
+DEBUG | 2022-06-07 20:31:03 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+DEBUG | 2022-06-07 20:31:03 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+TRACE | 2022-06-07 20:31:37 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:31:37 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 20:31:43 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:31:43 | [main] dwfms.App (App.java:33) - Port: 3000
+DEBUG | 2022-06-07 20:31:51 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, peter) executed.
+DEBUG | 2022-06-07 20:31:51 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, peter) executed.
+DEBUG | 2022-06-07 20:32:03 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+DEBUG | 2022-06-07 20:32:03 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+TRACE | 2022-06-07 20:32:26 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:32:27 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:32:30 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:32:30 | [main] dwfms.App (App.java:33) - Port: 4000
+DEBUG | 2022-06-07 20:33:09 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, peter) executed.
+DEBUG | 2022-06-07 20:33:30 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, peter) executed.
+DEBUG | 2022-06-07 20:34:00 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+DEBUG | 2022-06-07 20:34:11 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+TRACE | 2022-06-07 20:40:43 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:40:43 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:40:52 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:40:52 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+DEBUG | 2022-06-07 20:40:56 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, peter) executed.
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:40:56 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+DEBUG | 2022-06-07 20:40:56 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, peter) executed.
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:09 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+DEBUG | 2022-06-07 20:41:09 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+DEBUG | 2022-06-07 20:41:09 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+DEBUG | 2022-06-07 20:41:15 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (C, hans) executed.
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:15 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+DEBUG | 2022-06-07 20:41:15 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (C, hans) executed.
+TRACE | 2022-06-07 20:41:23 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 20:41:23 | [main] dwfms.App (App.java:33) - Port: 4000
+TRACE | 2022-06-07 20:41:26 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 20:41:26 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 20:41:40 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:41:40 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:40 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:41:40 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:41 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:41:41 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:41 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:41:41 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+DEBUG | 2022-06-07 20:41:41 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, peter) executed.
+TRACE | 2022-06-07 20:41:41 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:41:41 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+DEBUG | 2022-06-07 20:41:41 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, peter) executed.
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+DEBUG | 2022-06-07 20:41:48 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:41:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+DEBUG | 2022-06-07 20:41:48 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+DEBUG | 2022-06-07 20:42:05 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (C, hans) executed.
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:05 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+DEBUG | 2022-06-07 20:42:05 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (C, hans) executed.
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAD, false
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(D), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAD, false
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAD, false
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(D), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(D), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAD, false
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, true
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(D), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAD, false
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+DEBUG | 2022-06-07 20:42:27 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (D, hans) executed.
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), peter
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:42:27 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(D), hans
+DEBUG | 2022-06-07 20:42:27 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (D, hans) executed.
+TRACE | 2022-06-07 21:10:30 | [main] dwfms.App (App.java:32) - User: hans
+ERROR | 2022-06-07 21:10:30 | [main] dwfms.App (App.java:33) - Port: 3000
+TRACE | 2022-06-07 21:10:39 | [main] dwfms.App (App.java:32) - User: peter
+ERROR | 2022-06-07 21:10:39 | [main] dwfms.App (App.java:33) - Port: 4000
+DEBUG | 2022-06-07 21:11:11 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, peter) executed.
+DEBUG | 2022-06-07 21:11:11 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, peter) executed.
+DEBUG | 2022-06-07 21:11:43 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+DEBUG | 2022-06-07 21:11:43 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+DEBUG | 2022-06-07 21:11:56 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (B, hans) executed.
+DEBUG | 2022-06-07 21:11:56 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (B, hans) executed.
+DEBUG | 2022-06-07 21:12:06 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (D, peter) executed.
+DEBUG | 2022-06-07 21:12:06 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (D, peter) executed.
+DEBUG | 2022-06-07 21:12:12 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (End, peter) executed.
+DEBUG | 2022-06-07 21:12:12 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (End, peter) executed.
+TRACE | 2022-06-08 06:14:44 | [main] dwfms.App (App.java:34) - User: hans
+ERROR | 2022-06-08 06:14:45 | [main] dwfms.App (App.java:35) - Port: 3000
+TRACE | 2022-06-08 06:14:50 | [main] dwfms.App (App.java:34) - User: peter
+ERROR | 2022-06-08 06:14:50 | [main] dwfms.App (App.java:35) - Port: 4000
+TRACE | 2022-06-08 06:15:39 | [main] dwfms.App (App.java:34) - User: peter
+ERROR | 2022-06-08 06:15:39 | [main] dwfms.App (App.java:35) - Port: 4000
+TRACE | 2022-06-08 06:15:53 | [main] dwfms.App (App.java:34) - User: hans
+ERROR | 2022-06-08 06:15:53 | [main] dwfms.App (App.java:35) - Port: 3000
+DEBUG | 2022-06-08 06:16:08 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+DEBUG | 2022-06-08 06:16:08 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-08 06:23:53 | [main] dwfms.App (App.java:34) - User: hans
+TRACE | 2022-06-08 06:23:53 | [main] dwfms.App (App.java:35) - Port: 3000
+TRACE | 2022-06-08 06:24:00 | [main] dwfms.App (App.java:34) - User: peter
+TRACE | 2022-06-08 06:24:00 | [main] dwfms.App (App.java:35) - Port: 4000
+DEBUG | 2022-06-08 06:24:42 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+DEBUG | 2022-06-08 06:24:42 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-08 07:58:10 | [main] dwfms.App (App.java:31) - User: hans
+TRACE | 2022-06-08 07:58:10 | [main] dwfms.App (App.java:32) - Port: 3000
+DEBUG | 2022-06-08 07:58:26 | [main] dwfms.App (App.java:80) - Contract Address: 0xdb301cedbb593a5cb629168bc6b8491aee74e067
+TRACE | 2022-06-08 07:58:26 | [main] ui.HttpInterface (HttpInterface.java:38) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-08 07:58:42 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:44) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-08 07:58:42 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:50) - I want to execute Start
+TRACE | 2022-06-08 07:59:38 | [main] dwfms.App (App.java:31) - User: hans
+TRACE | 2022-06-08 07:59:38 | [main] dwfms.App (App.java:32) - Port: 3000
+DEBUG | 2022-06-08 07:59:53 | [main] dwfms.App (App.java:80) - Contract Address: 0xfac2f77609ec216e4886746b7eb1776e9c8304c5
+TRACE | 2022-06-08 07:59:53 | [main] ui.HttpInterface (HttpInterface.java:38) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-08 08:00:14 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:44) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-08 08:00:14 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:50) - I want to execute Start
+TRACE | 2022-06-08 08:00:47 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:44) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-08 08:00:47 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:50) - I want to execute Start
+TRACE | 2022-06-08 08:00:52 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:44) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-08 08:00:52 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:50) - I want to execute Start
+TRACE | 2022-06-08 08:01:29 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:44) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-08 08:01:29 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:50) - I want to execute Start
+TRACE | 2022-06-08 08:01:44 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:44) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-08 08:01:44 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:50) - I want to execute Start
+TRACE | 2022-06-08 08:04:00 | [main] dwfms.App (App.java:31) - User: hans
+TRACE | 2022-06-08 08:04:00 | [main] dwfms.App (App.java:32) - Port: 3000
+DEBUG | 2022-06-08 08:04:16 | [main] dwfms.App (App.java:80) - Contract Address: 0xe9043069048de4eac0e36fd199a792c5f6371033
+TRACE | 2022-06-08 08:04:16 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-08 08:04:31 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-08 08:04:31 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+DEBUG | 2022-06-08 08:04:56 | [pool-2-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+DEBUG | 2022-06-08 08:05:02 | [pool-2-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+TRACE | 2022-06-08 09:14:59 | [main] dwfms.App (App.java:31) - User: hans
+TRACE | 2022-06-08 09:14:59 | [main] dwfms.App (App.java:32) - Port: 3000
+DEBUG | 2022-06-08 09:15:15 | [main] dwfms.App (App.java:80) - Contract Address: 0xd6235bc0de69fe2c07c4be7c1f03f38d10a58156
+TRACE | 2022-06-08 09:15:15 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000

@@ -1,9 +1,9 @@
 package dwfms.execution;
 
 import dwfms.ExampleDataFactory;
-import dwfms.framework.TaskExecution;
-import dwfms.framework.User;
-import dwfms.framework.UserAction;
+import dwfms.framework.action.TaskExecution;
+import dwfms.framework.action.User;
+import dwfms.framework.action.UserAction;
 import dwfms.framework.error.NonCompliantExecutionException;
 import dwfms.framework.references.Instance;
 import dwfms.framework.references.UserReference;
@@ -98,6 +98,31 @@ public class HybridExecutionEngineTest {
         UserAction b = new TaskExecution(instance, "B");
         b.setUser(hans);
         hem.execute(instance, b);
+
+        // D
+        UserAction d = new TaskExecution(instance, "D");
+        d.setUser(peter);
+        hem.execute(instance, d);
+
+    }
+
+    @Test
+    public void executeAnotherTrace() {
+
+        // Start
+        UserAction start = new TaskExecution(instance, "Start");
+        start.setUser(hans);
+        hem.execute(instance, start);
+
+        // A
+        UserAction a = new TaskExecution(instance, "A");
+        a.setUser(hans);
+        hem.execute(instance, a);
+
+        // C
+        UserAction c = new TaskExecution(instance, "C");
+        c.setUser(peter);
+        hem.execute(instance, c);
 
         // D
         UserAction d = new TaskExecution(instance, "D");

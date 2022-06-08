@@ -1,4 +1,4 @@
-package dwfms.framework;
+package dwfms.framework.action;
 
 import dwfms.framework.references.UserReference;
 import lombok.AllArgsConstructor;
@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 
 import javax.annotation.Nullable;
 
+/**
+ * This class describes users (human resources) of a process model in a collaboration.
+ * //TODO: Future Work: Extend with more attributes or zero-knowledge proofs etc.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

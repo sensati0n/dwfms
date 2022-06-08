@@ -1,30 +1,29 @@
 package dwfms.model.bpmn;
 
-import dwfms.framework.IModel;
+import dwfms.framework.core.BaseModel;
+import dwfms.framework.references.ModelReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
+/**
+ * This is a container class for all elements of a BPMN model.
+ * Currently, only few BPMN elements are supported, i.e.
+ * Start Node, Activity, Sequence Flow, (XOR)-Gateway, End Node.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BPMNModel implements IModel {
+public class BPMNModel extends BaseModel {
 
     StartEvent start;
     EndEvent end;
     Set<Activity> activities = new HashSet<>();
     Set<Gateway> gateways = new HashSet<>();
     Set<SequenceFlow> sequenceFlows = new HashSet<>();
-
-    public void readFromFile() {
-
-    }
 
     public Set<BPMNElement> getBPMNElements() {
         Set<BPMNElement> elements = new HashSet<>();
@@ -37,15 +36,8 @@ public class BPMNModel implements IModel {
         return elements;
     }
 
-
     @Override
-    public List<String> getParticipants() {
-        // Should be extracted from pools or lanes
-        return List.of("127.0.0.1");
-    }
-
-    @Override
-    public String getHash() {
-        return "0xNewHash";
+    public ModelReference getModelReference() {
+        return new ModelReference("0xNewHash");
     }
 }

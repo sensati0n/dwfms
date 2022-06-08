@@ -1,17 +1,12 @@
 package dwfms.framework.collaboration.network;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import dwfms.framework.Action;
-import dwfms.framework.TaskExecution;
-import dwfms.framework.User;
+import dwfms.framework.action.TaskExecution;
+import dwfms.framework.action.User;
 import dwfms.framework.collaboration.Signature;
 import dwfms.framework.collaboration.security.Utils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.Nullable;
-import java.security.PublicKey;
 
 @Data
 @NoArgsConstructor
@@ -19,15 +14,15 @@ import java.security.PublicKey;
 public class Message {
 
     private TaskExecution taskExecution;
-    private String signature;
+    private Signature signature;
 
     public Message(TaskExecution taskExecution, User user) {
         this.taskExecution = taskExecution;
-        sign(user.getPrivateKey());
+        sign(user);
     }
 
-    public void sign(String privateKey) {
-        this.signature = Utils.sign(taskExecution.toString(), Utils.stringToPrivateKey(privateKey));
+    public void sign(User user) {
+        this.signature = new Signature(Utils.sign(taskExecution.toString(), Utils.stringToPrivateKey(user.getPrivateKey())), user);
     }
 
 }

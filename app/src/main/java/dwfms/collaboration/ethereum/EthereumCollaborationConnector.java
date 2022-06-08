@@ -1,19 +1,17 @@
 package dwfms.collaboration.ethereum;
 
-import dwfms.framework.*;
+import dwfms.framework.action.Action;
+import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.collaboration.network.Message;
+import dwfms.framework.core.BaseModel;
+import dwfms.framework.core.DWFMS;
 import dwfms.framework.references.Instance;
-import lombok.Data;
 import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.RemoteFunctionCall;
-import org.web3j.protocol.core.methods.response.EthBlockNumber;
-import org.web3j.protocol.core.methods.response.EthGasPrice;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
-import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.ClientTransactionManager;
 import org.web3j.tx.Contract;
@@ -21,8 +19,7 @@ import org.web3j.tx.TransactionManager;
 import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.DefaultGasProvider;
 
-import java.io.IOException;
-import java.math.BigInteger;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,36 +28,26 @@ import java.util.Map;
  *
  * No need to ask execution machine anything, because smart contract also checks process logic?
  */
-@Data
 public class EthereumCollaborationConnector extends BaseCollaboration {
 
     private DWFMS dwfms;
-
-    Web3j web3 = Web3j.build(new HttpService("http://localhost:8545"));
+    private Web3j web3 ;
 
     private ClientTransactionManager ctm;
 
     //HELPER
     private Map<String, String> mapTxHashToTask = new HashMap<>();
 
-//
-//    public EthereumCollaborationConnector() {
-//        try {
-//
-//            Web3ClientVersion clientVersion = web3.web3ClientVersion().send();
-//            EthBlockNumber blockNumber = web3.ethBlockNumber().send();
-//            EthGasPrice gasPrice =  web3.ethGasPrice().send();
-//
-//
-//        } catch(IOException ex) {
-//            throw new RuntimeException("Error whilst sending json-rpc requests", ex);
-//        }
-//    }
+    public EthereumCollaborationConnector(URL connection) {
+        super(connection);
+    }
+
 
     @Override
     public void init(DWFMS dwfms) {
 
         this.dwfms = dwfms;
+        this.web3 = Web3j.build(new HttpService(String.valueOf(connection)));
         this.ctm = new ClientTransactionManager(web3, this.dwfms.getUser().getPublicKey());
 
     }
@@ -103,18 +90,16 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     public void sendAcknowledgement(Acknowledgement acknowledgement) {
     }
 
-
     @Override
     public void atAgreementReached(Instance instance, Action a) {
         // when a new block is found and a certain transaction is included
         // wait for 6 blocks? --> not in ProofOfAuthority
-
         this.dwfms.updateMachine(instance, a);
 
     }
 
     @Override
-    public Instance deployProcessModel(IModel model) {
+    public Instance deployProcessModel(BaseModel model) {
 
         // convert model to smart contract
         // we do that externally and assume that the wrapper are precompiled and available here as class
@@ -124,7 +109,7 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
         // here is one example 'process model', compiled and converted to java
 
-        return new Instance(this.deployNewContract(Miniksor.class), model.getHash());
+        return new Instance(this.deployNewContract(Miniksor.class), model.getModelReference().getModel());
 
     }
 
@@ -163,30 +148,10 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
         return null;
 
-
     }
 
     private void instanciateExistingContract(String contractAddress) {
         Miniksor miniksor = Miniksor.load("contractAddress", this.web3, this.ctm, new DefaultGasProvider());
-
-    }
-
-    private void testSendTransaction() {
-
-        try {
-            String myAddress = web3.ethAccounts().send().getAccounts().get(0);
-            String theirAddress = web3.ethAccounts().send().getAccounts().get(1);
-
-            String result = ctm.sendTransaction(new BigInteger("155"), new BigInteger("672197"), theirAddress, "data", new BigInteger("12000000000000000000")).getResult();
-
-            System.out.println("RESULT: " + result);
-            System.out.println("BALANCE: " + web3.ethGetBalance(myAddress, DefaultBlockParameterName.LATEST).send().getBalance().toString());
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
 
     }
 

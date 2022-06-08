@@ -1,4 +1,4 @@
-package dwfms.framework;
+package dwfms.framework.action;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

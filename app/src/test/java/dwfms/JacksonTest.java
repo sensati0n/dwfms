@@ -2,8 +2,8 @@ package dwfms;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dwfms.framework.TaskExecution;
-import dwfms.framework.User;
+import dwfms.framework.action.TaskExecution;
+import dwfms.framework.action.User;
 import dwfms.framework.references.UserReference;
 import org.junit.jupiter.api.Test;
 

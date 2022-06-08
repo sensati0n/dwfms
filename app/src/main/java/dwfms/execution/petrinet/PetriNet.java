@@ -1,8 +1,5 @@
 package dwfms.execution.petrinet;
 
-import dwfms.framework.IExecutionMachine;
-import dwfms.model.bpmn.Activity;
-import jnr.a64asm.Ext;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -18,7 +15,7 @@ public class PetriNet {
 
     public Collection<Transition> getActiveTransitions() {
         return transitions.stream().filter(Transition::canFire).collect(Collectors.toList());
-    };
+    }
 
     public Place place(int tokens) {
         Place p = new Place(tokens);

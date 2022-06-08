@@ -5,29 +5,31 @@ package dwfms;
 
 import dwfms.collaboration.ethereum.EthereumCollaborationConnector;
 import dwfms.collaboration.simple.SimpleConnector;
-import dwfms.framework.*;
+import dwfms.framework.action.User;
 import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.collaboration.security.Utils;
+import dwfms.framework.core.BaseModel;
+import dwfms.framework.core.DWFMS;
+import dwfms.framework.core.ITransformer;
 import dwfms.framework.references.Instance;
-import dwfms.framework.references.UserReference;
 import dwfms.model.bpmn.BPMNModel;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import dwfms.ui.HttpInterface;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.security.KeyPair;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class App {
 
-
+    private static final Logger logger = LogManager.getLogger(App.class);
 
     public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException, IOException {
 
-        System.out.println("User: " + args[1]);
-        System.out.println("Port: " + args[2]);
+        logger.trace("User: " + args[1]);
+        logger.trace("Port: " + args[2]);
 
         DWFMS dWFMS = null;
         HttpInterface httpInterface;
@@ -57,14 +59,14 @@ public class App {
 
     }
 
-    static DWFMS setupEthereumDWFMS(User user) throws InterruptedException {
+    static DWFMS setupEthereumDWFMS(User user) throws MalformedURLException {
 
         // start ganache-cli with deterministic wallet mnemonic:
         // ganache-cli -l 60000000 -b 15 -d -m "shiver armed industry victory sight vague follow spray couple hat obscure yard"
 
-        IModel model = new BPMNModel();
+        BaseModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new EthereumCollaborationConnector();
+        BaseCollaboration collaboration = new EthereumCollaborationConnector(new URL("http://localhost:8545"));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -75,24 +77,17 @@ public class App {
         dWFMS.init(user);
 
         Instance reference = dWFMS.deployProcessModel();
-        System.out.println("Contract Address: " + reference.getInstanceRef());
-        // InstanceReference reference = new InstanceReference("0xb709b82a554f07c7916109a0f55D0D6c995DBcc9");
-
-        //dWFMS.executeTask(new TaskExecution(reference, "Start"));
-
-        //dWFMS.executeTask(new TaskExecution(reference, "A"));
-        //TimeUnit.SECONDS.sleep(2);
-        //dWFMS.executeTask(new TaskExecution(reference, "C"));
+        logger.debug("Contract Address: " + reference.getInstanceRef());
 
         return dWFMS;
     }
 
 
-    private static DWFMS setupSimpleDWFMS(User user, int port) {
+    private static DWFMS setupSimpleDWFMS(User user, int port) throws MalformedURLException {
 
-        IModel model = new BPMNModel();
+        BaseModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(port, List.of("http://localhost:3001/", "http://localhost:4001/"));
+        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:" + port));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)

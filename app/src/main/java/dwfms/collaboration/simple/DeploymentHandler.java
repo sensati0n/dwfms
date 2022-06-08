@@ -4,10 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import dwfms.framework.references.Instance;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
 public class DeploymentHandler implements HttpHandler {
+
+    private static final Logger logger = LogManager.getLogger(DeploymentHandler.class);
 
     ObjectMapper objectMapper = new ObjectMapper();
     SimpleConnector simpleConnector;
@@ -25,7 +29,7 @@ public class DeploymentHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        System.out.println("[MULTI::handle] Message received in DeploymentHandler...");
+        logger.trace("Message received in DeploymentHandler...");
 
         // Create Message-Object from Request
         String requestBodyText = SimpleConnector.getTextFromInputStream(exchange.getRequestBody());

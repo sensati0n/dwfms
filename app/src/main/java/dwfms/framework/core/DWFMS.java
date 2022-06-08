@@ -1,27 +1,33 @@
-package dwfms.framework;
+package dwfms.framework.core;
 
 
+import dwfms.framework.action.Action;
+import dwfms.framework.action.TaskExecution;
+import dwfms.framework.action.User;
 import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.references.Instance;
-import dwfms.framework.references.UserReference;
 import lombok.Builder;
 import lombok.Getter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.List;
+import java.net.MalformedURLException;
 
 @Builder
 @Getter
 public class DWFMS {
 
-    private final IModel model;
+    private static final Logger logger = LogManager.getLogger(DWFMS.class);
+
+    private final BaseModel model;
     private final ITransformer transformer;
-    private IExecutionMachine executionMachine;
+    private BaseExecutionMachine executionMachine;
     private final BaseCollaboration collaboration;
 
-    //how keeps the user object?
+    //who keeps the user object?
     private User user;
 
-    public void init(User user) {
+    public void init(User user) throws MalformedURLException {
 
         this.user = user;
 
@@ -48,7 +54,7 @@ public class DWFMS {
             this.collaboration.sendMessage(taskExecution.getInstance(), taskExecution);
         }
         else {
-            System.out.println("Böser user.");
+            logger.warn("The requested action is not model conform. Processing canceled.");
         }
 
     }
@@ -61,7 +67,7 @@ public class DWFMS {
      */
     public void updateMachine(Instance instance, Action a) {
         TaskExecution te = (TaskExecution) a;
-        System.out.println("Finished: " + te.getTask());
+        logger.debug("Machined updated: (" + te.getTask() + ", " + te.getUser().getUserReference().getName() +  ") was executed.");
         this.executionMachine.execute(instance, a);
     }
 
@@ -71,16 +77,12 @@ public class DWFMS {
 
     }
 
-//    public List<String> getParticipants() {
-//        return this.model.getParticipants();
-//    }
-
     /**
      * To be updated to use a store instead of class variable
      * @param instance
      * @return
      */
-    public IModel getModelByInstanceReference(Instance instance) {
+    public BaseModel getModelByInstanceReference(Instance instance) {
         return this.model;
     }
 

@@ -1,6 +1,9 @@
 package dwfms.framework.security;
 
+import dwfms.collaboration.simple.AcknowledgementHandler;
 import dwfms.framework.collaboration.security.Utils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.BadPaddingException;
@@ -12,6 +15,8 @@ import java.security.spec.InvalidKeySpecException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UtilsTest {
+
+    private static final Logger logger = LogManager.getLogger(UtilsTest.class);
 
     @Test
     public void testEncryptionAndDecryption() throws NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
@@ -32,7 +37,7 @@ public class UtilsTest {
 
         String testString = "Was wollt ihr hoeren? Mexico!";
         String signature = Utils.sign(testString, keyPair.getPrivate());
-        System.out.println(signature);
+        logger.trace(signature);
 
         KeyPair wrongKeyPair = Utils.keyGen(2048);
 

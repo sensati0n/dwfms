@@ -1,5 +1,6 @@
 package dwfms.framework.log;
 
+import dwfms.framework.action.TaskExecution;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,9 @@ public class Event {
     @Nullable int timestamp;
     String activity;
     String resource;
+
+    public Event(TaskExecution taskExecution) {
+        this.activity = taskExecution.getTask();
+        this.resource = taskExecution.getUser().getUserReference().getName();
+    }
 }

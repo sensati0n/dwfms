@@ -4,18 +4,24 @@
 package dwfms;
 
 import dwfms.collaboration.simple.SimpleConnector;
-import dwfms.framework.*;
+import dwfms.framework.action.TaskExecution;
+import dwfms.framework.action.User;
 import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
+import dwfms.framework.core.BaseModel;
+import dwfms.framework.core.DWFMS;
+import dwfms.framework.core.ITransformer;
 import dwfms.framework.log.Event;
 import dwfms.framework.references.Instance;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import dwfms.model.bpmn.BPMNModel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
 
+    private static final Logger logger = LogManager.getLogger(AppTest.class);
 
     @Test
     void appTest() throws NoSuchAlgorithmException, IOException, InterruptedException {
@@ -32,9 +39,9 @@ class AppTest {
          */
         User hans = ExampleDataFactory.hansSimple();
 
-        IModel model_hans = new BPMNModel();
+        BaseModel model_hans = new BPMNModel();
         ITransformer transformer_hans = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration_hans = new SimpleConnector(3001, List.of("http://localhost:3001/", "http://localhost:4001/"));
+        BaseCollaboration collaboration_hans = new SimpleConnector(new URL("http://localhost:3001"));
 
         DWFMS dWFMS_hans = DWFMS.builder()
                 .model(model_hans)
@@ -50,9 +57,9 @@ class AppTest {
          */
         User peter = ExampleDataFactory.peterSimple();
 
-        IModel model_peter = new BPMNModel();
+        BaseModel model_peter = new BPMNModel();
         ITransformer transformer_peter = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration_peter = new SimpleConnector(4001, List.of("http://localhost:3001/", "http://localhost:4001/"));
+        BaseCollaboration collaboration_peter = new SimpleConnector(new URL("http://localhost:4001"));
 
         DWFMS dWFMS_peter = DWFMS.builder()
                 .model(model_peter)
@@ -89,9 +96,9 @@ class AppTest {
 
         User hans = ExampleDataFactory.hansSimple();
 
-        IModel model = new BPMNModel();
+        BaseModel model = new BPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(6666, List.of("http://localhost:6666/"));
+        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:6666"));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -109,7 +116,7 @@ class AppTest {
         //It is conformed that we can execute A in the beginning.
         assertTrue(dWFMS.getExecutionMachine().isConform(reference, executeStart));
         dWFMS.executeTask(executeStart);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(2);
 
         //The candidate log is updated
         assertEquals(1, dWFMS.getCollaboration().getCandidateLog().getEvents().size());
@@ -140,7 +147,7 @@ class AppTest {
 //
 //        dWFMS.executeTask(new TaskExecution(reference, "C"));
 
-        System.out.println("App stops...");
+        logger.debug("App stops...");
 
     }
 

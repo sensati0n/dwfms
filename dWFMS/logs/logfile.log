@@ -1,0 +1,312 @@
+DEBUG | 2022-06-07 20:36:01 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, hans) executed.
+DEBUG | 2022-06-07 20:36:01 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+TRACE | 2022-06-07 20:38:08 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Start, false
+TRACE | 2022-06-07 20:38:08 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - exec(Start), hans
+DEBUG | 2022-06-07 20:38:08 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, hans) executed.
+TRACE | 2022-06-07 20:38:08 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - A, false
+TRACE | 2022-06-07 20:38:08 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - exec(A), hans
+DEBUG | 2022-06-07 20:38:08 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+TRACE | 2022-06-07 20:38:08 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - C, false
+TRACE | 2022-06-07 20:38:08 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - exec(C), peter
+TRACE | 2022-06-07 20:38:37 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:38:37 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+DEBUG | 2022-06-07 20:38:37 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (Start, hans) executed.
+TRACE | 2022-06-07 20:38:37 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:38:37 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+DEBUG | 2022-06-07 20:38:37 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:60) - (A, hans) executed.
+TRACE | 2022-06-07 20:38:37 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:38:37 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), peter
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+DEBUG | 2022-06-07 20:40:18 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+DEBUG | 2022-06-07 20:40:18 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), peter
+DEBUG | 2022-06-07 20:40:18 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (C, peter) executed.
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAD, false
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), peter
+TRACE | 2022-06-07 20:40:18 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(D), peter
+DEBUG | 2022-06-07 20:40:18 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (D, peter) executed.
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+DEBUG | 2022-06-07 20:42:41 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+DEBUG | 2022-06-07 20:42:41 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:42:41 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:46:20 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:46:20 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+DEBUG | 2022-06-07 20:47:30 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:47:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:47:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:47:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+DEBUG | 2022-06-07 20:48:40 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:48:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:48:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:48:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:48:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:48:58 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBStart, true
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:51:10 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBA, true
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBStart, true
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(A), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:51:10 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBA, true
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBC, true
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBStart, true
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(A), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:51:10 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(C), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBStart, true
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:33) - CCC exec(A):null
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - CCC exec(C):null
+DEBUG | 2022-06-07 20:52:04 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBA, true
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBStart, true
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(A), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:33) - CCC exec(A):hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - CCC exec(C):null
+DEBUG | 2022-06-07 20:52:04 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBA, true
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBC, true
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBStart, true
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(A), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - BBBexec(C), hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:33) - CCC exec(A):hans
+TRACE | 2022-06-07 20:52:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - CCC exec(C):hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):null
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):null
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:52:43 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):null
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBA, true
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(A), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:52:43 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBA, true
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBC, true
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(A), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:52:43 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(C), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):null
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):null
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:53:13 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):null
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBA, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(A), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:53:13 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBA, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBC, false
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(A), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(C), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBA, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBC, false
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(A), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:53:13 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(C), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, false
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):null
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):null
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:54:04 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAA, false
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):null
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBA, true
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(A), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+DEBUG | 2022-06-07 20:54:04 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAC, false
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAStart, true
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(A), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(Start), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - AAAexec(C), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - CCC exec(A):hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - CCC exec(C):hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBA, true
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBC, true
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBStart, true
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(A), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(Start), hans
+TRACE | 2022-06-07 20:54:04 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - BBBexec(C), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: Start, false
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - Before fire: exec(A):null
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - Before fire: exec(C):null
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: Start, true
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(Start), hans
+DEBUG | 2022-06-07 20:55:07 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: A, false
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(A), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - Before fire: exec(A):hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - Before fire: exec(C):null
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: A, true
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: Start, true
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(A), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(Start), hans
+DEBUG | 2022-06-07 20:55:07 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: C, false
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: Start, true
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(A), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(C), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:31) - Before fire: exec(A):hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - Before fire: exec(C):hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: A, true
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: C, true
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: Start, true
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(A), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(Start), hans
+TRACE | 2022-06-07 20:55:07 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(C), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: Start, false
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: Start, true
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: exec(Start), hans
+DEBUG | 2022-06-07 20:58:01 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: A, false
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(A), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: A, true
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: Start, true
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: exec(A), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: exec(Start), hans
+DEBUG | 2022-06-07 20:58:01 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: C, false
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: Start, true
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(A), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(C), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: A, true
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: C, true
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: Start, true
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: exec(A), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: exec(Start), hans
+TRACE | 2022-06-07 20:58:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - After fire: exec(C), hans
+TRACE | 2022-06-07 21:00:33 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: Start, false
+TRACE | 2022-06-07 21:00:33 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: Start, false
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: Start, true
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(Start), hans
+DEBUG | 2022-06-07 21:01:01 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: A, false
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(A), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - TESTtrue
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: A, true
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: Start, true
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(A), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(Start), hans
+DEBUG | 2022-06-07 21:01:01 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: C, false
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: Start, true
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(A), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(Start), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:30) - Before fire: exec(C), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:32) - TESTtrue
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: A, true
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: C, true
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: Start, true
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(A), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(Start), hans
+TRACE | 2022-06-07 21:01:01 | [Test worker] ruleengine.EasyRuleEngine (EasyRuleEngine.java:34) - After fire: exec(C), hans
+DEBUG | 2022-06-07 21:02:41 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+DEBUG | 2022-06-07 21:02:50 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (Start, hans) executed.
+DEBUG | 2022-06-07 21:02:50 | [Test worker] execution.HybridExecutionMachine (HybridExecutionMachine.java:62) - (A, hans) executed.
+TRACE | 2022-06-08 06:39:09 | [Test worker] security.UtilsTest (UtilsTest.java:40) - ZBFLZyYXh0VFttdO1OhOm6FTXQyGxkqLx3+lKAqyLB4zaip2V8cAmGruD5G+xS/Ws3Ju9T2zuzvOBGmYO8NsicMVFtOTD8HIrPVBWXJ+MKd+E3XYuiw0H0nGiKBKdfEQAymE5I6GUtjanAKoCP19me3tNkXpw8bFJEzBbWWnloxdq7nwqPBaoWfrJDuOQVJYlf5woIu76qyaTYOuKD+VWR2AV3co1PqfgWwjGXvbCjQmJZbC+x2D8S9C+lxPDE9yFhsP1WKHhtYDhZIhqlugT5ate4Glm+/mjE/nItshmRWLn30osQNBEXJiXXcVuPbV3ULWq4Y3oYOXf3FknxGCJQ==
+TRACE | 2022-06-08 06:46:05 | [Test worker] security.UtilsTest (UtilsTest.java:40) - V14IiRFWxoOaOhgVu1dKkkX8HRU4KwYDShsxtwz6kKLNYDIZMfWNKk8lyIJVdaO6kts0V0zl9l6XT7i/jPrIEYEXu6/FXh0zjIvlzYnbT3F4WrJevLXIy16xZOE/SDGEEgI1MKauVTPyQm/fyjCLwWJPmAKKqa27fMtX+nWM8+ihnN8m7z0kAdPANFk9iakzcGcQLU/a0HmArcGR9CC2FkVWA7Z8luKDOgA+dxQP2P4PhN7aYQrR6rmy6n1D8C71EhFJNg6KFpLusIxrI5HsV3dFgTleFe+ERVdVVazDB7W3QP+tNnye7Ua5c0uGnMwYO81AGZp8f6BI5qvilE87fQ==
+TRACE | 2022-06-08 06:59:40 | [Test worker] security.UtilsTest (UtilsTest.java:40) - mPyUQvFatCqHzWS96ZsMLegjOD3SNG+H2efgLO4q+BHp6EXtM7zgVpuG5SF5WX4UkAYK37CucT1tOTmaypph6yTRJCz3BdoDB4W2+WlVTU/CoL1/pjJ3eoya6DTdsC5Q//790PJuCSNdDmK3OpQnxLyZZDPyRTGaE58dJdtv/pE29SXMU+9ihbyeNGLXHJE2xMheumrSWTNiqMql3DUrEfMEO+SHvHgHhuThtT660z6tjtd5Sm0rdde1nkMUmSL0oFspb5Hs0py0sO2HkTUQC0CQyUlmbDgglbku+U7Kg46GJ8R2znhc+zmIsmCYNbiieNpF2jBXXh87RWUTq8Rfvw==
+TRACE | 2022-06-08 07:00:15 | [Test worker] security.UtilsTest (UtilsTest.java:40) - LmLNEYPjuKNQhKeUQVU0koce9edjzQ1F5jx9Pysq0i5X0qPMHdPl9pyJc7tmWnYe85ELTTp1oGcZGOWPF3p39ISGmEFlibZxkCNLcRaeBN1JSfSOxOIVOwloVr4ONA1dMP250RXKvq3Gj6atHjEb/pJOdKUjm0mVWMa3bOJZbUE/2pzZDJdjTCmKKYzRgH/q35OG46at1pLRwl8AjuX42U7euUkIs4xS10l68x+v5ZMSGUnP71Zz7iUXkhf4k/L+1A97hI3a+6MLn76b0ISxCIwReC4JB5UWgrtt2Ge8KDdY7ETHqU8DaB3AbX+oxNz8060M+1tsKSOo3IpqR1EmXQ==
+TRACE | 2022-06-08 07:00:50 | [Test worker] security.UtilsTest (UtilsTest.java:40) - gZKnNrfENW6b1f5XAxNOsjQrhBjtLfR0yFfWBSZeLb7nSjtXJVUnaKnD0BXxucut1ddqxMuocmimAhPt7ojwQ62DnjRDZUpSl0CK44oW7PyrBWW6Lx0Yy/LbSYq4gKzJjaXovg7HuOuD14BdnWZl+uYafc0HrfPm+BO5hIpUjiPIBOtX1ZXwvc79fWfniUSSjbqGosySxZ/cC//KR6dyzn5Gcxjms8BQPhDcQ4c22AmwQ4yFFNb+U7aC0XRase+PVnkOPAfkOcBIwb4LLBN6b8WNAIbjdcAy5997E5a2WF4nFDydflY28vjMgKtF/qPnpk0YZ5R53ljizVummM3I2w==
+TRACE | 2022-06-08 07:14:12 | [Test worker] security.UtilsTest (UtilsTest.java:40) - ZqBD3sSLh9vP8m5zxamwYecMyBNXT6l7dlHxHu1trd2pabwms2IRTdOs1cgW/yL9pIxz/CKZQLDxSkNPwtn2l/yNcz6xIwglcl1phUCgNcbiR5ithSQHpDp7gf2Jk7AzxuKWjpzc0+PEm+14f58MVRa9rDbJ90w9DNtJ8/z3V4Wrw7yZKIVbsTwY7hWMG88h1eedm+5FOnBrEWs6AUqKnrfMtBLPMfKJWXQgjGWrysyltcMRfEILNeZK2PoqBkRQxN+lQN56HZYm8KCVZ/HWoabc5K4gxKWva2nkNTEQiQX9VfeiiaUnOEm7SUjOhFW0kkWw8drq1xsW2ZBuUysPCA==

@@ -3,11 +3,16 @@ package dwfms.collaboration.simple;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import dwfms.App;
 import dwfms.framework.collaboration.network.Message;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
 public class ActionHandler implements HttpHandler {
+
+    private static final Logger logger = LogManager.getLogger(ActionHandler.class);
 
     ObjectMapper objectMapper = new ObjectMapper();
     SimpleConnector simpleConnector;
@@ -27,13 +32,13 @@ public class ActionHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        System.out.println("[SIMPLE::handle] Message received in ActionHandler...");
+        logger.trace("Message received in ActionHandler...");
 
         // Create Message-Object from Request
         String requestBodyText = SimpleConnector.getTextFromInputStream(exchange.getRequestBody());
         Message message = objectMapper.readValue(requestBodyText, Message.class);
 
-        System.out.println(message.getTaskExecution().getUser().getUserReference() + " wants to execute " + message.getTaskExecution().getTask());
+        logger.debug(message.getTaskExecution().getUser().getUserReference() + " wants to execute " + message.getTaskExecution().getTask());
 
         simpleConnector.messageReceived(message);
     }

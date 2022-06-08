@@ -1,18 +1,18 @@
 package dwfms.execution.ruleengine;
 
-import dwfms.framework.Action;
-import dwfms.framework.TaskExecution;
+import dwfms.framework.action.TaskExecution;
 import lombok.Data;
-import okhttp3.internal.concurrent.Task;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jeasy.rules.api.Facts;
-import org.jeasy.rules.api.Rule;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.api.RulesEngine;
 import org.jeasy.rules.core.DefaultRulesEngine;
-import org.jeasy.rules.core.RuleBuilder;
 
 @Data
 public class EasyRuleEngine {
+
+    private static final Logger logger = LogManager.getLogger(EasyRuleEngine.class);
 
     private RulesEngine rulesEngine = new DefaultRulesEngine();
     private Facts facts = new Facts();
@@ -22,7 +22,6 @@ public class EasyRuleEngine {
 
         facts.put("exec("+a.getTask()+")", a.getUser().getUserReference().getName());
         facts.put(a.getTask(), false);
-//        facts.forEach(f -> System.out.println(f.getName() + ", " + f.getValue()));
         rulesEngine.fire(rules, facts);
 
         boolean isConform = facts.get(a.getTask());
@@ -31,6 +30,10 @@ public class EasyRuleEngine {
         facts.remove(a.getTask());
 
         return isConform;
+    }
+
+    public void addFact(TaskExecution a) {
+        this.facts.put("exec("+a.getTask()+")", a.getUser().getUserReference().getName());
     }
 
 }

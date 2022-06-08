@@ -3,27 +3,32 @@ package dwfms.execution;
 import dwfms.execution.petrinet.PetriNet;
 import dwfms.execution.petrinet.Transition;
 import dwfms.execution.ruleengine.EasyRuleEngine;
-import dwfms.framework.Action;
-import dwfms.framework.IExecutionMachine;
-import dwfms.framework.TaskExecution;
+import dwfms.framework.action.Action;
+import dwfms.framework.core.BaseExecutionMachine;
+import dwfms.framework.action.TaskExecution;
 import dwfms.framework.error.NonCompliantExecutionException;
-import dwfms.framework.execution.EventLog;
+import dwfms.framework.log.Event;
 import dwfms.framework.references.Instance;
 import dwfms.framework.references.UserReference;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * A HybridExecutionMachine keeps track of the internal PM and RE
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
-public class HybridExecutionMachine implements IExecutionMachine {
+public class HybridExecutionMachine extends BaseExecutionMachine {
+
+    private static final Logger logger = LogManager.getLogger(HybridExecutionMachine.class);
 
     private PetriNet pn;
     private EasyRuleEngine ere;
-    private EventLog log;
 
     @Override
     public boolean isConform(Instance instance, Action action) {
@@ -52,7 +57,13 @@ public class HybridExecutionMachine implements IExecutionMachine {
             TaskExecution taskExecution = (TaskExecution) action;
             Transition transitionToFire = (Transition) new BPMNToHybridExecutionMachineTransformer().modelTaskToMachineAction(taskExecution, this);
             transitionToFire.fire();
+            ere.addFact(taskExecution);
+            super.getEventLog().addEvent(new Event(taskExecution));
+
+            logger.debug("(" + taskExecution.getTask() + ", " + taskExecution.getUser().getUserReference().getName() + ") executed.");
+
         }
+
 
     }
 

@@ -3,7 +3,7 @@ package dwfms;
 import dwfms.execution.petrinet.PetriNet;
 import dwfms.execution.petrinet.Place;
 import dwfms.execution.petrinet.Transition;
-import dwfms.framework.User;
+import dwfms.framework.action.User;
 import dwfms.framework.references.UserReference;
 import dwfms.model.bpmn.*;
 import org.jeasy.rules.api.Rule;
@@ -242,6 +242,8 @@ public class ExampleDataFactory {
         exampleModel.setActivities(Set.of(a, b, c, d));
         exampleModel.setGateways(Set.of(g1, g2));
         exampleModel.setSequenceFlows(Set.of(sfsA, sfAg1, sfg1B, sfg1C, sfBg2, sfCg2, sfg2D, sfDe));
+
+        exampleModel.setParticipants(Set.of("http://localhost:3001/", "http://localhost:4001/"));
 
         return exampleModel;
 
