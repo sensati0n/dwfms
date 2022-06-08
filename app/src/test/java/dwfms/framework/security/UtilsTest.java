@@ -1,6 +1,6 @@
 package dwfms.framework.security;
 
-import dwfms.collaboration.simple.AcknowledgementHandler;
+import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.framework.collaboration.security.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,45 +21,45 @@ public class UtilsTest {
     @Test
     public void testEncryptionAndDecryption() throws NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
 
-        KeyPair keyPair = Utils.keyGen(2048);
+        KeyPair keyPair = RSASecurity.keyGen(2048);
 
         String testString = "Was wollt ihr hoeren? Mexico!";
-        byte[] encryptedTestString = Utils.encrypt(keyPair.getPublic(), testString);
+        byte[] encryptedTestString = RSASecurity.encrypt(keyPair.getPublic(), testString);
 
-        String decryptedEncryptedTestString = Utils.decrypt(keyPair.getPrivate(), encryptedTestString);
+        String decryptedEncryptedTestString = RSASecurity.decrypt(keyPair.getPrivate(), encryptedTestString);
         assertEquals(decryptedEncryptedTestString, testString);
 
     }
 
     @Test
     public void signature() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-        KeyPair keyPair = Utils.keyGen(2048);
+        KeyPair keyPair = RSASecurity.keyGen(2048);
 
         String testString = "Was wollt ihr hoeren? Mexico!";
-        String signature = Utils.sign(testString, keyPair.getPrivate());
+        String signature = RSASecurity.sign(testString, keyPair.getPrivate());
         logger.trace(signature);
 
-        KeyPair wrongKeyPair = Utils.keyGen(2048);
+        KeyPair wrongKeyPair = RSASecurity.keyGen(2048);
 
-        assertFalse(Utils.verify(testString, signature, wrongKeyPair.getPublic()));
-        assertTrue(Utils.verify(testString, signature, keyPair.getPublic()));
+        assertFalse(RSASecurity.verify(testString, signature, wrongKeyPair.getPublic()));
+        assertTrue(RSASecurity.verify(testString, signature, keyPair.getPublic()));
     }
 
     @Test
     public void loadKeys() throws NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, InvalidKeyException {
 
-        KeyPair keyPair = Utils.keyGen(512);
+        KeyPair keyPair = RSASecurity.keyGen(512);
 
-        String publicString = Utils.keyToString(keyPair.getPublic());
-        String privateString = Utils.keyToString(keyPair.getPrivate());
+        String publicString = RSASecurity.keyToString(keyPair.getPublic());
+        String privateString = RSASecurity.keyToString(keyPair.getPrivate());
 
-        PublicKey publicKeyFromString = Utils.stringToPublicKey(publicString);
-        PrivateKey privateKeyFromString = Utils.stringToPrivateKey(privateString);
+        PublicKey publicKeyFromString = RSASecurity.stringToPublicKey(publicString);
+        PrivateKey privateKeyFromString = RSASecurity.stringToPrivateKey(privateString);
 
         String testString = "Was wollt ihr hoeren? Mexico!";
-        String signature = Utils.sign(testString, privateKeyFromString);
+        String signature = RSASecurity.sign(testString, privateKeyFromString);
 
-        assertTrue(Utils.verify(testString, signature, publicKeyFromString));
+        assertTrue(RSASecurity.verify(testString, signature, publicKeyFromString));
 
     }
 

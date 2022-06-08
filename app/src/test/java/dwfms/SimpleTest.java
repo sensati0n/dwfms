@@ -1,6 +1,9 @@
 package dwfms;
 
-import dwfms.collaboration.simple.SimpleConnector;
+import dwfms.collaboration.example.security.RSASecurity;
+import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.consensus.ThresholdConsensus;
+import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.action.User;
 import dwfms.framework.collaboration.BaseCollaboration;
@@ -11,7 +14,6 @@ import dwfms.framework.core.ITransformer;
 import dwfms.framework.log.Event;
 import dwfms.framework.references.Instance;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
-import dwfms.model.bpmn.BPMNModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
@@ -33,9 +35,9 @@ public class SimpleTest {
         // Initialize dWFMS
         User hans = ExampleDataFactory.hansSimple();
 
-        BaseModel model = new BPMNModel();
+        BaseModel model = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:3001"));
+        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:3001"), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -49,12 +51,12 @@ public class SimpleTest {
         Instance reference = dWFMS.deployProcessModel();
 
         TaskExecution executeStart = new TaskExecution(reference, "Start");
-        dWFMS.executeTask(executeStart);
+        executeStart.setUser(hans);
 
         //It is conformed that we can execute Start in the beginning.
         assertTrue(dWFMS.getExecutionMachine().isConform(reference, executeStart));
         dWFMS.executeTask(executeStart);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(2);
 
         //The candidate log is updated
         assertEquals(1, dWFMS.getCollaboration().getCandidateLog().getEvents().size());
@@ -96,10 +98,10 @@ public class SimpleTest {
         TaskExecution executeStart = new TaskExecution(null, "Start");
         executeStart.setUser(ExampleDataFactory.hansSimple());
         Acknowledgement acknowledgement = new Acknowledgement();
-        acknowledgement.setTaskExecution(executeStart);
+        acknowledgement.setAction(executeStart);
 
         collab.sendAcknowledgement(acknowledgement);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(2);
 
     }
 }

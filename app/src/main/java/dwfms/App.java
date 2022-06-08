@@ -4,14 +4,16 @@
 package dwfms;
 
 import dwfms.collaboration.ethereum.EthereumCollaborationConnector;
-import dwfms.collaboration.simple.SimpleConnector;
+import dwfms.collaboration.example.security.RSASecurity;
+import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.consensus.ThresholdConsensus;
+import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.framework.action.User;
 import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.core.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.core.ITransformer;
 import dwfms.framework.references.Instance;
-import dwfms.model.bpmn.BPMNModel;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import dwfms.ui.HttpInterface;
 import org.apache.logging.log4j.LogManager;
@@ -64,9 +66,9 @@ public class App {
         // start ganache-cli with deterministic wallet mnemonic:
         // ganache-cli -l 60000000 -b 15 -d -m "shiver armed industry victory sight vague follow spray couple hat obscure yard"
 
-        BaseModel model = new BPMNModel();
+        BaseModel model = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new EthereumCollaborationConnector(new URL("http://localhost:8545"));
+        BaseCollaboration collaboration = new EthereumCollaborationConnector(new URL("http://localhost:8545"), null, null, new RSASecurity());
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -85,9 +87,9 @@ public class App {
 
     private static DWFMS setupSimpleDWFMS(User user, int port) throws MalformedURLException {
 
-        BaseModel model = new BPMNModel();
+        BaseModel model = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:" + port));
+        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:" + port), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)

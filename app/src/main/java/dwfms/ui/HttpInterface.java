@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import dwfms.collaboration.simple.SimpleConnector;
+import dwfms.collaboration.example.SimpleConnector;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.references.Instance;

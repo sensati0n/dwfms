@@ -1,13 +1,18 @@
-package dwfms.collaboration.simple;
+package dwfms.collaboration.example;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
-import dwfms.framework.action.Action;
+import dwfms.collaboration.example.security.RSASecurity;
+import dwfms.collaboration.example.network.AcknowledgementHandler;
+import dwfms.collaboration.example.network.ActionHandler;
+import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.Signature;
+import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.collaboration.network.Message;
+import dwfms.framework.collaboration.network.INetwork;
 import dwfms.framework.core.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.references.Instance;
@@ -17,11 +22,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.InetSocketAddress;
-import java.net.URI;
 import java.net.URL;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
@@ -41,8 +43,10 @@ public class SimpleConnector extends BaseCollaboration {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-    public SimpleConnector(URL connection) {
-        super(connection);
+    public SimpleConnector(URL connection, INetwork network, BaseConsensusEngine consensusEngine, RSASecurity security) {
+        super(connection, network, consensusEngine, security);
+        consensusEngine.setCollaboration(this);
+        super.setConsensusEngine(consensusEngine);
     }
 
 
@@ -70,26 +74,40 @@ public class SimpleConnector extends BaseCollaboration {
     }
 
     @Override
-    public void sendMessage(Instance instance, Action a) {
+    public void sendTaskExecution(Instance instance, TaskExecution taskExecution) {
+
+        //Sign
+        String signature = super.getSecurity().sign(taskExecution.toString(), super.getDwfms().getUser().getPrivateKey());
+        taskExecution.setSignature(new Signature(signature, super.getDwfms().getUser()));
 
         //Build message object
         String message = "";
-        TaskExecution taskExecution = (TaskExecution) a;
-        Message m = new Message(taskExecution, this.dwfms.getUser());
-        m.sign(super.dwfms.getUser());
+
         try {
-            message = objectMapper.writeValueAsString(m);
+            message = objectMapper.writeValueAsString(taskExecution);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
 
-        send(message, "action");
+        for(String recipient : this.dwfms.getModel().getParticipants()) {
+            this.network.sendTaskExecution(message, recipient + "action");
+
+        }
+
 
     }
 
-
     @Override
+    public void sendDataUpdate(Instance reference, DataUpdate dataUpdate) {
+
+    }
+
     public void sendAcknowledgement(Acknowledgement acknowledgement) {
+
+        //Sign
+        String signature = super.getSecurity().sign(acknowledgement.toString(), super.getDwfms().getUser().getPrivateKey());
+        acknowledgement.setSignature(new Signature(signature, super.getDwfms().getUser()));
+
 
         //Build message object
         String message = "";
@@ -103,7 +121,9 @@ public class SimpleConnector extends BaseCollaboration {
 
         logger.trace("Acknowledgement String: " + message);
 
-        send(message, "ack");
+        for(String recipient : this.recipients) {
+            this.network.sendAcknowledgement(message, recipient+"ack");
+        }
 
     }
 
@@ -127,40 +147,13 @@ public class SimpleConnector extends BaseCollaboration {
             e.printStackTrace();
         }
 
-        send(message, "dply");
+        this.network.sendDeployment(message, "dply");
 
         return instance;
     }
 
     @Override
     public void instanceReceived(Instance instance) {
-
-    }
-
-    @Override
-    public void checkAgreement(TaskExecution taskExecution) {
-
-        logger.trace("Check for agreement...");
-        if(this.candidateLog.getNumberOfAcknowledgements().get(taskExecution.getTask()) > this.numberOfAgreementsRequired) {
-            logger.debug("Agreement reached.");
-            this.atAgreementReached(null, taskExecution);
-        }
-        else {
-            logger.debug("Agreement not reached yet.");
-        }
-
-    }
-
-    private void send(String body, String to) {
-        for(String recipient : this.recipients) {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(recipient + to))
-                    .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(body))
-                    .build();
-
-            this.httpClient.sendAsync(request, HttpResponse.BodyHandlers.discarding());
-        }
 
     }
 

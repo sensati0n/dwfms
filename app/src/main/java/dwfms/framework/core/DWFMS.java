@@ -51,7 +51,7 @@ public class DWFMS {
 
         // Only conform actions are sent to participants
         if(this.executionMachine.isConform(null, taskExecution)) {
-            this.collaboration.sendMessage(taskExecution.getInstance(), taskExecution);
+            this.collaboration.sendTaskExecution(taskExecution.getInstance(), taskExecution);
         }
         else {
             logger.warn("The requested action is not model conform. Processing canceled.");

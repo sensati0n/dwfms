@@ -30,7 +30,7 @@ public class HybridExecutionEngineTest {
     public void setup() {
         model = ExampleDataFactory.exampleBPMNModel();
         hem = new BPMNToHybridExecutionMachineTransformer().transform(model);
-        instance = new Instance("instanceRef", model.getHash());
+        instance = new Instance("instanceRef", model.getModelReference().getModel());
     }
 
 

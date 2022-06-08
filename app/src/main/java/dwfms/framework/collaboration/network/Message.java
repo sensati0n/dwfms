@@ -11,18 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Message {
+public abstract class Message {
 
-    private TaskExecution taskExecution;
     private Signature signature;
 
-    public Message(TaskExecution taskExecution, User user) {
-        this.taskExecution = taskExecution;
-        sign(user);
-    }
-
-    public void sign(User user) {
-        this.signature = new Signature(Utils.sign(taskExecution.toString(), Utils.stringToPrivateKey(user.getPrivateKey())), user);
-    }
+    public abstract void sign(User user);
 
 }

@@ -15,4 +15,8 @@ public class TaskExecution extends UserAction {
     private Instance instance;
     private String task;
 
+    @Override
+    public void sign(User user) {
+
+    }
 }

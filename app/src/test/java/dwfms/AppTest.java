@@ -3,7 +3,10 @@
  */
 package dwfms;
 
-import dwfms.collaboration.simple.SimpleConnector;
+import dwfms.collaboration.example.security.RSASecurity;
+import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.consensus.ThresholdConsensus;
+import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.action.User;
 import dwfms.framework.collaboration.BaseCollaboration;
@@ -14,9 +17,9 @@ import dwfms.framework.core.ITransformer;
 import dwfms.framework.log.Event;
 import dwfms.framework.references.Instance;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
-import dwfms.model.bpmn.BPMNModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -32,6 +35,7 @@ class AppTest {
     private static final Logger logger = LogManager.getLogger(AppTest.class);
 
     @Test
+    @Disabled // because of asynchronous requests
     void appTest() throws NoSuchAlgorithmException, IOException, InterruptedException {
 
         /**
@@ -39,9 +43,9 @@ class AppTest {
          */
         User hans = ExampleDataFactory.hansSimple();
 
-        BaseModel model_hans = new BPMNModel();
+        BaseModel model_hans = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer_hans = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration_hans = new SimpleConnector(new URL("http://localhost:3001"));
+        BaseCollaboration collaboration_hans = new SimpleConnector(new URL("http://localhost:3001"), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
 
         DWFMS dWFMS_hans = DWFMS.builder()
                 .model(model_hans)
@@ -57,9 +61,9 @@ class AppTest {
          */
         User peter = ExampleDataFactory.peterSimple();
 
-        BaseModel model_peter = new BPMNModel();
+        BaseModel model_peter = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer_peter = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration_peter = new SimpleConnector(new URL("http://localhost:4001"));
+        BaseCollaboration collaboration_peter = new SimpleConnector(new URL("http://localhost:4001"), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
 
         DWFMS dWFMS_peter = DWFMS.builder()
                 .model(model_peter)
@@ -77,17 +81,18 @@ class AppTest {
         //It is conformed that we can execute A in the beginning.
         assertTrue(dWFMS_hans.getExecutionMachine().isConform(reference, executeStart));
         dWFMS_hans.executeTask(executeStart);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(3);
 
         //The candidate log is updated
         assertEquals(1, dWFMS_hans.getCollaboration().getCandidateLog().getEvents().size());
         assertTrue(dWFMS_hans.getCollaboration().getCandidateLog().getEvents().contains(new Event(1, "Start", "hans")));
-        assertEquals(1, dWFMS_hans.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get("Start"));
+        assertEquals(2, dWFMS_hans.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get("Start"));
+        TimeUnit.SECONDS.sleep(3);
 
         //Also the candidate log of peter?
         assertEquals(1, dWFMS_peter.getCollaboration().getCandidateLog().getEvents().size());
         assertTrue(dWFMS_peter.getCollaboration().getCandidateLog().getEvents().contains(new Event(1, "Start", "hans")));
-        assertEquals(1, dWFMS_peter.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get("Start"));
+        assertEquals(2, dWFMS_peter.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get("Start"));
 
     }
 
@@ -96,9 +101,9 @@ class AppTest {
 
         User hans = ExampleDataFactory.hansSimple();
 
-        BaseModel model = new BPMNModel();
+        BaseModel model = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:6666"));
+        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:3001"), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)
@@ -116,7 +121,7 @@ class AppTest {
         //It is conformed that we can execute A in the beginning.
         assertTrue(dWFMS.getExecutionMachine().isConform(reference, executeStart));
         dWFMS.executeTask(executeStart);
-        TimeUnit.SECONDS.sleep(2);
+        TimeUnit.SECONDS.sleep(1);
 
         //The candidate log is updated
         assertEquals(1, dWFMS.getCollaboration().getCandidateLog().getEvents().size());
@@ -156,10 +161,10 @@ class AppTest {
         TaskExecution executeStart = new TaskExecution(null, "Start");
         executeStart.setUser(ExampleDataFactory.hansSimple());
         Acknowledgement acknowledgement = new Acknowledgement();
-        acknowledgement.setTaskExecution(executeStart);
+        acknowledgement.setAction(executeStart);
 
         collab.sendAcknowledgement(acknowledgement);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(2);
 
     }
 

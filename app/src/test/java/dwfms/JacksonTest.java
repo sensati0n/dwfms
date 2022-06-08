@@ -21,7 +21,7 @@ public class JacksonTest {
 
 
         String taskExecutionString = objectMapper.writeValueAsString(taskExecution);
-        assertEquals("{\"user\":{\"userReference\":{\"name\":\"hans\"},\"publicKey\":null,\"privateKey\":null},\"instance\":null,\"task\":\"Start\"}", taskExecutionString);
+        assertEquals("{\"signature\":null,\"user\":{\"userReference\":{\"name\":\"hans\"},\"publicKey\":null,\"privateKey\":null},\"instance\":null,\"task\":\"Start\"}", taskExecutionString);
 
     }
 }

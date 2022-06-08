@@ -1,10 +1,13 @@
 package dwfms.collaboration.ethereum;
 
+import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.framework.action.Action;
+import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.collaboration.network.Message;
+import dwfms.framework.collaboration.network.INetwork;
 import dwfms.framework.core.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.references.Instance;
@@ -38,8 +41,8 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     //HELPER
     private Map<String, String> mapTxHashToTask = new HashMap<>();
 
-    public EthereumCollaborationConnector(URL connection) {
-        super(connection);
+    public EthereumCollaborationConnector(URL connection, INetwork network, BaseConsensusEngine engine, RSASecurity security) {
+        super(connection, network, engine, security);
     }
 
 
@@ -55,34 +58,35 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     /**
      * Where should we parse Actions to Messages?
      * We could alternatively create a Message/Transaction object in DWFMS
-     * @param a
+     * @param taskExecution
      */
     @Override
-    public void sendMessage(Instance instance, Action a) {
+    public void sendTaskExecution(Instance instance, TaskExecution taskExecution) {
 
-        if(a instanceof TaskExecution) {
-            TaskExecution taskExecution = (TaskExecution) a;
-            String contractAddress = taskExecution.getInstance().getInstanceRef();
-            String task = taskExecution.getTask();
+        String contractAddress = taskExecution.getInstance().getInstanceRef();
+        String task = taskExecution.getTask();
 
-            Miniksor m = Miniksor.load(contractAddress, this.web3, this.ctm, new DefaultGasProvider());
+        Miniksor m = Miniksor.load(contractAddress, this.web3, this.ctm, new DefaultGasProvider());
 
-            // Call the smart contract function
-            // The name of the function equals the task name per convention
-            try {
-                RemoteFunctionCall<TransactionReceipt> rfc = (RemoteFunctionCall<TransactionReceipt>) m.getClass().getMethod(task, null).invoke(m, null);
-                rfc.sendAsync().thenAccept(result -> this.atAgreementReached(instance, a));
+        // Call the smart contract function
+        // The name of the function equals the task name per convention
+        try {
+            RemoteFunctionCall<TransactionReceipt> rfc = (RemoteFunctionCall<TransactionReceipt>) m.getClass().getMethod(task, null).invoke(m, null);
+            rfc.sendAsync().thenAccept(result -> this.atAgreementReached(instance, taskExecution));
 
-                /*
-                    transactionReceipt.getTo();
-                    transactionReceipt.getBlockNumber();
-                    transactionReceipt.toString();
-                 */
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            /*
+                transactionReceipt.getTo();
+                transactionReceipt.getBlockNumber();
+                transactionReceipt.toString();
+             */
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+    }
+
+    @Override
+    public void sendDataUpdate(Instance reference, DataUpdate dataUpdate) {
 
     }
 
@@ -110,11 +114,6 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
         // here is one example 'process model', compiled and converted to java
 
         return new Instance(this.deployNewContract(Miniksor.class), model.getModelReference().getModel());
-
-    }
-
-    @Override
-    public void messageReceived(Message message) {
 
     }
 

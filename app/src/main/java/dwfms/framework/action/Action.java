@@ -1,8 +1,10 @@
 package dwfms.framework.action;
 
+import dwfms.framework.collaboration.network.Message;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-public abstract class Action {
+@NoArgsConstructor
+public abstract class Action extends Message {
 }
