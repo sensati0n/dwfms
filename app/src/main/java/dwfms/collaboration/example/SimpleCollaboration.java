@@ -12,9 +12,7 @@ import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.Signature;
-import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.collaboration.network.INetwork;
 import dwfms.framework.core.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.references.Instance;
@@ -47,12 +45,11 @@ public class SimpleCollaboration extends BaseCollaboration {
         super(connection, new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
     }
 
-
     @Override
     public void init(DWFMS dwfms) {
         super.dwfms = dwfms;
 
-        //Refactor the architecture to set this in constructor maybe
+        //TODO: Refactor the architecture to set this in constructor maybe
         //Is this enough or must we set the consensus engine again?
         super.getConsensusEngine().setCollaboration(this);
 

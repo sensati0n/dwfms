@@ -4,6 +4,7 @@ import dwfms.framework.references.UserReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.annotation.Nullable;
 
@@ -23,5 +24,8 @@ public class User {
     @Nullable private String privateKey;
 
 
-
+    public User(UserReference userReference, String publicKey) {
+        this.userReference = userReference;
+        this.publicKey = publicKey;
+    }
 }

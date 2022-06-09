@@ -22,6 +22,7 @@ public class EasyRuleEngine {
 
         facts.put("exec("+a.getTask()+")", a.getUser().getUserReference().getName());
         facts.put(a.getTask(), false);
+
         rulesEngine.fire(rules, facts);
 
         boolean isConform = facts.get(a.getTask());

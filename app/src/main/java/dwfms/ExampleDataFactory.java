@@ -14,18 +14,25 @@ import java.util.Set;
 
 public class ExampleDataFactory {
 
-    private static String hansSimplePrivateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII=";
-    private static String hansSimplePublicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==";
+    private static final String hansSimplePrivateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII=";
+    private static final String hansSimplePublicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==";
 
-    private static String peterSimplePrivateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAsht2S0BrQbAUeFy04RbaAdBWXG5kXAN48nsbWWe/YYTxCgbHlnEsI1M1BjxH7+993ydkKzhW42inaV/sCmqKeQIDAQABAkBo5L2NYhoI7K+Rl1+7tN6d9Nn3w9f9TNo9TH118SEIR+ndEKn+5lrw1VHtgsnc48aPx7QMtGyhC+Ib5L5TvARFAiEA+FyPJhiabkQT+yCJiM+711+sP0fdimHuMp1nl/v7Ps8CIQC3lcPwXqtzldJpo98EWJ1g2E234MIX5wpiLH07UfI0NwIgDT2yDA/nu9U5U3wqmPaqRxM8tar5LrWF44Ds0veGL5UCIQC2B8POlK//3bBSmu/IyWzS1+bHyg3p0WaUTXSm2uwDJQIgFy7zrSFpMB7L4/1+9MWGJuWLD2R4+HHsCRV+0aW3inw=";
-    private static String peterSimplePublicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALIbdktAa0GwFHhctOEW2gHQVlxuZFwDePJ7G1lnv2GE8QoGx5ZxLCNTNQY8R+/vfd8nZCs4VuNop2lf7ApqinkCAwEAAQ==";
+    private static final String peterSimplePrivateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAsht2S0BrQbAUeFy04RbaAdBWXG5kXAN48nsbWWe/YYTxCgbHlnEsI1M1BjxH7+993ydkKzhW42inaV/sCmqKeQIDAQABAkBo5L2NYhoI7K+Rl1+7tN6d9Nn3w9f9TNo9TH118SEIR+ndEKn+5lrw1VHtgsnc48aPx7QMtGyhC+Ib5L5TvARFAiEA+FyPJhiabkQT+yCJiM+711+sP0fdimHuMp1nl/v7Ps8CIQC3lcPwXqtzldJpo98EWJ1g2E234MIX5wpiLH07UfI0NwIgDT2yDA/nu9U5U3wqmPaqRxM8tar5LrWF44Ds0veGL5UCIQC2B8POlK//3bBSmu/IyWzS1+bHyg3p0WaUTXSm2uwDJQIgFy7zrSFpMB7L4/1+9MWGJuWLD2R4+HHsCRV+0aW3inw=";
+    private static final String peterSimplePublicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALIbdktAa0GwFHhctOEW2gHQVlxuZFwDePJ7G1lnv2GE8QoGx5ZxLCNTNQY8R+/vfd8nZCs4VuNop2lf7ApqinkCAwEAAQ==";
 
-    private static String hansEthPrivateKey = "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479";
-    private static String hansEthPublicKey = "0xE076df4e49182f0AB6f4B98219F721Cccc38f9be";
+    private static final String hansEthPrivateKey = "0x5305148f9378f0f0d164f28f4fc7fa11469bbd0245c6eac2a3ec75444602a479";
+    private static final String hansEthPublicKey = "0xe076df4e49182f0ab6f4b98219f721cccc38f9be";
 
-    private static String peterEthPrivateKey = "0xaf29e334148adaefeaa8ba0271f18b66507a194cf581a3198d006f052bdaf1f1";
-    private static String peterEthPublicKey = "0x4B1184629DE85ab53cF86477D190a9f3740ABdF5";
+    private static final String peterEthPrivateKey = "0xaf29e334148adaefeaa8ba0271f18b66507a194cf581a3198d006f052bdaf1f1";
+    private static final String peterEthPublicKey = "0x4b1184629de85ab53cf86477d190a9f3740abdf5";
 
+    public static User getUserByPublicKey(String publicKey) {
+        switch(publicKey.toLowerCase()) {
+            case hansEthPublicKey: return hansEth();
+            case peterEthPublicKey: return peterEth();
+            default: return new User();
+        }
+    }
 
     public static User hansSimple() {
         return new User(new UserReference("hans"), hansSimplePublicKey, hansSimplePrivateKey);

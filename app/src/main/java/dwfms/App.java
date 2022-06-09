@@ -49,10 +49,10 @@ public class App {
         else if(args[0].equals("eth")) {
             switch(args[1]) {
                 case "hans":
-                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.hansEth());
+                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.hansEth(), Integer.parseInt(args[2])+1);
                     break;
                 case "peter":
-                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.peterEth());
+                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.peterEth(), Integer.parseInt(args[2])+1);
                     break;
             }
         }
@@ -61,14 +61,14 @@ public class App {
 
     }
 
-    static DWFMS setupEthereumDWFMS(User user) throws MalformedURLException {
+    static DWFMS setupEthereumDWFMS(User user, int port) throws MalformedURLException {
 
         // start ganache-cli with deterministic wallet mnemonic:
         // ganache-cli -l 60000000 -b 15 -d -m "shiver armed industry victory sight vague follow spray couple hat obscure yard"
 
         BaseModel model = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new EthereumCollaborationConnector(new URL("http://localhost:8545"), null, null, new RSASecurity());
+        BaseCollaboration collaboration = new EthereumCollaborationConnector(new URL("http://localhost:8545"), port);
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)

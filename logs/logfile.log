@@ -742,3 +742,521 @@ DEBUG | 2022-06-08 23:01:08 | [HTTP-Dispatcher] consensus.ThresholdConsensus (Th
 DEBUG | 2022-06-08 23:01:08 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
 DEBUG | 2022-06-08 23:01:08 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
 TRACE | 2022-06-08 23:01:08 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:45) - Processing finished in AcknowledgementHandler...
+TRACE | 2022-06-09 10:53:13 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 10:53:13 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 10:53:20 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 10:53:30 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 10:53:30 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 10:53:31 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 10:53:46 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 10:53:46 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.ActionHandler (ActionHandler.java:35) - Message received in ActionHandler...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.ActionHandler (ActionHandler.java:35) - Message received in ActionHandler...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.ActionHandler (ActionHandler.java:41) - UserReference(name=hans) wants to execute Start
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] collaboration.BaseCollaboration (BaseCollaboration.java:73) - Message received. Parse, verify and check conformance...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] collaboration.BaseCollaboration (BaseCollaboration.java:79) - Event (Start, hans) is model conform. Let's add it to the candidate log...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] collaboration.BaseCollaboration (BaseCollaboration.java:82) - Send Acknowledgement...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.ActionHandler (ActionHandler.java:41) - UserReference(name=hans) wants to execute Start
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] collaboration.BaseCollaboration (BaseCollaboration.java:73) - Message received. Parse, verify and check conformance...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] example.SimpleCollaboration (SimpleCollaboration.java:123) - Acknowledgement String: {"signature":{"signature":"QkCytYjes8dgPkw/XvB0ogGK4tE/6Ns2lYA8ZVNpBIarLfPMEnwCMf0+hK7WE3uyffs5sqaoSzCvmaPzbiXwgw==","user":{"userReference":{"name":"hans"},"publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==","privateKey":"MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII="}},"action":{"signature":{"signature":"V294vhqW6tW1dRGjRu8i4zWqzkCTUWHHm5n67zGGpxzlruliIZChGlH9YP1VA5cZrHtPFTSf7kNbliruBPcrLw==","user":{"userReference":{"name":"hans"},"publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==","privateKey":"MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII="}},"user":{"userReference":{"name":"hans"},"publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==","privateKey":"MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII="},"instance":{"instanceRef":"0x99af9db5011ad767c7e81185107ee61d8ed17ac3","modelRef":null},"task":"Start"}}
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:36) - Message received in AcknowledgementHandler...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] collaboration.BaseCollaboration (BaseCollaboration.java:79) - Event (Start, hans) is model conform. Let's add it to the candidate log...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:42) - hans wants to execute Start
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] collaboration.BaseCollaboration (BaseCollaboration.java:82) - Send Acknowledgement...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:29) - Check for agreement...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:36) - Agreement not reached yet.
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:45) - Processing finished in AcknowledgementHandler...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] example.SimpleCollaboration (SimpleCollaboration.java:123) - Acknowledgement String: {"signature":{"signature":"nahKrjjiFp2FwX4/KneYNBP2oBUwWDVEr4r004q1Aqk9Olfc7tnHdUfAIfc7qbSMVyQiO1TkfHkWW/3akRorCg==","user":{"userReference":{"name":"peter"},"publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALIbdktAa0GwFHhctOEW2gHQVlxuZFwDePJ7G1lnv2GE8QoGx5ZxLCNTNQY8R+/vfd8nZCs4VuNop2lf7ApqinkCAwEAAQ==","privateKey":"MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAsht2S0BrQbAUeFy04RbaAdBWXG5kXAN48nsbWWe/YYTxCgbHlnEsI1M1BjxH7+993ydkKzhW42inaV/sCmqKeQIDAQABAkBo5L2NYhoI7K+Rl1+7tN6d9Nn3w9f9TNo9TH118SEIR+ndEKn+5lrw1VHtgsnc48aPx7QMtGyhC+Ib5L5TvARFAiEA+FyPJhiabkQT+yCJiM+711+sP0fdimHuMp1nl/v7Ps8CIQC3lcPwXqtzldJpo98EWJ1g2E234MIX5wpiLH07UfI0NwIgDT2yDA/nu9U5U3wqmPaqRxM8tar5LrWF44Ds0veGL5UCIQC2B8POlK//3bBSmu/IyWzS1+bHyg3p0WaUTXSm2uwDJQIgFy7zrSFpMB7L4/1+9MWGJuWLD2R4+HHsCRV+0aW3inw="}},"action":{"signature":{"signature":"V294vhqW6tW1dRGjRu8i4zWqzkCTUWHHm5n67zGGpxzlruliIZChGlH9YP1VA5cZrHtPFTSf7kNbliruBPcrLw==","user":{"userReference":{"name":"hans"},"publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==","privateKey":"MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII="}},"user":{"userReference":{"name":"hans"},"publicKey":"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIkIeoy/Vl9RkNb8LgGtcr5f2O8h7Dglos+yPJI6r0ziuqsS7B3FCdCB61HKP93XHBayCZYByIwEL+7d46Wz6d0CAwEAAQ==","privateKey":"MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAiQh6jL9WX1GQ1vwuAa1yvl/Y7yHsOCWiz7I8kjqvTOK6qxLsHcUJ0IHrUco/3dccFrIJlgHIjAQv7t3jpbPp3QIDAQABAkA72to8tC6z/9q2LPyjevGNuiv1d+nINJhDBGV0sfF0MUdZjy6gh77X5PlGWUYsfqph2iO8LpVf7hVUGscCv/q5AiEA2OAYTqtXnk98tQll1L/q7D4305Gi9ZgSuhMFLye7o28CIQChwQwtYHwOYCpsCSkxmRzdQxcXZMWwgAw9+1MbElLxcwIgYZQae7LuHkWnV5Ed5yZeneK0nZWmW5gLvPr31yqqazMCID4nryU0oRbpDwQKlSCw5C2FnTbpCyniWlHq5ClP5j1PAiEA1AOrfTOp2l0kuUeYvr5etCCBPpLOXDShN9HlllUAjII="},"instance":{"instanceRef":"0x99af9db5011ad767c7e81185107ee61d8ed17ac3","modelRef":null},"task":"Start"}}
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:36) - Message received in AcknowledgementHandler...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:42) - hans wants to execute Start
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:29) - Check for agreement...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:36) - Agreement not reached yet.
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:45) - Processing finished in AcknowledgementHandler...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:36) - Message received in AcknowledgementHandler...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:36) - Message received in AcknowledgementHandler...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:42) - hans wants to execute Start
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:29) - Check for agreement...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:31) - Agreement reached.
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:42) - hans wants to execute Start
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:45) - Processing finished in AcknowledgementHandler...
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:29) - Check for agreement...
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] consensus.ThresholdConsensus (ThresholdConsensus.java:31) - Agreement reached.
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+DEBUG | 2022-06-09 10:53:48 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+TRACE | 2022-06-09 10:53:48 | [HTTP-Dispatcher] network.AcknowledgementHandler (AcknowledgementHandler.java:45) - Processing finished in AcknowledgementHandler...
+TRACE | 2022-06-09 12:35:13 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 12:35:13 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 12:35:13 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 12:35:45 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 12:35:45 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 12:35:45 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:127) - Deploy new process.
+DEBUG | 2022-06-09 12:36:01 | [main] dwfms.App (App.java:82) - Contract Address: 0xa9686633eb7712fff7e3fa42db4d339054225282
+TRACE | 2022-06-09 12:36:01 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 12:36:49 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 12:36:49 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 12:36:50 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:169) - Instantiate existing process with contract address.
+TRACE | 2022-06-09 12:36:52 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+DEBUG | 2022-06-09 12:37:07 | [main] dwfms.App (App.java:82) - Contract Address: 0x19ebb9a0741fcfdcfb4726b521decf8a9c486f2f
+TRACE | 2022-06-09 12:37:07 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 12:37:27 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 12:37:27 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 12:37:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:82) - Send Task Execution: (Start, hans)
+INFO  | 2022-06-09 12:37:37 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x2e2cfe5629f016ba26b6c122b12742f8c5e6a36d25fc83e33dd5dcd849ee9f96', blockHash='0xf3b8e209d57e7d039aeca0efd3fb7003296907bb2e763f8bb081c70a643e35ba', blockNumber='0x18b4', address='0xa9686633eb7712fff7e3fa42db4d339054225282', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 12:37:42 | [pool-2-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:110) - Agreement is reached for: (Start, hans)
+DEBUG | 2022-06-09 12:37:42 | [pool-2-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+DEBUG | 2022-06-09 12:37:42 | [pool-2-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+TRACE | 2022-06-09 13:02:14 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 13:02:14 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 13:02:14 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:169) - Instantiate existing process with contract address.
+INFO  | 2022-06-09 13:02:16 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x2e2cfe5629f016ba26b6c122b12742f8c5e6a36d25fc83e33dd5dcd849ee9f96', blockHash='0xf3b8e209d57e7d039aeca0efd3fb7003296907bb2e763f8bb081c70a643e35ba', blockNumber='0x18b4', address='0xa9686633eb7712fff7e3fa42db4d339054225282', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+TRACE | 2022-06-09 13:02:16 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+DEBUG | 2022-06-09 13:02:31 | [main] dwfms.App (App.java:82) - Contract Address: 0x6e52aa1e0a2edd27daec6b1b8bc5eb5c59de07e0
+TRACE | 2022-06-09 13:02:31 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 13:02:55 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 13:02:55 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 13:03:03 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:82) - Send Task Execution: (Start, hans)
+TRACE | 2022-06-09 13:05:11 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 13:05:11 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute A
+WARN  | 2022-06-09 13:05:19 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:57) - The requested action is not model conform. Processing canceled.
+TRACE | 2022-06-09 13:05:39 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 13:05:39 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 13:05:39 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:169) - Instantiate existing process with contract address.
+INFO  | 2022-06-09 13:05:41 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x2e2cfe5629f016ba26b6c122b12742f8c5e6a36d25fc83e33dd5dcd849ee9f96', blockHash='0xf3b8e209d57e7d039aeca0efd3fb7003296907bb2e763f8bb081c70a643e35ba', blockNumber='0x18b4', address='0xa9686633eb7712fff7e3fa42db4d339054225282', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+TRACE | 2022-06-09 13:05:41 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+DEBUG | 2022-06-09 13:05:56 | [main] dwfms.App (App.java:82) - Contract Address: 0x89460a7d941603eb04a45452be8488d87b568c4e
+TRACE | 2022-06-09 13:05:56 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 13:06:35 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 13:06:35 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 13:06:36 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:169) - Instantiate existing process with contract address.
+TRACE | 2022-06-09 13:06:37 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+DEBUG | 2022-06-09 13:06:52 | [main] dwfms.App (App.java:82) - Contract Address: 0xbdfb08564caa596d78b241f0eacf7e365d5016d5
+TRACE | 2022-06-09 13:06:52 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 13:09:49 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 13:09:49 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 13:09:49 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:169) - Instantiate existing process with contract address.
+TRACE | 2022-06-09 13:09:50 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+DEBUG | 2022-06-09 13:10:05 | [main] dwfms.App (App.java:82) - Contract Address: 0x8b5c6474bdcde784f5d05924229d93224ec43bd1
+TRACE | 2022-06-09 13:10:06 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 13:10:37 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 13:10:37 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 13:10:37 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:82) - Send Task Execution: (Start, hans)
+INFO  | 2022-06-09 13:10:50 | [pool-3-thread-3] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xa8a227969e28697be3a0a227b35a6baba89b38a06755c6fabb5bd45815dc7bb6', blockHash='0xddeef24b613e1af85e99c1293af4a1b1e5097b5833d8d768550700ab6a76c2cb', blockNumber='0x1938', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+INFO  | 2022-06-09 13:10:52 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xa8a227969e28697be3a0a227b35a6baba89b38a06755c6fabb5bd45815dc7bb6', blockHash='0xddeef24b613e1af85e99c1293af4a1b1e5097b5833d8d768550700ab6a76c2cb', blockNumber='0x1938', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 13:10:53 | [pool-2-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:110) - Agreement is reached for: (Start, hans)
+DEBUG | 2022-06-09 13:10:53 | [pool-2-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+DEBUG | 2022-06-09 13:10:53 | [pool-2-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+TRACE | 2022-06-09 13:11:38 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 13:11:38 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 13:11:39 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:169) - Instantiate existing process with contract address.
+INFO  | 2022-06-09 13:12:21 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xa8a227969e28697be3a0a227b35a6baba89b38a06755c6fabb5bd45815dc7bb6', blockHash='0xddeef24b613e1af85e99c1293af4a1b1e5097b5833d8d768550700ab6a76c2cb', blockNumber='0x1938', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+TRACE | 2022-06-09 13:12:21 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+TRACE | 2022-06-09 13:12:32 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 13:12:32 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute A
+TRACE | 2022-06-09 13:12:32 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:82) - Send Task Execution: (A, hans)
+DEBUG | 2022-06-09 13:12:37 | [main] dwfms.App (App.java:82) - Contract Address: 0x56cca47565d60079bc4f7a79191cc54d1a625735
+TRACE | 2022-06-09 13:12:37 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 4000
+DEBUG | 2022-06-09 13:12:47 | [pool-2-thread-2] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:110) - Agreement is reached for: (A, hans)
+DEBUG | 2022-06-09 13:12:47 | [pool-2-thread-2] core.DWFMS (DWFMS.java:70) - Machined updated: (A, hans) was executed.
+DEBUG | 2022-06-09 13:12:47 | [pool-2-thread-2] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (A, hans) executed.
+INFO  | 2022-06-09 13:12:52 | [pool-3-thread-6] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x26074b9437654b1ca666baa1c7506e0f682eed20d1ac3fc8de3ff73916198795', blockHash='0x2b48a848a73f2cff055ba2e0a1f35873769583b60bfeba46b3cec1e8727fed28', blockNumber='0x1940', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014100000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+TRACE | 2022-06-09 13:22:15 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 13:22:15 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 13:22:15 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:172) - Instantiate existing process with contract address.
+INFO  | 2022-06-09 13:22:58 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:177) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xa8a227969e28697be3a0a227b35a6baba89b38a06755c6fabb5bd45815dc7bb6', blockHash='0xddeef24b613e1af85e99c1293af4a1b1e5097b5833d8d768550700ab6a76c2cb', blockNumber='0x1938', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+INFO  | 2022-06-09 13:23:16 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:180) - hi
+INFO  | 2022-06-09 13:23:16 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:177) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x26074b9437654b1ca666baa1c7506e0f682eed20d1ac3fc8de3ff73916198795', blockHash='0x2b48a848a73f2cff055ba2e0a1f35873769583b60bfeba46b3cec1e8727fed28', blockNumber='0x1940', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014100000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+INFO  | 2022-06-09 13:23:18 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:180) - hi
+TRACE | 2022-06-09 13:23:18 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:132) - Deploy new process.
+DEBUG | 2022-06-09 13:23:33 | [main] dwfms.App (App.java:82) - Contract Address: 0x53c43846b59005a13f09605b46995e978cc4851c
+TRACE | 2022-06-09 13:23:33 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 13:23:36 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 13:23:36 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute B
+TRACE | 2022-06-09 13:23:36 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:82) - Send Task Execution: (B, hans)
+INFO  | 2022-06-09 13:23:48 | [pool-3-thread-2] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:177) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xf907abba69eccaf92983c1ab06d31fad6b6deeece1f953e505a85af4b311d61c', blockHash='0xb548405570a60a17e5d2d47eb5cef2dc3df52ebeae4ae4eee07d76e71014c8c2', blockNumber='0x196c', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014200000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 13:23:51 | [pool-2-thread-3] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:110) - Agreement is reached for: (B, hans)
+DEBUG | 2022-06-09 13:23:51 | [pool-2-thread-3] core.DWFMS (DWFMS.java:70) - Machined updated: (B, hans) was executed.
+DEBUG | 2022-06-09 13:23:51 | [pool-2-thread-3] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (B, hans) executed.
+INFO  | 2022-06-09 13:23:52 | [pool-3-thread-6] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xf907abba69eccaf92983c1ab06d31fad6b6deeece1f953e505a85af4b311d61c', blockHash='0xb548405570a60a17e5d2d47eb5cef2dc3df52ebeae4ae4eee07d76e71014c8c2', blockNumber='0x196c', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014200000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+TRACE | 2022-06-09 13:28:02 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 13:28:02 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 13:28:02 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:172) - Instantiate existing process with contract address.
+INFO  | 2022-06-09 13:28:33 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:177) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xa8a227969e28697be3a0a227b35a6baba89b38a06755c6fabb5bd45815dc7bb6', blockHash='0xddeef24b613e1af85e99c1293af4a1b1e5097b5833d8d768550700ab6a76c2cb', blockNumber='0x1938', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000055374617274000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 13:28:37 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:180) - New event received: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+INFO  | 2022-06-09 13:28:37 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:177) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x26074b9437654b1ca666baa1c7506e0f682eed20d1ac3fc8de3ff73916198795', blockHash='0x2b48a848a73f2cff055ba2e0a1f35873769583b60bfeba46b3cec1e8727fed28', blockNumber='0x1940', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014100000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 13:28:40 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:180) - New event received: (A0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+INFO  | 2022-06-09 13:28:40 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:177) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0xf907abba69eccaf92983c1ab06d31fad6b6deeece1f953e505a85af4b311d61c', blockHash='0xb548405570a60a17e5d2d47eb5cef2dc3df52ebeae4ae4eee07d76e71014c8c2', blockNumber='0x196c', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014200000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 13:28:41 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:180) - New event received: (B0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 13:28:41 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:132) - Deploy new process.
+DEBUG | 2022-06-09 13:28:56 | [main] dwfms.App (App.java:82) - Contract Address: 0xb51aa2f097371fe2d0b8979b66ae37a6727e3a99
+TRACE | 2022-06-09 13:28:56 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 13:29:08 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 13:29:08 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute D
+TRACE | 2022-06-09 13:29:08 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:82) - Send Task Execution: (D, hans)
+INFO  | 2022-06-09 13:29:22 | [pool-3-thread-6] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:173) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x59c990a91164130276cac4167948cb2eb767e0ff02fcb8b6b3b0e65e1f24a46f', blockHash='0x470aa0d52bcfc229cf0a44f213c6c6819348c7cd450b73147ddac6542889129f', blockNumber='0x1982', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014400000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 13:29:23 | [pool-2-thread-4] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:110) - Agreement is reached for: (D, hans)
+DEBUG | 2022-06-09 13:29:23 | [pool-2-thread-4] core.DWFMS (DWFMS.java:70) - Machined updated: (D, hans) was executed.
+DEBUG | 2022-06-09 13:29:23 | [pool-2-thread-4] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (D, hans) executed.
+INFO  | 2022-06-09 13:29:26 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:177) - event = Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x59c990a91164130276cac4167948cb2eb767e0ff02fcb8b6b3b0e65e1f24a46f', blockHash='0x470aa0d52bcfc229cf0a44f213c6c6819348c7cd450b73147ddac6542889129f', blockNumber='0x1982', address='0x89460a7d941603eb04a45452be8488d87b568c4e', data='0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000e076df4e49182f0ab6f4b98219f721cccc38f9be00000000000000000000000000000000000000000000000000000000000000014400000000000000000000000000000000000000000000000000000000000000', type='mined', topics=[0x659ca8f177d3b05486dd56ac6602c20d4334d998c8b0fabb9e95dcc356232aa9]}
+DEBUG | 2022-06-09 13:29:40 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:180) - New event received: (D0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:09 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:21:09 | [main] dwfms.App (App.java:34) - Port: 3000
+DEBUG | 2022-06-09 15:21:09 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:151) - Subscribe for events on: 0x89460a7d941603eb04a45452be8488d87b568c4e
+DEBUG | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+DEBUG | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (A0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+DEBUG | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (B0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+DEBUG | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (D0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+TRACE | 2022-06-09 15:21:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:21:15 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 15:21:15 | [main] dwfms.App (App.java:34) - Port: 4000
+DEBUG | 2022-06-09 15:21:15 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:151) - Subscribe for events on: 0x89460a7d941603eb04a45452be8488d87b568c4e
+DEBUG | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+DEBUG | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (A0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+DEBUG | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (B0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+DEBUG | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x89460a7d941603eb04a45452be8488d87b568c4e: (D0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+TRACE | 2022-06-09 15:21:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:21:26 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+TRACE | 2022-06-09 15:21:32 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+TRACE | 2022-06-09 15:23:29 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:23:29 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:23:30 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:24:18 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:24:18 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:24:18 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:24:42 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:24:42 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:24:43 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:25:29 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:25:29 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:26:05 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:26:05 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:26:05 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:26:20 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+TRACE | 2022-06-09 15:26:36 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:26:36 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:26:54 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:27:43 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:27:43 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:27:46 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:28:12 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+TRACE | 2022-06-09 15:29:23 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:29:23 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:29:26 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:29:46 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+TRACE | 2022-06-09 15:30:15 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:30:15 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:30:17 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:30:35 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+TRACE | 2022-06-09 15:30:58 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:30:58 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:31:05 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:31:25 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+TRACE | 2022-06-09 15:31:48 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:31:48 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:31:48 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+TRACE | 2022-06-09 15:32:03 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:132) - Notify participants.
+TRACE | 2022-06-09 15:32:03 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Deploy new process.
+TRACE | 2022-06-09 15:32:03 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:32:03 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:143) - New instance received: Instance(instanceRef=0x1b51f79ed3e109660bd1a6e71f03023537175b60, modelRef=null)
+DEBUG | 2022-06-09 15:32:03 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:150) - Subscribe for events on: 0x1b51f79ed3e109660bd1a6e71f03023537175b60
+TRACE | 2022-06-09 15:32:18 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:132) - Notify participants.
+DEBUG | 2022-06-09 15:32:18 | [main] dwfms.App (App.java:82) - Contract Address: 0x241d637a335842420d0677c0122b7c7b5242f17c
+TRACE | 2022-06-09 15:32:18 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+TRACE | 2022-06-09 15:32:18 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+DEBUG | 2022-06-09 15:32:18 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:143) - New instance received: Instance(instanceRef=0x241d637a335842420d0677c0122b7c7b5242f17c, modelRef=null)
+DEBUG | 2022-06-09 15:32:18 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:150) - Subscribe for events on: 0x241d637a335842420d0677c0122b7c7b5242f17c
+TRACE | 2022-06-09 15:32:49 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:32:49 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:32:49 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:128) - Deploy new process.
+TRACE | 2022-06-09 15:33:04 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:131) - Notify participants.
+DEBUG | 2022-06-09 15:33:04 | [main] dwfms.App (App.java:82) - Contract Address: 0x04dd001b2d7eef9818f44adeb77ee8a7b0d3e942
+TRACE | 2022-06-09 15:33:04 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:33:04 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:33:04 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:142) - New instance received: Instance(instanceRef=0x04dd001b2d7eef9818f44adeb77ee8a7b0d3e942, modelRef=null)
+DEBUG | 2022-06-09 15:33:04 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:149) - Subscribe for events on: 0x04dd001b2d7eef9818f44adeb77ee8a7b0d3e942
+TRACE | 2022-06-09 15:33:32 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:33:32 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:33:32 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:91) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:33:47 | [pool-2-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+DEBUG | 2022-06-09 15:33:47 | [pool-2-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+DEBUG | 2022-06-09 15:33:51 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:159) - New event received for instance0x04dd001b2d7eef9818f44adeb77ee8a7b0d3e942: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:33:51 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:169) - Acknowledgement received
+TRACE | 2022-06-09 15:34:54 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:34:54 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:34:54 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:130) - Deploy new process.
+TRACE | 2022-06-09 15:35:09 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:133) - Notify participants.
+DEBUG | 2022-06-09 15:35:09 | [main] dwfms.App (App.java:82) - Contract Address: 0x31d979aa6b5c0e1f19a8e9c684c91484c0ba1659
+TRACE | 2022-06-09 15:35:09 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:35:09 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:35:09 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:144) - New instance received: Instance(instanceRef=0x31d979aa6b5c0e1f19a8e9c684c91484c0ba1659, modelRef=null)
+DEBUG | 2022-06-09 15:35:09 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:151) - Subscribe for events on: 0x31d979aa6b5c0e1f19a8e9c684c91484c0ba1659
+TRACE | 2022-06-09 15:35:19 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:35:19 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:35:19 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:91) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:35:26 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:161) - New event received for instance0x31d979aa6b5c0e1f19a8e9c684c91484c0ba1659: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:35:26 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:171) - Acknowledgement received
+TRACE | 2022-06-09 15:35:33 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:35:33 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:35:33 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:91) - Send Task Execution: (Start, hans)
+TRACE | 2022-06-09 15:36:49 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:36:49 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:36:50 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:37:24 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:37:36 | [main] dwfms.App (App.java:82) - Contract Address: 0xa835cee45dbd72f3c51a67c50709392c948d1d36
+TRACE | 2022-06-09 15:37:36 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:37:36 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:37:36 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0xa835cee45dbd72f3c51a67c50709392c948d1d36, modelRef=null)
+DEBUG | 2022-06-09 15:37:36 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0xa835cee45dbd72f3c51a67c50709392c948d1d36
+TRACE | 2022-06-09 15:37:47 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:37:47 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:37:51 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:38:08 | [pool-3-thread-2] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0xa835cee45dbd72f3c51a67c50709392c948d1d36: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:38:08 | [pool-3-thread-2] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 15:38:12 | [pool-3-thread-2] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, null) was executed.
+TRACE | 2022-06-09 15:40:14 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:40:14 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:40:14 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:40:29 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:40:29 | [main] dwfms.App (App.java:82) - Contract Address: 0x952f89b2ebdca4a341942abbc1f64802d87b482a
+TRACE | 2022-06-09 15:40:29 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:40:29 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:40:29 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0x952f89b2ebdca4a341942abbc1f64802d87b482a, modelRef=null)
+DEBUG | 2022-06-09 15:40:29 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0x952f89b2ebdca4a341942abbc1f64802d87b482a
+TRACE | 2022-06-09 15:40:38 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:40:38 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:40:38 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:40:38 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:40:38 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:40:38 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 15:40:38 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:40:46 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x952f89b2ebdca4a341942abbc1f64802d87b482a: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:40:46 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 15:40:46 | [pool-3-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, null) was executed.
+TRACE | 2022-06-09 15:41:39 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:41:39 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:41:39 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:41:57 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:42:07 | [main] dwfms.App (App.java:82) - Contract Address: 0x74044f41e4a03359262a416e69cb929f4e6878a9
+TRACE | 2022-06-09 15:42:07 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:42:07 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:42:07 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0x74044f41e4a03359262a416e69cb929f4e6878a9, modelRef=null)
+DEBUG | 2022-06-09 15:42:07 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0x74044f41e4a03359262a416e69cb929f4e6878a9
+TRACE | 2022-06-09 15:42:24 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:42:24 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:43:24 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:43:24 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:43:24 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:43:24 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 15:43:31 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:43:53 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x74044f41e4a03359262a416e69cb929f4e6878a9: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:43:53 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 15:44:12 | [pool-3-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, null) was executed.
+TRACE | 2022-06-09 15:48:11 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:48:11 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:48:11 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:48:27 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:48:27 | [main] dwfms.App (App.java:82) - Contract Address: 0x116d91bab6e305a7094728b96165660cf706b61c
+TRACE | 2022-06-09 15:48:27 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:48:27 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:48:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0x116d91bab6e305a7094728b96165660cf706b61c, modelRef=null)
+DEBUG | 2022-06-09 15:48:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0x116d91bab6e305a7094728b96165660cf706b61c
+TRACE | 2022-06-09 15:49:00 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:49:00 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:49:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:49:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:49:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:49:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 15:49:00 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:49:28 | [pool-3-thread-3] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x116d91bab6e305a7094728b96165660cf706b61c: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:49:28 | [pool-3-thread-3] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+TRACE | 2022-06-09 15:50:23 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:50:23 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:50:23 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:50:43 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:50:43 | [main] dwfms.App (App.java:82) - Contract Address: 0xe0c526277245d66cdf8cacba6614f6e653302457
+TRACE | 2022-06-09 15:50:43 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:50:43 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:50:43 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0xe0c526277245d66cdf8cacba6614f6e653302457, modelRef=null)
+DEBUG | 2022-06-09 15:50:43 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0xe0c526277245d66cdf8cacba6614f6e653302457
+TRACE | 2022-06-09 15:50:50 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:50:50 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:51:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:51:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:51:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:51:00 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 15:51:02 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:51:30 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0xe0c526277245d66cdf8cacba6614f6e653302457: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:51:30 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+TRACE | 2022-06-09 15:53:50 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:53:50 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:53:51 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:54:06 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:54:06 | [main] dwfms.App (App.java:82) - Contract Address: 0xe2b03e6102b88d88b2c47ab9a3b6fabc52dce241
+TRACE | 2022-06-09 15:54:06 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:54:06 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:54:06 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0xe2b03e6102b88d88b2c47ab9a3b6fabc52dce241, modelRef=null)
+DEBUG | 2022-06-09 15:54:06 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0xe2b03e6102b88d88b2c47ab9a3b6fabc52dce241
+TRACE | 2022-06-09 15:54:23 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:54:23 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:54:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:54:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:54:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:54:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 15:54:23 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:54:37 | [pool-3-thread-2] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0xe2b03e6102b88d88b2c47ab9a3b6fabc52dce241: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:54:37 | [pool-3-thread-2] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+TRACE | 2022-06-09 15:55:09 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:55:09 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:55:09 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:55:25 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:55:25 | [main] dwfms.App (App.java:82) - Contract Address: 0x7180eafb294229b5e8b228638fcbca9136518b9f
+TRACE | 2022-06-09 15:55:25 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:55:25 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:55:25 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0x7180eafb294229b5e8b228638fcbca9136518b9f, modelRef=null)
+DEBUG | 2022-06-09 15:55:25 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0x7180eafb294229b5e8b228638fcbca9136518b9f
+TRACE | 2022-06-09 15:55:34 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:55:34 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:55:34 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:55:34 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:55:34 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:55:34 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 15:55:37 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:55:56 | [pool-3-thread-2] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x7180eafb294229b5e8b228638fcbca9136518b9f: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:57:05 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 15:57:05 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 15:57:06 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:57:21 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:57:21 | [main] dwfms.App (App.java:82) - Contract Address: 0x0f6c3425bf88eb9bffea6820bf244acecd93be49
+TRACE | 2022-06-09 15:57:21 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 15:57:21 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:57:21 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0x0f6c3425bf88eb9bffea6820bf244acecd93be49, modelRef=null)
+DEBUG | 2022-06-09 15:57:21 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0x0f6c3425bf88eb9bffea6820bf244acecd93be49
+TRACE | 2022-06-09 15:57:29 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:57:29 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:57:29 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:57:29 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:57:29 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:57:29 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 15:57:29 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (Start, hans)
+DEBUG | 2022-06-09 15:57:37 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x0f6c3425bf88eb9bffea6820bf244acecd93be49: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:57:37 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 15:57:37 | [pool-3-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+TRACE | 2022-06-09 15:57:37 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:57:37 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:57:37 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:57:37 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+DEBUG | 2022-06-09 15:57:37 | [pool-3-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+TRACE | 2022-06-09 15:57:48 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 15:57:48 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute Start
+TRACE | 2022-06-09 15:57:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:57:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:57:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:57:48 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+WARN  | 2022-06-09 15:57:48 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:57) - The requested action is not model conform. Processing canceled.
+TRACE | 2022-06-09 15:58:14 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 15:58:14 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 15:58:15 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:115) - Deploy new process.
+TRACE | 2022-06-09 15:58:30 | [main] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:118) - Notify participants.
+DEBUG | 2022-06-09 15:58:30 | [main] dwfms.App (App.java:82) - Contract Address: 0xd7b57902f825a9e71d1ca86712d9239328e24db4
+TRACE | 2022-06-09 15:58:30 | [main] ui.HttpInterface (HttpInterface.java:39) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 15:58:30 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:58:30 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0xd7b57902f825a9e71d1ca86712d9239328e24db4, modelRef=null)
+DEBUG | 2022-06-09 15:58:30 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0xd7b57902f825a9e71d1ca86712d9239328e24db4
+TRACE | 2022-06-09 15:58:30 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:58:30 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0xd7b57902f825a9e71d1ca86712d9239328e24db4, modelRef=null)
+DEBUG | 2022-06-09 15:58:30 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0xd7b57902f825a9e71d1ca86712d9239328e24db4
+TRACE | 2022-06-09 15:59:22 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:109) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 15:59:22 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - New instance received: Instance(instanceRef=0x0f6c3425bf88eb9bffea6820bf244acecd93be49, modelRef=null)
+DEBUG | 2022-06-09 15:59:22 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:136) - Subscribe for events on: 0x0f6c3425bf88eb9bffea6820bf244acecd93be49
+DEBUG | 2022-06-09 15:59:23 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x0f6c3425bf88eb9bffea6820bf244acecd93be49: (Start0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 15:59:23 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 15:59:23 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, hans) was executed.
+TRACE | 2022-06-09 15:59:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 15:59:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 15:59:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 15:59:23 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+DEBUG | 2022-06-09 15:59:23 | [HTTP-Dispatcher] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, hans) executed.
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute A
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	A
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(A)
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	peter
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 16:00:12 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+WARN  | 2022-06-09 16:00:12 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:57) - The requested action is not model conform. Processing canceled.
+TRACE | 2022-06-09 16:00:35 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 16:00:35 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute A
+TRACE | 2022-06-09 16:00:35 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	A
+TRACE | 2022-06-09 16:00:35 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 16:00:35 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(A)
+TRACE | 2022-06-09 16:00:35 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 16:00:35 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (A, hans)
+DEBUG | 2022-06-09 16:00:52 | [pool-3-thread-7] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x0f6c3425bf88eb9bffea6820bf244acecd93be49: (A0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 16:00:52 | [pool-3-thread-7] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 16:00:52 | [pool-3-thread-7] core.DWFMS (DWFMS.java:70) - Machined updated: (A, hans) was executed.
+TRACE | 2022-06-09 16:00:52 | [pool-3-thread-7] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	A
+TRACE | 2022-06-09 16:00:52 | [pool-3-thread-7] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 16:00:52 | [pool-3-thread-7] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(A)
+TRACE | 2022-06-09 16:00:52 | [pool-3-thread-7] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+DEBUG | 2022-06-09 16:00:52 | [pool-3-thread-7] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (A, hans) executed.
+DEBUG | 2022-06-09 16:00:53 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x0f6c3425bf88eb9bffea6820bf244acecd93be49: (A0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 16:00:53 | [pool-3-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (A, hans) was executed.
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	A
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	true
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(A)
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 16:00:53 | [pool-3-thread-1] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+DEBUG | 2022-06-09 16:00:53 | [pool-3-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (A, hans) executed.
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:45) - Message received in HttpInterfaceHandler...
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ui.HttpInterface (HttpInterface.java:51) - I want to execute B
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	B
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	true
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(A)
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(B)
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	peter
+TRACE | 2022-06-09 16:01:03 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:90) - Send Task Execution: (B, peter)
+DEBUG | 2022-06-09 16:01:07 | [pool-3-thread-4] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x0f6c3425bf88eb9bffea6820bf244acecd93be49: (B0x4b1184629de85ab53cf86477d190a9f3740abdf5)
+TRACE | 2022-06-09 16:01:07 | [pool-3-thread-4] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 16:01:07 | [pool-3-thread-4] core.DWFMS (DWFMS.java:70) - Machined updated: (B, peter) was executed.
+TRACE | 2022-06-09 16:01:07 | [pool-3-thread-4] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	B
+TRACE | 2022-06-09 16:01:07 | [pool-3-thread-4] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 16:01:07 | [pool-3-thread-4] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(A)
+TRACE | 2022-06-09 16:01:07 | [pool-3-thread-4] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 16:01:07 | [pool-3-thread-4] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(B)
+TRACE | 2022-06-09 16:01:07 | [pool-3-thread-4] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	peter
+DEBUG | 2022-06-09 16:01:07 | [pool-3-thread-4] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (B, peter) executed.
+DEBUG | 2022-06-09 16:01:08 | [pool-3-thread-5] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:146) - New event received for instance0x0f6c3425bf88eb9bffea6820bf244acecd93be49: (B0x4b1184629de85ab53cf86477d190a9f3740abdf5)
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:156) - Acknowledgement received
+DEBUG | 2022-06-09 16:01:08 | [pool-3-thread-5] core.DWFMS (DWFMS.java:70) - Machined updated: (B, peter) was executed.
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	A
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	true
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	B
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	false
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	Start
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	true
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(A)
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(Start)
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	hans
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(B)
+TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	peter
+DEBUG | 2022-06-09 16:01:08 | [pool-3-thread-5] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (B, peter) executed.

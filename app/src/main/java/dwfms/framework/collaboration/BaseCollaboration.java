@@ -1,6 +1,5 @@
 package dwfms.framework.collaboration;
 
-import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.framework.action.Action;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.UserAction;
@@ -11,7 +10,6 @@ import dwfms.framework.core.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.collaboration.security.Utils;
 import dwfms.framework.log.Event;
 import dwfms.framework.references.Instance;
 import lombok.Getter;
@@ -43,7 +41,7 @@ public abstract class BaseCollaboration {
 
     public abstract void init(DWFMS dwfms);
 
-    public BaseCollaboration(URL connection, INetwork network, BaseConsensusEngine consensusEngine, RSASecurity security) {
+    public BaseCollaboration(URL connection, INetwork network, BaseConsensusEngine consensusEngine, ISecurity security) {
         this.connection = connection;
         this.network = network;
         this.consensusEngine = consensusEngine;
