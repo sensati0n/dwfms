@@ -1,8 +1,8 @@
 package dwfms.framework;
 
 import dwfms.ExampleDataFactory;
-import dwfms.framework.core.BaseModel;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.model.BaseModel;
+import dwfms.framework.bpm.execution.Instance;
 
 public class Database {
 

@@ -1,7 +1,7 @@
 package dwfms.framework.error;
 
 import dwfms.framework.action.Action;
-import dwfms.framework.core.BaseExecutionMachine;
+import dwfms.framework.bpm.execution.BaseExecutionMachine;
 
 public class NonCompliantExecutionException extends RuntimeException {
 

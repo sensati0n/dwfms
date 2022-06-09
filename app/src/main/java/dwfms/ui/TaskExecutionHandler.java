@@ -6,15 +6,12 @@ import com.sun.net.httpserver.HttpHandler;
 import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.core.DWFMS;
-import dwfms.framework.references.Instance;
-import lombok.AllArgsConstructor;
+import dwfms.framework.bpm.execution.Instance;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.OutputStream;
 

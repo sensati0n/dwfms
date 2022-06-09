@@ -4,12 +4,12 @@ import dwfms.ExampleDataFactory;
 import dwfms.collaboration.example.security.NoSecurity;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.core.BaseModel;
+import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.error.ReflectionException;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.execution.Instance;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.web3j.abi.FunctionReturnDecoder;
@@ -62,13 +62,8 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
     }
 
-    /**
-     * Where should we parse Actions to Messages?
-     * We could alternatively create a Message/Transaction object in DWFMS
-     * @param taskExecution
-     */
     @Override
-    public void sendTaskExecution(Instance instance, TaskExecution taskExecution) {
+    public void sendTaskExecution(TaskExecution taskExecution) {
 
         String contractAddress = taskExecution.getInstance().getInstanceRef();
         String task = taskExecution.getTask();
@@ -88,7 +83,7 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     }
 
     @Override
-    public void sendDataUpdate(Instance reference, DataUpdate dataUpdate) {
+    public void sendDataUpdate(DataUpdate dataUpdate) {
 
     }
 
@@ -120,8 +115,8 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     @Override
     public void instanceReceived(Instance instance) {
         logger.debug("New instance received: " + instance);
-
         subscribeOnEvents(instance.getInstanceRef());
+        dwfms.instantiateModel(instance);
     }
 
     private void subscribeOnEvents(String address) {

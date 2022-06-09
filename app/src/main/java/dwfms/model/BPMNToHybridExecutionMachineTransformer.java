@@ -6,7 +6,7 @@ import dwfms.execution.petrinet.PetriNet;
 import dwfms.execution.petrinet.Transition;
 import dwfms.execution.ruleengine.EasyRuleEngine;
 import dwfms.framework.Database;
-import dwfms.framework.core.ITransformer;
+import dwfms.framework.bpm.ITransformer;
 import dwfms.framework.action.TaskExecution;
 import dwfms.model.bpmn.BPMNElement;
 import dwfms.model.bpmn.BPMNModel;

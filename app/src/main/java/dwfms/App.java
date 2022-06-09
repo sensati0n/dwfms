@@ -4,23 +4,17 @@
 package dwfms;
 
 import dwfms.collaboration.ethereum.EthereumCollaborationConnector;
-import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.collaboration.example.SimpleCollaboration;
-import dwfms.collaboration.example.consensus.ThresholdConsensus;
-import dwfms.collaboration.example.network.HttpNetwork;
-import dwfms.framework.action.User;
-import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.core.BaseModel;
+import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
-import dwfms.framework.core.ITransformer;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.ITransformer;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import dwfms.ui.HttpInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 
@@ -30,75 +24,38 @@ public class App {
 
     public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException, IOException {
 
+        String mode = args[0];
+        String user = args[1];
+        int port = Integer.parseInt(args[2])+1;
+
+        logger.trace("Mode: " + args[0]);
         logger.trace("User: " + args[1]);
         logger.trace("Port: " + args[2]);
 
         DWFMS dWFMS = null;
         HttpInterface httpInterface;
 
-        if(args[0].equals("simple")) {
-            switch(args[1]) {
-                case "hans":
-                    dWFMS = setupSimpleDWFMS(ExampleDataFactory.hansSimple(), Integer.parseInt(args[2])+1);
-                    break;
-                case "peter":
-                    dWFMS = setupSimpleDWFMS(ExampleDataFactory.peterSimple(), Integer.parseInt(args[2])+1);
-                    break;
-            }
+        BaseModel model = ExampleDataFactory.exampleBPMNModel();
+        ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
+        BaseCollaboration collaboration = null;
+
+        if(mode.equals("simple")) {
+            collaboration = new SimpleCollaboration(new URL("http://localhost:" + port));
         }
-        else if(args[0].equals("eth")) {
-            switch(args[1]) {
-                case "hans":
-                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.hansEth(), Integer.parseInt(args[2])+1);
-                    break;
-                case "peter":
-                    dWFMS = setupEthereumDWFMS(ExampleDataFactory.peterEth(), Integer.parseInt(args[2])+1);
-                    break;
-            }
+        else if(mode.equals("eth")) {
+             collaboration =new EthereumCollaborationConnector(new URL("http://localhost:8545"), port);
         }
+
+        dWFMS = DWFMS.builder()
+                .model(model)
+                .transformer(transformer)
+                .collaboration(collaboration)
+                .build();
+
+        dWFMS.init(ExampleDataFactory.getUserByNameAndMode(user, mode));
 
         httpInterface = new HttpInterface(dWFMS, Integer.parseInt(args[2]));
 
     }
-
-    static DWFMS setupEthereumDWFMS(User user, int port) throws MalformedURLException {
-
-        // start ganache-cli with deterministic wallet mnemonic:
-        // ganache-cli -l 60000000 -b 15 -d -m "shiver armed industry victory sight vague follow spray couple hat obscure yard"
-
-        BaseModel model = ExampleDataFactory.exampleBPMNModel();
-        ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new EthereumCollaborationConnector(new URL("http://localhost:8545"), port);
-
-        DWFMS dWFMS = DWFMS.builder()
-                .model(model)
-                .transformer(transformer)
-                .collaboration(collaboration)
-                .build();
-
-        dWFMS.init(user);
-
-        return dWFMS;
-    }
-
-
-    private static DWFMS setupSimpleDWFMS(User user, int port) throws MalformedURLException {
-
-        BaseModel model = ExampleDataFactory.exampleBPMNModel();
-        ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleCollaboration(new URL("http://localhost:" + port));
-
-        DWFMS dWFMS = DWFMS.builder()
-                .model(model)
-                .transformer(transformer)
-                .collaboration(collaboration)
-                .build();
-
-        dWFMS.init(user);
-
-        return dWFMS;
-    }
-
-
 
 }

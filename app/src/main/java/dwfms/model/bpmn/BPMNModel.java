@@ -1,9 +1,10 @@
 package dwfms.model.bpmn;
 
-import dwfms.framework.core.BaseModel;
-import dwfms.framework.references.ModelReference;
+import dwfms.framework.bpm.model.BaseModel;
+import dwfms.framework.bpm.model.ModelReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -14,6 +15,7 @@ import java.util.Set;
  * Currently, only few BPMN elements are supported, i.e.
  * Start Node, Activity, Sequence Flow, (XOR)-Gateway, End Node.
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

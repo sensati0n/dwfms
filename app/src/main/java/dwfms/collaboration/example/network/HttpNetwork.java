@@ -59,6 +59,13 @@ public class HttpNetwork implements INetwork {
 
     @Override
     public void sendDeployment(String body, String to) {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(to + "dply"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(body))
+                .build();
+
+        this.httpClient.sendAsync(request, HttpResponse.BodyHandlers.discarding());
 
     }
 

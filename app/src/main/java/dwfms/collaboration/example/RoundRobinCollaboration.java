@@ -5,13 +5,11 @@ import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
+import dwfms.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.collaboration.network.INetwork;
-import dwfms.framework.core.BaseModel;
+import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.execution.Instance;
 
 import java.net.URL;
 
@@ -28,14 +26,14 @@ public class RoundRobinCollaboration extends BaseCollaboration {
     }
 
     @Override
-    public void sendTaskExecution(Instance instance, TaskExecution taskExecution) {
+    public void sendTaskExecution(TaskExecution taskExecution) {
         String message = "";
 
         this.dwfms.getModel().getParticipants().forEach(p -> super.network.sendTaskExecution(message, p + "/action"));
     }
 
     @Override
-    public void sendDataUpdate(Instance reference, DataUpdate dataUpdate) {
+    public void sendDataUpdate(DataUpdate dataUpdate) {
 
     }
 

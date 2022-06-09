@@ -3,8 +3,8 @@ package dwfms;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.action.User;
-import dwfms.framework.references.UserReference;
+import dwfms.framework.core.User;
+import dwfms.framework.core.UserReference;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

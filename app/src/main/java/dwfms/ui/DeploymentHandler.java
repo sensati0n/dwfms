@@ -3,9 +3,8 @@ package dwfms.ui;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import dwfms.collaboration.example.SimpleCollaboration;
-import dwfms.framework.action.TaskExecution;
-import dwfms.framework.core.DWFMS;
-import dwfms.framework.references.Instance;
+import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.bpm.execution.Instance;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,13 +12,21 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * The DeploymentHandler is called, when a participant deploys a new process model
+ */
 @AllArgsConstructor
 public class DeploymentHandler implements HttpHandler {
 
     private static final Logger logger = LogManager.getLogger(TaskExecutionHandler.class);
 
-    private DWFMS dwfms;
+    private BaseCollaboration collaboration;
 
+    /**
+     * When a new instance is received, we must register that in our database.
+     * @param exchange
+     * @throws IOException
+     */
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
@@ -28,9 +35,9 @@ public class DeploymentHandler implements HttpHandler {
         String requestBodyText = SimpleCollaboration.getTextFromInputStream(exchange.getRequestBody());
 
         //TODO: Allow user defined models
-        logger.trace("I want to deploy " + requestBodyText + ". But instead, the example model is deployed.");
+        logger.trace("New proces instance available: " + requestBodyText);
+        this.collaboration.instanceReceived(new Instance());
 
-        this.dwfms.deployProcessModel();
 
         String response = "OK";
         exchange.sendResponseHeaders(200, response.length());

@@ -1,6 +1,7 @@
 package dwfms.framework.action;
 
-import dwfms.framework.references.Instance;
+import dwfms.framework.core.User;
+import dwfms.framework.bpm.execution.Instance;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,11 +1,13 @@
 package dwfms.framework.core;
 
 
+import dwfms.collaboration.BaseCollaboration;
 import dwfms.framework.action.Action;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.action.User;
-import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.ITransformer;
+import dwfms.framework.bpm.execution.BaseExecutionMachine;
+import dwfms.framework.bpm.model.BaseModel;
+import dwfms.framework.bpm.execution.Instance;
 import lombok.Builder;
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
@@ -36,8 +38,11 @@ public class DWFMS {
     }
 
     public Instance deployProcessModel() {
-
         return this.collaboration.deployProcessModel(model);
+    }
+
+    public Instance instantiateModel(Instance newInstance) {
+        return newInstance;
     }
 
     /**
@@ -51,7 +56,7 @@ public class DWFMS {
 
         // Only conform actions are sent to participants
         if(this.executionMachine.isConform(null, taskExecution)) {
-            this.collaboration.sendTaskExecution(taskExecution.getInstance(), taskExecution);
+            this.collaboration.sendTaskExecution(taskExecution);
         }
         else {
             logger.warn("The requested action is not model conform. Processing canceled.");

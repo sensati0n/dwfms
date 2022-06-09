@@ -10,32 +10,33 @@ import dwfms.collaboration.example.network.AcknowledgementHandler;
 import dwfms.collaboration.example.network.ActionHandler;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.collaboration.Signature;
+import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.security.Signature;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.core.BaseModel;
+import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.execution.Instance;
+import dwfms.ui.DeploymentHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.URL;
-import java.net.http.HttpClient;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * A SimpleCollaboration uses a HttpNetwork, a ThresholdConsensus and RSASecurity.
+ */
 public class SimpleCollaboration extends BaseCollaboration {
 
     private static final Logger logger = LogManager.getLogger(SimpleCollaboration.class);
 
-
     //TODO: Usage introduces error, when application is shut down: "Build cancelled while executing task ':app:App.main()'"
-    HttpServer httpServer;
-    HttpClient httpClient;
+    private HttpServer httpServer;
 
     Set<String> recipients;
 
@@ -56,12 +57,12 @@ public class SimpleCollaboration extends BaseCollaboration {
         this.recipients = dwfms.getModel().getParticipants();
 
         try {
-            this.httpClient = HttpClient.newHttpClient();
 
             this.httpServer = HttpServer.create(new InetSocketAddress(connection.getPort()), 0);
 
             httpServer.createContext("/ack", new AcknowledgementHandler(this));
             httpServer.createContext("/action", new ActionHandler(this));
+            httpServer.createContext("/dply", new DeploymentHandler(this));
             httpServer.setExecutor(null); // creates a default executor
             httpServer.start();
         }
@@ -73,7 +74,7 @@ public class SimpleCollaboration extends BaseCollaboration {
     }
 
     @Override
-    public void sendTaskExecution(Instance instance, TaskExecution taskExecution) {
+    public void sendTaskExecution(TaskExecution taskExecution) {
 
         //Sign
         String signature = super.getSecurity().sign(taskExecution.toString(), super.getDwfms().getUser().getPrivateKey());
@@ -93,11 +94,10 @@ public class SimpleCollaboration extends BaseCollaboration {
 
         }
 
-
     }
 
     @Override
-    public void sendDataUpdate(Instance reference, DataUpdate dataUpdate) {
+    public void sendDataUpdate(DataUpdate dataUpdate) {
 
     }
 
@@ -147,14 +147,18 @@ public class SimpleCollaboration extends BaseCollaboration {
             e.printStackTrace();
         }
 
-        this.network.sendDeployment(message, "dply");
+        for(String recipient : this.recipients) {
+            this.network.sendDeployment(message, recipient+"dply");
+        }
 
         return instance;
     }
 
     @Override
     public void instanceReceived(Instance instance) {
+        logger.debug("New instance received: " + instance);
 
+        this.dwfms.instantiateModel(new Instance());
     }
 
 

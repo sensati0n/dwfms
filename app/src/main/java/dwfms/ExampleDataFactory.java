@@ -3,8 +3,8 @@ package dwfms;
 import dwfms.execution.petrinet.PetriNet;
 import dwfms.execution.petrinet.Place;
 import dwfms.execution.petrinet.Transition;
-import dwfms.framework.action.User;
-import dwfms.framework.references.UserReference;
+import dwfms.framework.core.User;
+import dwfms.framework.core.UserReference;
 import dwfms.model.bpmn.*;
 import org.jeasy.rules.api.Rule;
 import org.jeasy.rules.api.Rules;
@@ -25,6 +25,26 @@ public class ExampleDataFactory {
 
     private static final String peterEthPrivateKey = "0xaf29e334148adaefeaa8ba0271f18b66507a194cf581a3198d006f052bdaf1f1";
     private static final String peterEthPublicKey = "0x4b1184629de85ab53cf86477d190a9f3740abdf5";
+
+    public static User getUserByNameAndMode(String name, String mode) {
+        if(name.equals("hans")) {
+            if(mode.equals("simple")) {
+                return hansSimple();
+            }
+            else if(mode.equals("eth")) {
+                return hansEth();
+            }
+        }
+        else if(name.equals("peter")) {
+            if(mode.equals("simple")) {
+                return peterSimple();
+            }
+            else if(mode.equals("eth")) {
+                return peterEth();
+            }
+        }
+        return null;
+    }
 
     public static User getUserByPublicKey(String publicKey) {
         switch(publicKey.toLowerCase()) {

@@ -2,11 +2,11 @@ package dwfms.execution;
 
 import dwfms.ExampleDataFactory;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.action.User;
+import dwfms.framework.core.User;
 import dwfms.framework.action.UserAction;
 import dwfms.framework.error.NonCompliantExecutionException;
-import dwfms.framework.references.Instance;
-import dwfms.framework.references.UserReference;
+import dwfms.framework.bpm.execution.Instance;
+import dwfms.framework.core.UserReference;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import dwfms.model.bpmn.BPMNModel;
 import org.junit.jupiter.api.Assertions;

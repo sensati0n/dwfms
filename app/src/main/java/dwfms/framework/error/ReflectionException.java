@@ -1,8 +1,5 @@
 package dwfms.framework.error;
 
-import dwfms.framework.action.Action;
-import dwfms.framework.core.BaseExecutionMachine;
-
 public class ReflectionException extends RuntimeException {
 
     public ReflectionException() {

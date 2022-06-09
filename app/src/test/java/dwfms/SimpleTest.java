@@ -1,18 +1,15 @@
 package dwfms;
 
-import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.collaboration.example.SimpleCollaboration;
-import dwfms.collaboration.example.consensus.ThresholdConsensus;
-import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.action.User;
-import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.framework.core.User;
+import dwfms.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.core.BaseModel;
+import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
-import dwfms.framework.core.ITransformer;
-import dwfms.framework.log.Event;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.ITransformer;
+import dwfms.framework.core.Event;
+import dwfms.framework.bpm.execution.Instance;
 import dwfms.model.BPMNToHybridExecutionMachineTransformer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

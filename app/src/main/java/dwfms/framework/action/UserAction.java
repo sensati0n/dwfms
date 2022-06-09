@@ -1,5 +1,6 @@
 package dwfms.framework.action;
 
+import dwfms.framework.core.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

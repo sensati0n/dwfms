@@ -1,7 +1,7 @@
 package dwfms.framework.collaboration.consensus;
 
 import dwfms.framework.action.Action;
-import dwfms.framework.collaboration.BaseCollaboration;
+import dwfms.collaboration.BaseCollaboration;
 import lombok.Getter;
 import lombok.Setter;
 

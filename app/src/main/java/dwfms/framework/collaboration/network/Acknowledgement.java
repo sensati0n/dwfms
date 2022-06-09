@@ -1,8 +1,7 @@
 package dwfms.framework.collaboration.network;
 
-import dwfms.framework.action.Action;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.action.User;
+import dwfms.framework.core.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

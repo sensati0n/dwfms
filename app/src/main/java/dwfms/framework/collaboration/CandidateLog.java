@@ -1,8 +1,7 @@
 package dwfms.framework.collaboration;
 
-import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.log.Event;
-import dwfms.framework.log.Log;
+import dwfms.framework.core.Event;
+import dwfms.framework.core.Log;
 import lombok.Getter;
 
 import java.util.HashMap;

@@ -5,7 +5,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.collaboration.network.INetwork;
-import dwfms.framework.references.Instance;
+import dwfms.framework.bpm.execution.Instance;
 import lombok.Setter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

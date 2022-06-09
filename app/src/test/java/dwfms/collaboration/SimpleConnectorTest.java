@@ -1,11 +1,10 @@
 package dwfms.collaboration;
 
-import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.action.User;
-import dwfms.framework.references.Instance;
-import dwfms.framework.references.UserReference;
+import dwfms.framework.core.User;
+import dwfms.framework.bpm.execution.Instance;
+import dwfms.framework.core.UserReference;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +21,7 @@ public class SimpleConnectorTest {
         TaskExecution taskExecution = new TaskExecution(instanceReference, "Start");
         taskExecution.setUser(hans);
 
-        collaboration.sendTaskExecution(instanceReference, taskExecution);
+        collaboration.sendTaskExecution(taskExecution);
 
     }
 

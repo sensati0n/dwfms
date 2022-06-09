@@ -31,7 +31,7 @@ public class HttpInterface {
         this.httpServer = HttpServer.create(new InetSocketAddress(port), 0);
 
         httpServer.createContext("/ui/execute", new TaskExecutionHandler(dwfms));
-        httpServer.createContext("/ui/deploy", new DeploymentHandler(dwfms));
+        httpServer.createContext("/ui/deploy", new DeploymentHandler(dwfms.getCollaboration()));
         httpServer.setExecutor(null); // creates a default executor
         httpServer.start();
 

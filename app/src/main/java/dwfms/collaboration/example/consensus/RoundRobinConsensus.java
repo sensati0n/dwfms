@@ -2,7 +2,6 @@ package dwfms.collaboration.example.consensus;
 
 import com.google.common.collect.Sets;
 import dwfms.framework.action.Action;
-import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
 
 import java.util.List;
