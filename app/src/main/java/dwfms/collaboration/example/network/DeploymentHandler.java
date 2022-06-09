@@ -3,7 +3,7 @@ package dwfms.collaboration.example.network;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.references.Instance;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,10 +15,10 @@ public class DeploymentHandler implements HttpHandler {
     private static final Logger logger = LogManager.getLogger(DeploymentHandler.class);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    SimpleConnector simpleConnector;
+    SimpleCollaboration simpleCollaboration;
 
-    public DeploymentHandler(SimpleConnector simpleConnector) {
-        this.simpleConnector = simpleConnector;
+    public DeploymentHandler(SimpleCollaboration simpleCollaboration) {
+        this.simpleCollaboration = simpleCollaboration;
     }
 
     /**
@@ -33,10 +33,10 @@ public class DeploymentHandler implements HttpHandler {
         logger.trace("Message received in DeploymentHandler...");
 
         // Create Message-Object from Request
-        String requestBodyText = SimpleConnector.getTextFromInputStream(exchange.getRequestBody());
+        String requestBodyText = SimpleCollaboration.getTextFromInputStream(exchange.getRequestBody());
         Instance instance = objectMapper.readValue(requestBodyText, Instance.class);
 
-        simpleConnector.instanceReceived(instance);
+        simpleCollaboration.instanceReceived(instance);
 
     }
 }

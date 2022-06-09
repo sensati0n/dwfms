@@ -3,6 +3,8 @@ package dwfms.collaboration.example;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
+import dwfms.collaboration.example.consensus.ThresholdConsensus;
+import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.collaboration.example.network.AcknowledgementHandler;
 import dwfms.collaboration.example.network.ActionHandler;
@@ -16,7 +18,6 @@ import dwfms.framework.collaboration.network.INetwork;
 import dwfms.framework.core.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.references.Instance;
-import lombok.Setter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,11 +30,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.UUID;
 
-public class SimpleConnector extends BaseCollaboration {
+public class SimpleCollaboration extends BaseCollaboration {
 
-    private static final Logger logger = LogManager.getLogger(SimpleConnector.class);
+    private static final Logger logger = LogManager.getLogger(SimpleCollaboration.class);
 
-    @Setter private int numberOfAgreementsRequired = 1;
 
     //TODO: Usage introduces error, when application is shut down: "Build cancelled while executing task ':app:App.main()'"
     HttpServer httpServer;
@@ -43,18 +43,20 @@ public class SimpleConnector extends BaseCollaboration {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-    public SimpleConnector(URL connection, INetwork network, BaseConsensusEngine consensusEngine, RSASecurity security) {
-        super(connection, network, consensusEngine, security);
-        consensusEngine.setCollaboration(this);
-        super.setConsensusEngine(consensusEngine);
+    public SimpleCollaboration(URL connection) {
+        super(connection, new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
     }
 
 
     @Override
     public void init(DWFMS dwfms) {
         super.dwfms = dwfms;
+
+        //Refactor the architecture to set this in constructor maybe
+        //Is this enough or must we set the consensus engine again?
+        super.getConsensusEngine().setCollaboration(this);
+
         this.recipients = dwfms.getModel().getParticipants();
-        this.numberOfAgreementsRequired = this.recipients.size()-1;
 
         try {
             this.httpClient = HttpClient.newHttpClient();
@@ -111,10 +113,9 @@ public class SimpleConnector extends BaseCollaboration {
 
         //Build message object
         String message = "";
-        Acknowledgement a = acknowledgement;
-        a.sign(super.dwfms.getUser());
+        acknowledgement.sign(super.dwfms.getUser());
         try {
-            message = objectMapper.writeValueAsString(a);
+            message = objectMapper.writeValueAsString(acknowledgement);
         } catch (JsonProcessingException e) {
             logger.error("Jackson Error while parsing Acknowledgement object: " + e.getMessage());
         }
@@ -130,8 +131,8 @@ public class SimpleConnector extends BaseCollaboration {
     /**
      * In simple connector, we simply notify all participants and send the hash.
      * Participants are asked to load the respective model locally in their machine.
-     * @param model
-     * @return
+     * @param model the model to be deployed
+     * @return an Instance object of the new process model
      */
     @Override
     public Instance deployProcessModel(BaseModel model) {
@@ -164,7 +165,7 @@ public class SimpleConnector extends BaseCollaboration {
                 new InputStreamReader(is, Charset.forName(StandardCharsets.UTF_8.name())
                 ))) {
 
-            int c = 0;
+            int c;
             while ((c = reader.read()) != -1) {
                 textBuilder.append((char) c);
             }

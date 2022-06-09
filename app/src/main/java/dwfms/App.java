@@ -5,7 +5,7 @@ package dwfms;
 
 import dwfms.collaboration.ethereum.EthereumCollaborationConnector;
 import dwfms.collaboration.example.security.RSASecurity;
-import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.collaboration.example.consensus.ThresholdConsensus;
 import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.framework.action.User;
@@ -89,7 +89,7 @@ public class App {
 
         BaseModel model = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:" + port), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
+        BaseCollaboration collaboration = new SimpleCollaboration(new URL("http://localhost:" + port));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)

@@ -1,4 +1,4 @@
-package dwfms.collaboration.roundrobin.consensus;
+package dwfms.collaboration.example.consensus;
 
 import com.google.common.collect.Sets;
 import dwfms.framework.action.Action;
@@ -7,12 +7,9 @@ import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
 
 import java.util.List;
 
-public class RoundRobinConsensusEngine extends BaseConsensusEngine {
+public class RoundRobinConsensus extends BaseConsensusEngine {
 
     private String leader;
-
-    public RoundRobinConsensusEngine(BaseCollaboration collaboration) {
-    }
 
     @Override
     public boolean checkAgreement(Action a) {

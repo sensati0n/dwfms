@@ -1,7 +1,7 @@
 package dwfms.collaboration;
 
 import dwfms.collaboration.example.security.RSASecurity;
-import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.action.User;
 import dwfms.framework.references.Instance;
@@ -16,7 +16,7 @@ public class SimpleConnectorTest {
 
         User hans = new User(new UserReference("hans"), null, null);
 
-        SimpleConnector collaboration = new SimpleConnector(new URL("http://localhost:6666"), null, null, new RSASecurity());
+        SimpleCollaboration collaboration = new SimpleCollaboration(new URL("http://localhost:6666"));
 
         Instance instanceReference = new Instance();
         TaskExecution taskExecution = new TaskExecution(instanceReference, "Start");
@@ -28,7 +28,7 @@ public class SimpleConnectorTest {
 
     public void receiveMessageTest() throws IOException {
 
-        SimpleConnector collaboration = new SimpleConnector(new URL("http://localhost:6666"), null, null, new RSASecurity());
+        SimpleCollaboration collaboration = new SimpleCollaboration(new URL("http://localhost:6666"));
 
     }
 

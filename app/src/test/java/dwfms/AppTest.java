@@ -4,7 +4,7 @@
 package dwfms;
 
 import dwfms.collaboration.example.security.RSASecurity;
-import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.collaboration.example.consensus.ThresholdConsensus;
 import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.framework.action.TaskExecution;
@@ -45,7 +45,7 @@ class AppTest {
 
         BaseModel model_hans = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer_hans = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration_hans = new SimpleConnector(new URL("http://localhost:3001"), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
+        BaseCollaboration collaboration_hans = new SimpleCollaboration(new URL("http://localhost:3001"));
 
         DWFMS dWFMS_hans = DWFMS.builder()
                 .model(model_hans)
@@ -63,7 +63,7 @@ class AppTest {
 
         BaseModel model_peter = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer_peter = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration_peter = new SimpleConnector(new URL("http://localhost:4001"), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
+        BaseCollaboration collaboration_peter = new SimpleCollaboration(new URL("http://localhost:4001"));
 
         DWFMS dWFMS_peter = DWFMS.builder()
                 .model(model_peter)
@@ -103,7 +103,7 @@ class AppTest {
 
         BaseModel model = ExampleDataFactory.exampleBPMNModel();
         ITransformer transformer = new BPMNToHybridExecutionMachineTransformer();
-        BaseCollaboration collaboration = new SimpleConnector(new URL("http://localhost:3001"), new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
+        BaseCollaboration collaboration = new SimpleCollaboration(new URL("http://localhost:3001"));
 
         DWFMS dWFMS = DWFMS.builder()
                 .model(model)

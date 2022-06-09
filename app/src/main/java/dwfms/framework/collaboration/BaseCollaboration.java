@@ -31,6 +31,7 @@ public abstract class BaseCollaboration {
     protected DWFMS dwfms;
 
     protected INetwork network;
+    @Getter
     @Setter
     private BaseConsensusEngine consensusEngine;
 

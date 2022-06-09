@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import dwfms.collaboration.example.SimpleConnector;
+import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.references.Instance;
@@ -45,7 +45,7 @@ public class HttpInterface implements HttpHandler {
         logger.trace("Message received in HttpInterfaceHandler...");
 
         // Create Message-Object from Request
-        String requestBodyText = SimpleConnector.getTextFromInputStream(exchange.getRequestBody());
+        String requestBodyText = SimpleCollaboration.getTextFromInputStream(exchange.getRequestBody());
         TaskExecutionDTO taskExecutionDTO = objectMapper.readValue(requestBodyText, TaskExecutionDTO.class);
 
         logger.trace("I want to execute " + taskExecutionDTO.getTask());

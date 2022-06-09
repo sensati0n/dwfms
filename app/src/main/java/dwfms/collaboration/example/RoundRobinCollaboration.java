@@ -1,5 +1,7 @@
-package dwfms.collaboration.roundrobin;
+package dwfms.collaboration.example;
 
+import dwfms.collaboration.example.consensus.RoundRobinConsensus;
+import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
@@ -13,15 +15,16 @@ import dwfms.framework.references.Instance;
 
 import java.net.URL;
 
-public class RoundRobin extends BaseCollaboration {
+public class RoundRobinCollaboration extends BaseCollaboration {
 
-    public RoundRobin(URL connection, INetwork network, BaseConsensusEngine consensusEngine, RSASecurity security) {
-        super(connection, network, consensusEngine, security);
+    public RoundRobinCollaboration(URL connection) {
+        super(connection, new HttpNetwork(), new RoundRobinConsensus(), new RSASecurity());
     }
 
     @Override
     public void init(DWFMS dwfms) {
         super.dwfms = dwfms;
+        super.getConsensusEngine().setCollaboration(this);
     }
 
     @Override
