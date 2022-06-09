@@ -78,9 +78,6 @@ public class App {
 
         dWFMS.init(user);
 
-        Instance reference = dWFMS.deployProcessModel();
-        logger.debug("Contract Address: " + reference.getInstanceRef());
-
         return dWFMS;
     }
 

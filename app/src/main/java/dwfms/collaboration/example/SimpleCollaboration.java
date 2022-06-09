@@ -134,6 +134,8 @@ public class SimpleCollaboration extends BaseCollaboration {
     @Override
     public Instance deployProcessModel(BaseModel model) {
 
+        logger.trace("Deploy new process model.");
+
         String newInstanceRef = UUID.randomUUID().toString();
         Instance instance = new Instance(newInstanceRef, model.getModelReference().getModel());
 

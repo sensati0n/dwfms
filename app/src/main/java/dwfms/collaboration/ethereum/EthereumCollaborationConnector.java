@@ -2,19 +2,14 @@ package dwfms.collaboration.ethereum;
 
 import dwfms.ExampleDataFactory;
 import dwfms.collaboration.example.security.NoSecurity;
-import dwfms.collaboration.example.security.RSASecurity;
-import dwfms.framework.action.Action;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.action.User;
 import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
 import dwfms.framework.collaboration.network.Acknowledgement;
-import dwfms.framework.collaboration.network.INetwork;
 import dwfms.framework.core.BaseModel;
 import dwfms.framework.core.DWFMS;
+import dwfms.framework.error.ReflectionException;
 import dwfms.framework.references.Instance;
-import dwfms.framework.references.UserReference;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.web3j.abi.FunctionReturnDecoder;
@@ -33,10 +28,9 @@ import org.web3j.tx.TransactionManager;
 import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.DefaultGasProvider;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Depends on the Smart Contract. The Smart Contract is part of the Collaboration-Tier
@@ -48,11 +42,7 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     private static final Logger logger = LogManager.getLogger(EthereumCollaborationConnector.class);
 
     private Web3j web3 ;
-
     private ClientTransactionManager ctm;
-
-    //HELPER
-    private Map<String, String> mapTxHashToTask = new HashMap<>();
 
     public EthereumCollaborationConnector(URL connection, int myPort) {
         super(connection, new EthereumNetwork(myPort), null, new NoSecurity());
@@ -63,11 +53,12 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
         super.dwfms = dwfms;
 
+        this.web3 = Web3j.build(new HttpService(String.valueOf(connection)));
+        this.ctm = new ClientTransactionManager(web3, this.dwfms.getUser().getPublicKey());
+
         //TODO: Refactor the architecture to set this in constructor maybe
         //Is this enough or must we set the consensus engine again?
         ((EthereumNetwork) super.network).setCollaborationConnector(this);
-        this.web3 = Web3j.build(new HttpService(String.valueOf(connection)));
-        this.ctm = new ClientTransactionManager(web3, this.dwfms.getUser().getPublicKey());
 
     }
 
@@ -86,16 +77,12 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
         // Call the smart contract function
         // The name of the function equals the task name per convention
-        try {
             logger.trace("Send Task Execution: (" + taskExecution.getTask() + ", " + taskExecution.getUser().getUserReference().getName() +")");
+        try {
             RemoteFunctionCall<TransactionReceipt> rfc = (RemoteFunctionCall<TransactionReceipt>) m.getClass().getMethod(task, null).invoke(m, null);
-
-            // We now listen for events
-            // rfc.sendAsync().thenAccept(result -> this.atAgreementReached(instance, taskExecution));
             rfc.sendAsync();
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalAccessException|InvocationTargetException|NoSuchMethodException e) {
+            throw new ReflectionException();
         }
 
     }
@@ -105,9 +92,15 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
     }
 
+    /**
+     * Outsourced to Ethereum
+     * @param acknowledgement
+     */
     @Override
     public void sendAcknowledgement(Acknowledgement acknowledgement) {
+
     }
+
 
     @Override
     public Instance deployProcessModel(BaseModel model) {
@@ -146,6 +139,7 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
         logger.debug("New event received for instance" + event.getAddress() + ": (" + args.get(0).getValue().toString() + args.get(1).getValue().toString() + ")");
 
         TaskExecution taskExecution = new TaskExecution(null, args.get(0).getValue().toString());
+        //TODO: get from org component or db that maps keys to user references
         taskExecution.setUser(ExampleDataFactory.getUserByPublicKey(args.get(1).getValue().toString()));
         Acknowledgement acknowledgement = new Acknowledgement(taskExecution);
         this.acknowledgementReceived(acknowledgement);

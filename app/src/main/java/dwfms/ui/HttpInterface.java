@@ -1,29 +1,27 @@
 package dwfms.ui;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.core.DWFMS;
-import dwfms.framework.action.TaskExecution;
-import dwfms.framework.references.Instance;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
-public class HttpInterface implements HttpHandler {
+@NoArgsConstructor
+public class HttpInterface {
 
     private static final Logger logger = LogManager.getLogger(HttpInterface.class);
 
-    DWFMS dwfms;
-    ObjectMapper objectMapper;
-    HttpServer httpServer;
+    @Getter
+    private DWFMS dwfms;
+    @Getter
+    private ObjectMapper objectMapper;
+    private HttpServer httpServer;
 
     public HttpInterface(DWFMS dwfms, int port) throws IOException {
 
@@ -32,40 +30,13 @@ public class HttpInterface implements HttpHandler {
 
         this.httpServer = HttpServer.create(new InetSocketAddress(port), 0);
 
-        httpServer.createContext("/ui", this);
+        httpServer.createContext("/ui/execute", new TaskExecutionHandler(dwfms));
+        httpServer.createContext("/ui/deploy", new DeploymentHandler(dwfms));
         httpServer.setExecutor(null); // creates a default executor
         httpServer.start();
 
         logger.trace("Started UI-HttpServer on port: " + port);
     }
 
-    @Override
-    public void handle(HttpExchange exchange) throws IOException {
-
-        logger.trace("Message received in HttpInterfaceHandler...");
-
-        // Create Message-Object from Request
-        String requestBodyText = SimpleCollaboration.getTextFromInputStream(exchange.getRequestBody());
-        TaskExecutionDTO taskExecutionDTO = objectMapper.readValue(requestBodyText, TaskExecutionDTO.class);
-
-        logger.trace("I want to execute " + taskExecutionDTO.getTask());
-
-        TaskExecution taskExecution = new TaskExecution(new Instance(taskExecutionDTO.getInstanceRef(), null), taskExecutionDTO.getTask());
-        dwfms.executeTask(taskExecution);
-
-        String response = "OK";
-        exchange.sendResponseHeaders(200, response.length());
-        OutputStream os = exchange.getResponseBody();
-        os.write(response.getBytes());
-        os.close();
-
-    }
 }
 
-@Data
-@NoArgsConstructor
-class TaskExecutionDTO {
-
-    private String instanceRef;
-    private String task;
-}

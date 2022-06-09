@@ -1260,3 +1260,98 @@ TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyR
 TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:27) - FACT NAME:	exec(B)
 TRACE | 2022-06-09 16:01:08 | [pool-3-thread-5] ruleengine.EasyRuleEngine (EasyRuleEngine.java:28) - FACT VALUE:	peter
 DEBUG | 2022-06-09 16:01:08 | [pool-3-thread-5] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (B, peter) executed.
+TRACE | 2022-06-09 16:33:34 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 16:33:34 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 16:33:34 | [main] ui.HttpInterface (HttpInterface.java:35) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 16:33:50 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:21) - Message received in DeploymentHandler...
+TRACE | 2022-06-09 16:33:50 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:26) - I want to deploy A process model.. But instead, the example model is deployed.
+TRACE | 2022-06-09 16:34:24 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 16:34:24 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 16:34:24 | [main] ui.HttpInterface (HttpInterface.java:35) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 16:34:32 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:21) - Message received in DeploymentHandler...
+TRACE | 2022-06-09 16:34:32 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:26) - I want to deploy A process model.. But instead, the example model is deployed.
+TRACE | 2022-06-09 16:35:03 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:21) - Message received in DeploymentHandler...
+TRACE | 2022-06-09 16:35:03 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:26) - I want to deploy A process model.. But instead, the example model is deployed.
+TRACE | 2022-06-09 16:35:46 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 16:35:46 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 16:35:54 | [main] ui.HttpInterface (HttpInterface.java:35) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 16:36:09 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:21) - Message received in DeploymentHandler...
+TRACE | 2022-06-09 16:36:09 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:26) - I want to deploy A process model.. But instead, the example model is deployed.
+TRACE | 2022-06-09 16:37:33 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 16:37:33 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 16:37:54 | [main] ui.HttpInterface (HttpInterface.java:38) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 16:38:01 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:21) - Message received in DeploymentHandler...
+TRACE | 2022-06-09 16:38:01 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:26) - I want to deploy A process model.. But instead, the example model is deployed.
+TRACE | 2022-06-09 16:42:13 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 16:42:13 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 16:42:14 | [main] ui.HttpInterface (HttpInterface.java:38) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 16:42:31 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:26) - Message received in DeploymentHandler...
+TRACE | 2022-06-09 16:42:31 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:31) - I want to deploy A process model.. But instead, the example model is deployed.
+TRACE | 2022-06-09 16:42:31 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:108) - Deploy new process.
+TRACE | 2022-06-09 16:42:46 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:111) - Notify participants.
+TRACE | 2022-06-09 16:42:46 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:74) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 16:42:46 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:122) - New instance received: Instance(instanceRef=0x0a6366cafd4b6c834aefffc966858abe87e2c324, modelRef=null)
+DEBUG | 2022-06-09 16:42:46 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Subscribe for events on: 0x0a6366cafd4b6c834aefffc966858abe87e2c324
+TRACE | 2022-06-09 16:43:30 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:43:30 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute Start
+TRACE | 2022-06-09 16:43:30 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:80) - Send Task Execution: (Start, peter)
+DEBUG | 2022-06-09 16:43:48 | [pool-3-thread-3] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:139) - New event received for instance0x0a6366cafd4b6c834aefffc966858abe87e2c324: (Start0x4b1184629de85ab53cf86477d190a9f3740abdf5)
+TRACE | 2022-06-09 16:43:48 | [pool-3-thread-3] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:150) - Acknowledgement received
+DEBUG | 2022-06-09 16:43:48 | [pool-3-thread-3] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, peter) was executed.
+DEBUG | 2022-06-09 16:43:48 | [pool-3-thread-3] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, peter) executed.
+TRACE | 2022-06-09 16:44:01 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 16:44:01 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 16:44:01 | [main] ui.HttpInterface (HttpInterface.java:38) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 16:44:25 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:44:25 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute Start
+TRACE | 2022-06-09 16:44:25 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:80) - Send Task Execution: (Start, hans)
+TRACE | 2022-06-09 16:44:51 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:44:51 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute A
+WARN  | 2022-06-09 16:44:51 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:57) - The requested action is not model conform. Processing canceled.
+TRACE | 2022-06-09 16:45:07 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:45:07 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute A
+WARN  | 2022-06-09 16:45:07 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:57) - The requested action is not model conform. Processing canceled.
+TRACE | 2022-06-09 16:46:47 | [main] dwfms.App (App.java:33) - User: hans
+TRACE | 2022-06-09 16:46:47 | [main] dwfms.App (App.java:34) - Port: 3000
+TRACE | 2022-06-09 16:46:47 | [main] ui.HttpInterface (HttpInterface.java:38) - Started UI-HttpServer on port: 3000
+TRACE | 2022-06-09 16:46:55 | [main] dwfms.App (App.java:33) - User: peter
+TRACE | 2022-06-09 16:46:55 | [main] dwfms.App (App.java:34) - Port: 4000
+TRACE | 2022-06-09 16:46:55 | [main] ui.HttpInterface (HttpInterface.java:38) - Started UI-HttpServer on port: 4000
+TRACE | 2022-06-09 16:47:11 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:26) - Message received in DeploymentHandler...
+TRACE | 2022-06-09 16:47:11 | [HTTP-Dispatcher] ui.DeploymentHandler (DeploymentHandler.java:31) - I want to deploy A process model.. But instead, the example model is deployed.
+TRACE | 2022-06-09 16:47:11 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:108) - Deploy new process.
+TRACE | 2022-06-09 16:47:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:111) - Notify participants.
+TRACE | 2022-06-09 16:47:27 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:74) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 16:47:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:122) - New instance received: Instance(instanceRef=0x7f976842c49d25ce0c432e19b6ea9c8d3158099a, modelRef=null)
+DEBUG | 2022-06-09 16:47:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Subscribe for events on: 0x7f976842c49d25ce0c432e19b6ea9c8d3158099a
+TRACE | 2022-06-09 16:47:27 | [HTTP-Dispatcher] ethereum.EthereumNetwork (EthereumNetwork.java:74) - Message received in Deployment Handler...
+DEBUG | 2022-06-09 16:47:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:122) - New instance received: Instance(instanceRef=0x7f976842c49d25ce0c432e19b6ea9c8d3158099a, modelRef=null)
+DEBUG | 2022-06-09 16:47:27 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:129) - Subscribe for events on: 0x7f976842c49d25ce0c432e19b6ea9c8d3158099a
+TRACE | 2022-06-09 16:47:41 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:47:41 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute Start
+TRACE | 2022-06-09 16:47:41 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:80) - Send Task Execution: (Start, peter)
+TRACE | 2022-06-09 16:48:56 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:48:56 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute Start
+TRACE | 2022-06-09 16:48:56 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:80) - Send Task Execution: (Start, peter)
+DEBUG | 2022-06-09 16:49:13 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:139) - New event received for instance0x7f976842c49d25ce0c432e19b6ea9c8d3158099a: (Start0x4b1184629de85ab53cf86477d190a9f3740abdf5)
+TRACE | 2022-06-09 16:49:13 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:150) - Acknowledgement received
+DEBUG | 2022-06-09 16:49:13 | [pool-3-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, peter) was executed.
+DEBUG | 2022-06-09 16:49:13 | [pool-3-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, peter) executed.
+DEBUG | 2022-06-09 16:49:15 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:139) - New event received for instance0x7f976842c49d25ce0c432e19b6ea9c8d3158099a: (Start0x4b1184629de85ab53cf86477d190a9f3740abdf5)
+TRACE | 2022-06-09 16:49:15 | [pool-3-thread-1] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:150) - Acknowledgement received
+DEBUG | 2022-06-09 16:49:15 | [pool-3-thread-1] core.DWFMS (DWFMS.java:70) - Machined updated: (Start, peter) was executed.
+DEBUG | 2022-06-09 16:49:15 | [pool-3-thread-1] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (Start, peter) executed.
+TRACE | 2022-06-09 16:49:25 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:49:25 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute A
+WARN  | 2022-06-09 16:49:25 | [HTTP-Dispatcher] core.DWFMS (DWFMS.java:57) - The requested action is not model conform. Processing canceled.
+TRACE | 2022-06-09 16:49:37 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:35) - Message received in TaskExecutionHandler...
+TRACE | 2022-06-09 16:49:37 | [HTTP-Dispatcher] ui.TaskExecutionHandler (TaskExecutionHandler.java:41) - I want to execute A
+TRACE | 2022-06-09 16:49:37 | [HTTP-Dispatcher] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:80) - Send Task Execution: (A, hans)
+DEBUG | 2022-06-09 16:49:58 | [pool-3-thread-6] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:139) - New event received for instance0x7f976842c49d25ce0c432e19b6ea9c8d3158099a: (A0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 16:49:58 | [pool-3-thread-6] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:150) - Acknowledgement received
+DEBUG | 2022-06-09 16:49:58 | [pool-3-thread-6] core.DWFMS (DWFMS.java:70) - Machined updated: (A, hans) was executed.
+DEBUG | 2022-06-09 16:49:58 | [pool-3-thread-6] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (A, hans) executed.
+DEBUG | 2022-06-09 16:49:59 | [pool-3-thread-6] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:139) - New event received for instance0x7f976842c49d25ce0c432e19b6ea9c8d3158099a: (A0xe076df4e49182f0ab6f4b98219f721cccc38f9be)
+TRACE | 2022-06-09 16:49:59 | [pool-3-thread-6] ethereum.EthereumCollaborationConnector (EthereumCollaborationConnector.java:150) - Acknowledgement received
+DEBUG | 2022-06-09 16:49:59 | [pool-3-thread-6] core.DWFMS (DWFMS.java:70) - Machined updated: (A, hans) was executed.
+DEBUG | 2022-06-09 16:49:59 | [pool-3-thread-6] execution.HybridExecutionMachine (HybridExecutionMachine.java:63) - (A, hans) executed.
