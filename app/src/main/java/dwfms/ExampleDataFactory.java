@@ -1,11 +1,11 @@
 package dwfms;
 
-import dwfms.execution.petrinet.PetriNet;
-import dwfms.execution.petrinet.Place;
-import dwfms.execution.petrinet.Transition;
+import dwfms.bpm.execution.petrinet.PetriNet;
+import dwfms.bpm.execution.petrinet.Place;
+import dwfms.bpm.execution.petrinet.Transition;
+import dwfms.bpm.model.bpmn.*;
 import dwfms.framework.core.User;
 import dwfms.framework.core.UserReference;
-import dwfms.model.bpmn.*;
 import org.jeasy.rules.api.Rule;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.core.RuleBuilder;

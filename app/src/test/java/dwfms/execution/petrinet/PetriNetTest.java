@@ -1,5 +1,8 @@
 package dwfms.execution.petrinet;
 
+import dwfms.bpm.execution.petrinet.PetriNet;
+import dwfms.bpm.execution.petrinet.Place;
+import dwfms.bpm.execution.petrinet.Transition;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

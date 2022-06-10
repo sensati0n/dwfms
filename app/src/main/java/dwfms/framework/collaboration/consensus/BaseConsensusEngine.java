@@ -1,7 +1,7 @@
 package dwfms.framework.collaboration.consensus;
 
 import dwfms.framework.action.Action;
-import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.BaseCollaboration;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +12,6 @@ public abstract class BaseConsensusEngine {
     private BaseCollaboration collaboration;
 
 
-    public abstract boolean checkAgreement(Action a);
+    public abstract boolean isAgreementReached(Action a);
 
 }

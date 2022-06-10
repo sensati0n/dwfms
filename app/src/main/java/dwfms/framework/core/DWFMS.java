@@ -1,7 +1,7 @@
 package dwfms.framework.core;
 
 
-import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.action.Action;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.bpm.ITransformer;

@@ -5,7 +5,7 @@ import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.collaboration.example.security.RSASecurity;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
-import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
@@ -23,6 +23,7 @@ public class RoundRobinCollaboration extends BaseCollaboration {
     public void init(DWFMS dwfms) {
         super.dwfms = dwfms;
         super.getConsensusEngine().setCollaboration(this);
+        ((HttpNetwork) this.network).init(this, connection.getPort());
     }
 
     @Override

@@ -4,7 +4,7 @@ import dwfms.ExampleDataFactory;
 import dwfms.collaboration.example.security.NoSecurity;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
-import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;

@@ -2,26 +2,21 @@ package dwfms.collaboration.example;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.net.httpserver.HttpServer;
 import dwfms.collaboration.example.consensus.ThresholdConsensus;
 import dwfms.collaboration.example.network.HttpNetwork;
 import dwfms.collaboration.example.security.RSASecurity;
-import dwfms.collaboration.example.network.AcknowledgementHandler;
-import dwfms.collaboration.example.network.ActionHandler;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
-import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.security.Signature;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.bpm.execution.Instance;
-import dwfms.ui.DeploymentHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
-import java.net.InetSocketAddress;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -35,12 +30,9 @@ public class SimpleCollaboration extends BaseCollaboration {
 
     private static final Logger logger = LogManager.getLogger(SimpleCollaboration.class);
 
-    //TODO: Usage introduces error, when application is shut down: "Build cancelled while executing task ':app:App.main()'"
-    private HttpServer httpServer;
+    ObjectMapper objectMapper = new ObjectMapper();
 
     Set<String> recipients;
-
-    ObjectMapper objectMapper = new ObjectMapper();
 
     public SimpleCollaboration(URL connection) {
         super(connection, new HttpNetwork(), new ThresholdConsensus(1), new RSASecurity());
@@ -49,27 +41,12 @@ public class SimpleCollaboration extends BaseCollaboration {
     @Override
     public void init(DWFMS dwfms) {
         super.dwfms = dwfms;
+        this.recipients = dwfms.getModel().getParticipants();
 
         //TODO: Refactor the architecture to set this in constructor maybe
         //Is this enough or must we set the consensus engine again?
         super.getConsensusEngine().setCollaboration(this);
-
-        this.recipients = dwfms.getModel().getParticipants();
-
-        try {
-
-            this.httpServer = HttpServer.create(new InetSocketAddress(connection.getPort()), 0);
-
-            httpServer.createContext("/ack", new AcknowledgementHandler(this));
-            httpServer.createContext("/action", new ActionHandler(this));
-            httpServer.createContext("/dply", new DeploymentHandler(this));
-            httpServer.setExecutor(null); // creates a default executor
-            httpServer.start();
-        }
-        catch(IOException ioe) {
-            ioe.printStackTrace();
-            this.httpServer.stop(0);
-        }
+        ((HttpNetwork) this.network).init(this, connection.getPort());
 
     }
 
@@ -78,7 +55,7 @@ public class SimpleCollaboration extends BaseCollaboration {
 
         //Sign
         String signature = super.getSecurity().sign(taskExecution.toString(), super.getDwfms().getUser().getPrivateKey());
-        taskExecution.setSignature(new Signature(signature, super.getDwfms().getUser()));
+        taskExecution.setSender(new Signature(signature, super.getDwfms().getUser()));
 
         //Build message object
         String message = "";
@@ -105,7 +82,7 @@ public class SimpleCollaboration extends BaseCollaboration {
 
         //Sign
         String signature = super.getSecurity().sign(acknowledgement.toString(), super.getDwfms().getUser().getPrivateKey());
-        acknowledgement.setSignature(new Signature(signature, super.getDwfms().getUser()));
+        acknowledgement.setSender(new Signature(signature, super.getDwfms().getUser()));
 
 
         //Build message object

@@ -3,7 +3,7 @@ package dwfms.ui;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import dwfms.collaboration.example.SimpleCollaboration;
-import dwfms.collaboration.BaseCollaboration;
+import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.bpm.execution.Instance;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;

@@ -24,7 +24,7 @@ public class ThresholdConsensus extends BaseConsensusEngine {
     }
 
     @Override
-    public boolean checkAgreement(Action a) {
+    public boolean isAgreementReached(Action a) {
         TaskExecution taskExecution = (TaskExecution) a;
         logger.trace("Check for agreement...");
         if(super.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get(taskExecution.getTask()) > this.numberOfAgreementsRequired) {

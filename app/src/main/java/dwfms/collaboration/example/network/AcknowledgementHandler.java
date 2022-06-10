@@ -5,6 +5,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.action.TaskExecution;
+import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.network.Acknowledgement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,10 +17,10 @@ public class AcknowledgementHandler implements HttpHandler {
     private static final Logger logger = LogManager.getLogger(AcknowledgementHandler.class);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    SimpleCollaboration simpleCollaboration;
+    BaseCollaboration collaboration;
 
-    public AcknowledgementHandler(SimpleCollaboration simpleCollaboration) {
-        this.simpleCollaboration = simpleCollaboration;
+    public AcknowledgementHandler(BaseCollaboration collaboration) {
+        this.collaboration = collaboration;
     }
 
 
@@ -41,7 +42,7 @@ public class AcknowledgementHandler implements HttpHandler {
 
         logger.debug(((TaskExecution) acknowledgement.getAction()).getUser().getUserReference().getName() + " wants to execute " + ((TaskExecution) acknowledgement.getAction()).getTask());
 
-        simpleCollaboration.acknowledgementReceived(acknowledgement);
+        collaboration.acknowledgementReceived(acknowledgement);
         logger.trace("Processing finished in AcknowledgementHandler...");
 
     }

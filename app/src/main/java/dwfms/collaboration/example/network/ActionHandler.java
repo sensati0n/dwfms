@@ -5,6 +5,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.action.TaskExecution;
+import dwfms.framework.collaboration.BaseCollaboration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,10 +16,10 @@ public class ActionHandler implements HttpHandler {
     private static final Logger logger = LogManager.getLogger(ActionHandler.class);
 
     ObjectMapper objectMapper = new ObjectMapper();
-    SimpleCollaboration simpleCollaboration;
+    BaseCollaboration collaboration;
 
-    public ActionHandler(SimpleCollaboration multipleConnector) {
-        this.simpleCollaboration = multipleConnector;
+    public ActionHandler(BaseCollaboration collaboration) {
+        this.collaboration = collaboration;
     }
 
 
@@ -40,6 +41,6 @@ public class ActionHandler implements HttpHandler {
 
         logger.debug(taskExecution.getUser().getUserReference() + " wants to execute " + taskExecution.getTask());
 
-        simpleCollaboration.taskExecutionReceived(taskExecution);
+        collaboration.taskExecutionReceived(taskExecution);
     }
 }

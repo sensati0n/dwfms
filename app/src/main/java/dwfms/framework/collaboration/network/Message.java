@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public abstract class Message {
 
-    private Signature signature;
+    private Signature sender;
 
     public abstract void sign(User user);
 

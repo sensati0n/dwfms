@@ -1,14 +1,15 @@
 package dwfms.execution;
 
 import dwfms.ExampleDataFactory;
+import dwfms.bpm.execution.HybridExecutionMachine;
+import dwfms.bpm.model.bpmn.BPMNModel;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.core.User;
 import dwfms.framework.action.UserAction;
 import dwfms.framework.error.NonCompliantExecutionException;
 import dwfms.framework.bpm.execution.Instance;
 import dwfms.framework.core.UserReference;
-import dwfms.model.BPMNToHybridExecutionMachineTransformer;
-import dwfms.model.bpmn.BPMNModel;
+import dwfms.bpm.BPMNToHybridExecutionMachineTransformer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

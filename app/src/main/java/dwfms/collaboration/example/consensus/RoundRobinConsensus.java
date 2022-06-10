@@ -11,7 +11,7 @@ public class RoundRobinConsensus extends BaseConsensusEngine {
     private String leader;
 
     @Override
-    public boolean checkAgreement(Action a) {
+    public boolean isAgreementReached(Action a) {
 
         if(true) {
 //            super.getCollaboration().atAgreementReached();
