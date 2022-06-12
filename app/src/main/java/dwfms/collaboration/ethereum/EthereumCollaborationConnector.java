@@ -8,8 +8,8 @@ import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.consensus.Acknowledgement;
 import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
-import dwfms.framework.error.ReflectionException;
 import dwfms.framework.bpm.execution.Instance;
+import lombok.Getter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.web3j.abi.FunctionReturnDecoder;
@@ -17,10 +17,8 @@ import org.web3j.abi.datatypes.Type;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.RemoteCall;
-import org.web3j.protocol.core.RemoteFunctionCall;
 import org.web3j.protocol.core.methods.request.EthFilter;
 import org.web3j.protocol.core.methods.response.Log;
-import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.ClientTransactionManager;
 import org.web3j.tx.Contract;
@@ -28,7 +26,6 @@ import org.web3j.tx.TransactionManager;
 import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.DefaultGasProvider;
 
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.List;
 
@@ -41,24 +38,27 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
 
     private static final Logger logger = LogManager.getLogger(EthereumCollaborationConnector.class);
 
-    private Web3j web3 ;
+    @Getter
+    private Web3j web3;
+    @Getter
     private ClientTransactionManager ctm;
 
     public EthereumCollaborationConnector(URL connection, int myPort) {
         super(connection, new EthereumNetwork(myPort), null, new NoSecurity());
+
+        this.web3 = Web3j.build(new HttpService(String.valueOf(connection)));
     }
 
     @Override
     public void init(DWFMS dwfms) {
 
         super.dwfms = dwfms;
-
-        this.web3 = Web3j.build(new HttpService(String.valueOf(connection)));
-        this.ctm = new ClientTransactionManager(web3, this.dwfms.getUser().getPublicKey());
+        this.ctm = new ClientTransactionManager(this.web3, this.dwfms.getUser().getPublicKey());
 
         //TODO: Refactor the architecture to set this in constructor maybe
         //Is this enough or must we set the consensus engine again?
         ((EthereumNetwork) super.network).setCollaborationConnector(this);
+        ((EthereumNetwork) super.network).init(this, String.valueOf(connection), super.dwfms.getUser().getPublicKey());
 
     }
 
@@ -68,17 +68,10 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
         String contractAddress = taskExecution.getInstance().getInstanceRef();
         String task = taskExecution.getTask();
 
-        Miniksor m = Miniksor.load(contractAddress, this.web3, this.ctm, new DefaultGasProvider());
-
         // Call the smart contract function
         // The name of the function equals the task name per convention
-            logger.trace("Send Task Execution: (" + taskExecution.getTask() + ", " + taskExecution.getUser().getUserReference().getName() +")");
-        try {
-            RemoteFunctionCall<TransactionReceipt> rfc = (RemoteFunctionCall<TransactionReceipt>) m.getClass().getMethod(task, null).invoke(m, null);
-            rfc.sendAsync();
-        } catch (IllegalAccessException|InvocationTargetException|NoSuchMethodException e) {
-            throw new ReflectionException();
-        }
+        logger.trace("Send Task Execution: (" + taskExecution.getTask() + ", " + taskExecution.getUser().getUserReference().getName() +")");
+        this.network.sendTaskExecution(task, contractAddress);
 
     }
 
@@ -109,6 +102,23 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
         });
 
         return instance;
+
+    }
+
+    private String deployNewContract(Class<? extends Contract> documentRegistryClass) {
+
+        try {
+            RemoteCall<Contract> rcDr = (RemoteCall<Contract>) documentRegistryClass.getDeclaredMethod("deploy", Web3j.class, TransactionManager.class, ContractGasProvider.class)
+                    .invoke(null, this.web3, this.ctm, new DefaultGasProvider());
+            Contract dr = rcDr.send();
+
+            return dr.getContractAddress();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
 
     }
 
@@ -156,7 +166,7 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
      *
      * //TODO: If we do not use a smart contract, but raw transaction instead this might be changed.
      *
-     * @param acknowledgement
+     * @param
      */
 //    @Override
 //    public void checkAgreement(Acknowledgement acknowledgement) {
@@ -170,22 +180,7 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     //  ****************************
 
 
-    private String deployNewContract(Class<? extends Contract> documentRegistryClass) {
 
-        try {
-            RemoteCall<Contract> rcDr = (RemoteCall<Contract>) documentRegistryClass.getDeclaredMethod("deploy", Web3j.class, TransactionManager.class, ContractGasProvider.class)
-                    .invoke(null, this.web3, this.ctm, new DefaultGasProvider());
-            Contract dr = rcDr.send();
-
-            return dr.getContractAddress();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-
-    }
 
     private void instanciateExistingContract(String contractAddress) {
 
