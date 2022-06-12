@@ -8,7 +8,7 @@ import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
 import dwfms.framework.collaboration.network.INetwork;
 import dwfms.framework.collaboration.security.ISecurity;
 import dwfms.framework.action.TaskExecution;
-import dwfms.framework.collaboration.network.Acknowledgement;
+import dwfms.framework.collaboration.consensus.Acknowledgement;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.core.Event;
 import dwfms.framework.bpm.execution.Instance;
@@ -94,19 +94,22 @@ public abstract class BaseCollaboration {
         String task = ((TaskExecution) acknowledgement.getAction()).getTask();
         this.candidateLog.addAcknowledgementToEvent(task);
 
-        this.checkAgreement(((TaskExecution) acknowledgement.getAction()));
+        boolean agreementReached =this.consensusEngine.isAgreementReached(acknowledgement);
+        if(agreementReached) {
+            this.atAgreementReached(null, acknowledgement.getAction());
+        }
 
     };
 
     public abstract void instanceReceived(Instance instance);
 
-    public void checkAgreement(TaskExecution taskExecution) {
-        this.consensusEngine.isAgreementReached(taskExecution);
-    };
 
     public void atAgreementReached(Instance instance, Action a) {
         TaskExecution taskExecution = (TaskExecution) a;
-        this.dwfms.updateMachine(null, taskExecution);
+        this.getDwfms().getExecutionMachine().execute(instance, a);
+        logger.debug("Machined updated: (" + taskExecution.getTask() + ", " + taskExecution.getUser().getUserReference().getName() +  ") was executed.");
+
+        this.getDwfms().getExecutionMachine().getEventLog().addEvent(new Event(taskExecution));
 
     };
 

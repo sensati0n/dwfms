@@ -5,7 +5,7 @@ import dwfms.collaboration.example.security.NoSecurity;
 import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.collaboration.network.Acknowledgement;
+import dwfms.framework.collaboration.consensus.Acknowledgement;
 import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.error.ReflectionException;
@@ -143,7 +143,8 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
     @Override
     public void acknowledgementReceived(Acknowledgement acknowledgement) {
         logger.trace("Acknowledgement received");
-        this.checkAgreement(acknowledgement.getAction());
+        this.atAgreementReached(acknowledgement.getAction().getInstance(), acknowledgement.getAction());
+
     }
 
     /**
@@ -155,12 +156,11 @@ public class EthereumCollaborationConnector extends BaseCollaboration {
      *
      * //TODO: If we do not use a smart contract, but raw transaction instead this might be changed.
      *
-     * @param taskExecution
+     * @param acknowledgement
      */
-    @Override
-    public void checkAgreement(TaskExecution taskExecution) {
-        this.atAgreementReached(taskExecution.getInstance(), taskExecution);
-    }
+//    @Override
+//    public void checkAgreement(Acknowledgement acknowledgement) {
+//    }
 
 
     //  ****************************

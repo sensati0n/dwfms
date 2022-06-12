@@ -1,6 +1,7 @@
-package dwfms.framework.collaboration.network;
+package dwfms.framework.collaboration.consensus;
 
 import dwfms.framework.action.TaskExecution;
+import dwfms.framework.collaboration.network.Message;
 import dwfms.framework.core.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

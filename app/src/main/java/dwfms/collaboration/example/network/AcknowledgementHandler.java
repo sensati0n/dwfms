@@ -6,7 +6,7 @@ import com.sun.net.httpserver.HttpHandler;
 import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.collaboration.network.Acknowledgement;
+import dwfms.framework.collaboration.consensus.Acknowledgement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

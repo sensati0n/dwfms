@@ -2,6 +2,7 @@ package dwfms.ui;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import dwfms.ExampleDataFactory;
 import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.bpm.execution.Instance;
@@ -30,13 +31,13 @@ public class DeploymentHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-        logger.trace("Message received in DeploymentHandler...");
+        logger.trace("Message received in UI-DeploymentHandler...");
 
         String requestBodyText = SimpleCollaboration.getTextFromInputStream(exchange.getRequestBody());
 
         //TODO: Allow user defined models
-        logger.trace("New proces instance available: " + requestBodyText);
-        this.collaboration.instanceReceived(new Instance());
+        logger.trace("New process instance available: " + requestBodyText);
+        this.collaboration.deployProcessModel(ExampleDataFactory.exampleBPMNModel());
 
 
         String response = "OK";

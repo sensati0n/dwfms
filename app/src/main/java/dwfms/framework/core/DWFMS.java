@@ -70,11 +70,13 @@ public class DWFMS {
      * @param instance
      * @param a
      */
-    public void updateMachine(Instance instance, Action a) {
-        TaskExecution te = (TaskExecution) a;
-        logger.debug("Machined updated: (" + te.getTask() + ", " + te.getUser().getUserReference().getName() +  ") was executed.");
-        this.executionMachine.execute(instance, a);
-    }
+//    public void updateMachine(Instance instance, Action a) {
+//        TaskExecution te = (TaskExecution) a;
+//        logger.debug("Machined updated: (" + te.getTask() + ", " + te.getUser().getUserReference().getName() +  ") was executed.");
+//        this.executionMachine.execute(instance, a);
+//        this.executionMachine.getEventLog().addEvent(new Event(te));
+//
+//    }
 
     public void getMyWorklist(Instance instance) {
 

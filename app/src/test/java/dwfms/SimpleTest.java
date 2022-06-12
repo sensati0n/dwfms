@@ -4,7 +4,7 @@ import dwfms.collaboration.example.SimpleCollaboration;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.core.User;
 import dwfms.framework.collaboration.BaseCollaboration;
-import dwfms.framework.collaboration.network.Acknowledgement;
+import dwfms.framework.collaboration.consensus.Acknowledgement;
 import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.bpm.ITransformer;

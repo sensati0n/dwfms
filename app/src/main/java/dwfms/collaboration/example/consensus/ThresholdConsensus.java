@@ -1,8 +1,8 @@
 package dwfms.collaboration.example.consensus;
 
-import dwfms.framework.action.Action;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
+import dwfms.framework.collaboration.consensus.Acknowledgement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,8 +24,8 @@ public class ThresholdConsensus extends BaseConsensusEngine {
     }
 
     @Override
-    public boolean isAgreementReached(Action a) {
-        TaskExecution taskExecution = (TaskExecution) a;
+    public boolean isAgreementReached(Acknowledgement acknowledgement) {
+        TaskExecution taskExecution = acknowledgement.getAction();
         logger.trace("Check for agreement...");
         if(super.getCollaboration().getCandidateLog().getNumberOfAcknowledgements().get(taskExecution.getTask()) > this.numberOfAgreementsRequired) {
             logger.debug("Agreement reached.");

@@ -58,7 +58,6 @@ public class HybridExecutionMachine extends BaseExecutionMachine {
             Transition transitionToFire = (Transition) new BPMNToHybridExecutionMachineTransformer().modelTaskToMachineAction(taskExecution, this);
             transitionToFire.fire();
             ere.addFact(taskExecution);
-            super.getEventLog().addEvent(new Event(taskExecution));
 
             logger.debug("(" + taskExecution.getTask() + ", " + taskExecution.getUser().getUserReference().getName() + ") executed.");
 

@@ -9,7 +9,7 @@ import dwfms.framework.action.DataUpdate;
 import dwfms.framework.action.TaskExecution;
 import dwfms.framework.collaboration.BaseCollaboration;
 import dwfms.framework.collaboration.security.Signature;
-import dwfms.framework.collaboration.network.Acknowledgement;
+import dwfms.framework.collaboration.consensus.Acknowledgement;
 import dwfms.framework.bpm.model.BaseModel;
 import dwfms.framework.core.DWFMS;
 import dwfms.framework.bpm.execution.Instance;

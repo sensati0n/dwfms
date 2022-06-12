@@ -1,8 +1,8 @@
 package dwfms.collaboration.example.consensus;
 
 import com.google.common.collect.Sets;
-import dwfms.framework.action.Action;
 import dwfms.framework.collaboration.consensus.BaseConsensusEngine;
+import dwfms.framework.collaboration.consensus.Acknowledgement;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class RoundRobinConsensus extends BaseConsensusEngine {
     private String leader;
 
     @Override
-    public boolean isAgreementReached(Action a) {
+    public boolean isAgreementReached(Acknowledgement acknowledgement) {
 
         if(true) {
 //            super.getCollaboration().atAgreementReached();
